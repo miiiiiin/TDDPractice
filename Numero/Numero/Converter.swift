@@ -29,7 +29,12 @@
 class Converter {
   
     func convert(_ number: Int) -> String {
-//        return "\(number)"
-        return "I"
+//        return "I"
+//        return String(repeating: "I", count: number) // 입력한 개수만큼 I 반복하여 반환
+        
+        guard number == 5 else {
+            return String(repeating: "I", count: number)
+        }
+        return "V"
     }
 }

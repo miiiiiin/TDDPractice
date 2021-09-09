@@ -23,6 +23,16 @@ class ConverterTests: XCTestCase {
         let result = converter?.convert(1)
         XCTAssertEqual(result, "I", "I에 관한 convert 결과가 틀림")
     }
+    
+    func testConversionForTwo() {
+        let result = converter?.convert(2)
+        XCTAssertEqual(result, "II", "II에 관한 convert 결과가 틀림")
+    }
+    
+    func testConversionFive() {
+        let result = converter?.convert(5)
+        XCTAssertEqual(result, "V", "5에 관한 convert 결과가 틀림")
+    }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
