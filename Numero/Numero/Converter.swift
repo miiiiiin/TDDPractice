@@ -32,9 +32,22 @@ class Converter {
 //        return "I"
 //        return String(repeating: "I", count: number) // 입력한 개수만큼 I 반복하여 반환
         
-        guard number == 5 else {
-            return String(repeating: "I", count: number)
+//        guard number == 5 else {
+//            return String(repeating: "I", count: number)
+//        }
+//        return "V"
+        
+        var result = ""
+        var localNumber = number
+        
+        
+        if localNumber >= 5 {
+            result += "V"
+            localNumber = localNumber - 5
         }
-        return "V"
+
+        result += String(repeating: "I", count: localNumber)
+        
+        return result
     }
 }
