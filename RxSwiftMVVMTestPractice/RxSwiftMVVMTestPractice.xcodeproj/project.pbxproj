@@ -10,13 +10,14 @@
 		4557087AC9FFA11098617659 /* Pods_RxSwiftMVVMTestPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E929B8E38391CFFCB5EC3B90 /* Pods_RxSwiftMVVMTestPractice.framework */; };
 		7D5756412702E67E002756F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756402702E67E002756F4 /* AppDelegate.swift */; };
 		7D5756432702E67E002756F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756422702E67E002756F4 /* SceneDelegate.swift */; };
-		7D5756452702E67E002756F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756442702E67E002756F4 /* ViewController.swift */; };
 		7D5756482702E67E002756F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5756462702E67E002756F4 /* Main.storyboard */; };
 		7D57564A2702E680002756F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5756492702E680002756F4 /* Assets.xcassets */; };
 		7D57564D2702E680002756F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D57564B2702E680002756F4 /* LaunchScreen.storyboard */; };
 		7D5756582702E680002756F4 /* RxSwiftMVVMTestPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756572702E680002756F4 /* RxSwiftMVVMTestPracticeTests.swift */; };
 		7D5756632702E680002756F4 /* RxSwiftMVVMTestPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756622702E680002756F4 /* RxSwiftMVVMTestPracticeUITests.swift */; };
 		7D5756712702E6F8002756F4 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756702702E6F8002756F4 /* ViewModel.swift */; };
+		7D5756732702E795002756F4 /* CountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756722702E795002756F4 /* CountViewController.swift */; };
+		7D5756752702E7FE002756F4 /* CountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756742702E7FE002756F4 /* CountViewModel.swift */; };
 		D34A8A18306A08A7CFBE7782 /* Pods_RxSwiftMVVMTestPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B76751B9B7B5EAD21000E382 /* Pods_RxSwiftMVVMTestPracticeTests.framework */; };
 		DC6EF212EFAF12D6895665CD /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B21570DDAA2081E3F8BB3F /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -45,7 +46,6 @@
 		7D57563D2702E67E002756F4 /* RxSwiftMVVMTestPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftMVVMTestPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5756402702E67E002756F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D5756422702E67E002756F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7D5756442702E67E002756F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7D5756472702E67E002756F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D5756492702E680002756F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D57564C2702E680002756F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +57,8 @@
 		7D5756622702E680002756F4 /* RxSwiftMVVMTestPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftMVVMTestPracticeUITests.swift; sourceTree = "<group>"; };
 		7D5756642702E680002756F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D5756702702E6F8002756F4 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		7D5756722702E795002756F4 /* CountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewController.swift; sourceTree = "<group>"; };
+		7D5756742702E7FE002756F4 /* CountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewModel.swift; sourceTree = "<group>"; };
 		92569755811517794FF45E38 /* Pods-RxSwiftMVVMTestPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPractice.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPractice/Pods-RxSwiftMVVMTestPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		9E201D6584273B133B2FD1A3 /* Pods-RxSwiftMVVMTestPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPracticeTests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B76751B9B7B5EAD21000E382 /* Pods_RxSwiftMVVMTestPracticeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftMVVMTestPracticeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +121,6 @@
 		7D5756342702E67E002756F4 = {
 			isa = PBXGroup;
 			children = (
-				7D5756702702E6F8002756F4 /* ViewModel.swift */,
 				7D57563F2702E67E002756F4 /* RxSwiftMVVMTestPractice */,
 				7D5756562702E680002756F4 /* RxSwiftMVVMTestPracticeTests */,
 				7D5756612702E680002756F4 /* RxSwiftMVVMTestPracticeUITests */,
@@ -144,11 +145,13 @@
 			children = (
 				7D5756402702E67E002756F4 /* AppDelegate.swift */,
 				7D5756422702E67E002756F4 /* SceneDelegate.swift */,
-				7D5756442702E67E002756F4 /* ViewController.swift */,
+				7D5756702702E6F8002756F4 /* ViewModel.swift */,
 				7D5756462702E67E002756F4 /* Main.storyboard */,
 				7D5756492702E680002756F4 /* Assets.xcassets */,
 				7D57564B2702E680002756F4 /* LaunchScreen.storyboard */,
 				7D57564E2702E680002756F4 /* Info.plist */,
+				7D5756722702E795002756F4 /* CountViewController.swift */,
+				7D5756742702E7FE002756F4 /* CountViewModel.swift */,
 			);
 			path = RxSwiftMVVMTestPractice;
 			sourceTree = "<group>";
@@ -427,7 +430,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D5756452702E67E002756F4 /* ViewController.swift in Sources */,
+				7D5756752702E7FE002756F4 /* CountViewModel.swift in Sources */,
+				7D5756732702E795002756F4 /* CountViewController.swift in Sources */,
 				7D5756412702E67E002756F4 /* AppDelegate.swift in Sources */,
 				7D5756712702E6F8002756F4 /* ViewModel.swift in Sources */,
 				7D5756432702E67E002756F4 /* SceneDelegate.swift in Sources */,
