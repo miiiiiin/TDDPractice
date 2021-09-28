@@ -10,14 +10,14 @@ target 'RxSwiftMVVMTestPractice' do
   pod 'RxCocoa'
 
   target 'RxSwiftMVVMTestPracticeTests' do
-    inherit! :search_paths
+   # inherit! :search_paths
     # Pods for testing
     pod 'RxTest'
     pod 'RxNimble'
   end
 
-  target 'RxSwiftMVVMTestPracticeUITests' do
+#  target 'RxSwiftMVVMTestPracticeUITests' do
     # Pods for testing
-  end
+ # end
 
 end

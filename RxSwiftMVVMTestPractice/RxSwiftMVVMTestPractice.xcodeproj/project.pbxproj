@@ -18,8 +18,11 @@
 		7D5756712702E6F8002756F4 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756702702E6F8002756F4 /* ViewModel.swift */; };
 		7D5756732702E795002756F4 /* CountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756722702E795002756F4 /* CountViewController.swift */; };
 		7D5756752702E7FE002756F4 /* CountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756742702E7FE002756F4 /* CountViewModel.swift */; };
-		D34A8A18306A08A7CFBE7782 /* Pods_RxSwiftMVVMTestPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B76751B9B7B5EAD21000E382 /* Pods_RxSwiftMVVMTestPracticeTests.framework */; };
+		7D5756792702EA1B002756F4 /* CustomTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5756782702EA1B002756F4 /* CustomTest.swift */; };
+		7D57567B2702EDC7002756F4 /* ExpectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57567A2702EDC7002756F4 /* ExpectExtensions.swift */; };
+		7D57567D2702EF43002756F4 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57567C2702EF43002756F4 /* Operators.swift */; };
 		DC6EF212EFAF12D6895665CD /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B21570DDAA2081E3F8BB3F /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeUITests.framework */; };
+		E8E556B17E39E8E63505C938 /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F161221EBF94E1FC3F43BC /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D2089DA2E204FD980C23A4E /* Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		14B21570DDAA2081E3F8BB3F /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D503E7E19BC9C88C1637659 /* Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeUITests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeUITests/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4286F0C62DDDB1EBB88291EA /* Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeUITests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeUITests/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,9 +63,13 @@
 		7D5756702702E6F8002756F4 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7D5756722702E795002756F4 /* CountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewController.swift; sourceTree = "<group>"; };
 		7D5756742702E7FE002756F4 /* CountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewModel.swift; sourceTree = "<group>"; };
+		7D5756782702EA1B002756F4 /* CustomTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTest.swift; sourceTree = "<group>"; };
+		7D57567A2702EDC7002756F4 /* ExpectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectExtensions.swift; sourceTree = "<group>"; };
+		7D57567C2702EF43002756F4 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		92569755811517794FF45E38 /* Pods-RxSwiftMVVMTestPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPractice.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPractice/Pods-RxSwiftMVVMTestPractice.debug.xcconfig"; sourceTree = "<group>"; };
+		9B587D2A020B82F13887051F /* Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E201D6584273B133B2FD1A3 /* Pods-RxSwiftMVVMTestPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPracticeTests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B76751B9B7B5EAD21000E382 /* Pods_RxSwiftMVVMTestPracticeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftMVVMTestPracticeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2F161221EBF94E1FC3F43BC /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BB207C617FB1DA6DD11B08 /* Pods-RxSwiftMVVMTestPracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPracticeTests.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPracticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E929B8E38391CFFCB5EC3B90 /* Pods_RxSwiftMVVMTestPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftMVVMTestPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6971AC72A5F243CF3BBF40E /* Pods-RxSwiftMVVMTestPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftMVVMTestPractice.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftMVVMTestPractice/Pods-RxSwiftMVVMTestPractice.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D34A8A18306A08A7CFBE7782 /* Pods_RxSwiftMVVMTestPracticeTests.framework in Frameworks */,
+				E8E556B17E39E8E63505C938 /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +112,8 @@
 				2D503E7E19BC9C88C1637659 /* Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeUITests.release.xcconfig */,
 				9E201D6584273B133B2FD1A3 /* Pods-RxSwiftMVVMTestPracticeTests.debug.xcconfig */,
 				E3BB207C617FB1DA6DD11B08 /* Pods-RxSwiftMVVMTestPracticeTests.release.xcconfig */,
+				9B587D2A020B82F13887051F /* Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.debug.xcconfig */,
+				0D2089DA2E204FD980C23A4E /* Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -113,7 +123,7 @@
 			children = (
 				E929B8E38391CFFCB5EC3B90 /* Pods_RxSwiftMVVMTestPractice.framework */,
 				14B21570DDAA2081E3F8BB3F /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeUITests.framework */,
-				B76751B9B7B5EAD21000E382 /* Pods_RxSwiftMVVMTestPracticeTests.framework */,
+				B2F161221EBF94E1FC3F43BC /* Pods_RxSwiftMVVMTestPractice_RxSwiftMVVMTestPracticeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,6 +171,9 @@
 			children = (
 				7D5756572702E680002756F4 /* RxSwiftMVVMTestPracticeTests.swift */,
 				7D5756592702E680002756F4 /* Info.plist */,
+				7D5756782702EA1B002756F4 /* CustomTest.swift */,
+				7D57567A2702EDC7002756F4 /* ExpectExtensions.swift */,
+				7D57567C2702EF43002756F4 /* Operators.swift */,
 			);
 			path = RxSwiftMVVMTestPracticeTests;
 			sourceTree = "<group>";
@@ -312,15 +325,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPracticeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPracticeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPracticeTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		10B7ED2B6FAC0BAAEA1848ED /* [CP] Check Pods Manifest.lock */ = {
@@ -338,7 +351,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RxSwiftMVVMTestPracticeTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -442,7 +455,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D5756792702EA1B002756F4 /* CustomTest.swift in Sources */,
+				7D57567D2702EF43002756F4 /* Operators.swift in Sources */,
 				7D5756582702E680002756F4 /* RxSwiftMVVMTestPracticeTests.swift in Sources */,
+				7D57567B2702EDC7002756F4 /* ExpectExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,7 +663,7 @@
 		};
 		7D57566B2702E680002756F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E201D6584273B133B2FD1A3 /* Pods-RxSwiftMVVMTestPracticeTests.debug.xcconfig */;
+			baseConfigurationReference = 9B587D2A020B82F13887051F /* Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -670,7 +686,7 @@
 		};
 		7D57566C2702E680002756F4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3BB207C617FB1DA6DD11B08 /* Pods-RxSwiftMVVMTestPracticeTests.release.xcconfig */;
+			baseConfigurationReference = 0D2089DA2E204FD980C23A4E /* Pods-RxSwiftMVVMTestPractice-RxSwiftMVVMTestPracticeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
