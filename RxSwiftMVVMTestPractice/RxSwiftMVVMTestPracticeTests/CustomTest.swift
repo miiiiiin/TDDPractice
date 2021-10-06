@@ -48,25 +48,6 @@ class CustomTest: XCTestCase {
         ]))
     }
     
-    
-//    func testAddCount() throws {
-//        // When
-//        scheduler.createColdObservable([
-//            .next(1, ()),
-//            .next(10, ()),
-//            .next(30, ()),
-//            ]).bind(to: didTapBtnToggle).disposed(by: bag)
-//
-//        // Then
-//        expect(self.output.toggleCount).events(scheduler: scheduler, disposeBag: bag).to(equal([
-//            .next(0, 0),
-//            .next(1, 1),
-//            .next(10, 2),
-//            .next(30, 3),
-//        ]))
-//    }
-    
-    
 //    override func setUpWithError() throws {
 //        // Put setup code here. This method is called before the invocation of each test method in the class.
 //    }
