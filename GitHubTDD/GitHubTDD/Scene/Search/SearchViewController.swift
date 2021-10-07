@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
         return searchBar
     }()
     
-    private let viewModel: SearchViewModel!
+    private let viewModel: SearchViewModel
     
     init(viewModel: SearchViewModel) {
         self.viewModel = viewModel

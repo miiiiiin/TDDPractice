@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window.makeKeyAndVisible()
         let viewModel = SearchViewModel()
         window.rootViewController = UINavigationController(rootViewController: SearchViewController(viewModel: viewModel))
+//        window.rootViewController = UINavigationController(rootViewController: SearchViewController(nibName: nil, bundle: nil))
         window.makeKeyAndVisible()
         self.window = window
         return true
