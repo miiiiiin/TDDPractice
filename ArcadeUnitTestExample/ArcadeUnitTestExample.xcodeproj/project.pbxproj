@@ -12,22 +12,15 @@
 		7DB7E7D9270EF17F00BD7A45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB7E7D8270EF17F00BD7A45 /* Assets.xcassets */; };
 		7DB7E7DC270EF17F00BD7A45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB7E7DA270EF17F00BD7A45 /* LaunchScreen.storyboard */; };
 		7DB7E7E7270EF17F00BD7A45 /* ArcadeUnitTestExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7E7E6270EF17F00BD7A45 /* ArcadeUnitTestExampleTests.swift */; };
-		7DB7E7F2270EF18000BD7A45 /* ArcadeUnitTestExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7E7F1270EF18000BD7A45 /* ArcadeUnitTestExampleUITests.swift */; };
 		7DB7E801270EF31700BD7A45 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7E800270EF31700BD7A45 /* WeatherViewController.swift */; };
 		7DB7E805270EF33900BD7A45 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7E804270EF33900BD7A45 /* WeatherService.swift */; };
 		7DB7E807270EF35300BD7A45 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7E806270EF35300BD7A45 /* WeatherModel.swift */; };
 		7DB7E809270EF35E00BD7A45 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7E808270EF35E00BD7A45 /* WeatherData.swift */; };
+		7DC6E7DF270FD08F00AB2F3A /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DC6E7DE270FD08F00AB2F3A /* weather.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		7DB7E7E3270EF17F00BD7A45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7DB7E7C4270EF17E00BD7A45 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7DB7E7CB270EF17E00BD7A45;
-			remoteInfo = ArcadeUnitTestExample;
-		};
-		7DB7E7EE270EF18000BD7A45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7DB7E7C4270EF17E00BD7A45 /* Project object */;
 			proxyType = 1;
@@ -46,13 +39,11 @@
 		7DB7E7E2270EF17F00BD7A45 /* ArcadeUnitTestExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArcadeUnitTestExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB7E7E6270EF17F00BD7A45 /* ArcadeUnitTestExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeUnitTestExampleTests.swift; sourceTree = "<group>"; };
 		7DB7E7E8270EF17F00BD7A45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DB7E7ED270EF18000BD7A45 /* ArcadeUnitTestExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArcadeUnitTestExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DB7E7F1270EF18000BD7A45 /* ArcadeUnitTestExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeUnitTestExampleUITests.swift; sourceTree = "<group>"; };
-		7DB7E7F3270EF18000BD7A45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DB7E800270EF31700BD7A45 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		7DB7E804270EF33900BD7A45 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		7DB7E806270EF35300BD7A45 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		7DB7E808270EF35E00BD7A45 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		7DC6E7DE270FD08F00AB2F3A /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,22 +61,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7DB7E7EA270EF18000BD7A45 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D3F3218271520740076B155 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				7DC6E7DE270FD08F00AB2F3A /* weather.json */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		7DB7E7C3270EF17E00BD7A45 = {
 			isa = PBXGroup;
 			children = (
 				7DB7E7CE270EF17E00BD7A45 /* ArcadeUnitTestExample */,
 				7DB7E7E5270EF17F00BD7A45 /* ArcadeUnitTestExampleTests */,
-				7DB7E7F0270EF18000BD7A45 /* ArcadeUnitTestExampleUITests */,
 				7DB7E7CD270EF17E00BD7A45 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,7 +86,6 @@
 			children = (
 				7DB7E7CC270EF17E00BD7A45 /* ArcadeUnitTestExample.app */,
 				7DB7E7E2270EF17F00BD7A45 /* ArcadeUnitTestExampleTests.xctest */,
-				7DB7E7ED270EF18000BD7A45 /* ArcadeUnitTestExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,19 +108,11 @@
 		7DB7E7E5270EF17F00BD7A45 /* ArcadeUnitTestExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				7D3F3218271520740076B155 /* Fixtures */,
 				7DB7E7E6270EF17F00BD7A45 /* ArcadeUnitTestExampleTests.swift */,
 				7DB7E7E8270EF17F00BD7A45 /* Info.plist */,
 			);
 			path = ArcadeUnitTestExampleTests;
-			sourceTree = "<group>";
-		};
-		7DB7E7F0270EF18000BD7A45 /* ArcadeUnitTestExampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7DB7E7F1270EF18000BD7A45 /* ArcadeUnitTestExampleUITests.swift */,
-				7DB7E7F3270EF18000BD7A45 /* Info.plist */,
-			);
-			path = ArcadeUnitTestExampleUITests;
 			sourceTree = "<group>";
 		};
 		7DB7E7FF270EF30600BD7A45 /* Controller */ = {
@@ -196,24 +178,6 @@
 			productReference = 7DB7E7E2270EF17F00BD7A45 /* ArcadeUnitTestExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7DB7E7EC270EF18000BD7A45 /* ArcadeUnitTestExampleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7DB7E7FC270EF18000BD7A45 /* Build configuration list for PBXNativeTarget "ArcadeUnitTestExampleUITests" */;
-			buildPhases = (
-				7DB7E7E9270EF18000BD7A45 /* Sources */,
-				7DB7E7EA270EF18000BD7A45 /* Frameworks */,
-				7DB7E7EB270EF18000BD7A45 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7DB7E7EF270EF18000BD7A45 /* PBXTargetDependency */,
-			);
-			name = ArcadeUnitTestExampleUITests;
-			productName = ArcadeUnitTestExampleUITests;
-			productReference = 7DB7E7ED270EF18000BD7A45 /* ArcadeUnitTestExampleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,10 +191,6 @@
 						CreatedOnToolsVersion = 12.5;
 					};
 					7DB7E7E1270EF17F00BD7A45 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 7DB7E7CB270EF17E00BD7A45;
-					};
-					7DB7E7EC270EF18000BD7A45 = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 7DB7E7CB270EF17E00BD7A45;
 					};
@@ -251,7 +211,6 @@
 			targets = (
 				7DB7E7CB270EF17E00BD7A45 /* ArcadeUnitTestExample */,
 				7DB7E7E1270EF17F00BD7A45 /* ArcadeUnitTestExampleTests */,
-				7DB7E7EC270EF18000BD7A45 /* ArcadeUnitTestExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -270,13 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7DB7E7EB270EF18000BD7A45 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				7DC6E7DF270FD08F00AB2F3A /* weather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,14 +257,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7DB7E7E9270EF18000BD7A45 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7DB7E7F2270EF18000BD7A45 /* ArcadeUnitTestExampleUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -319,11 +264,6 @@
 			isa = PBXTargetDependency;
 			target = 7DB7E7CB270EF17E00BD7A45 /* ArcadeUnitTestExample */;
 			targetProxy = 7DB7E7E3270EF17F00BD7A45 /* PBXContainerItemProxy */;
-		};
-		7DB7E7EF270EF18000BD7A45 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7DB7E7CB270EF17E00BD7A45 /* ArcadeUnitTestExample */;
-			targetProxy = 7DB7E7EE270EF18000BD7A45 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -470,7 +410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.miiiiiin.itcha.ArcadeUnitTestExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -489,7 +429,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.miiiiiin.itcha.ArcadeUnitTestExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -537,46 +477,6 @@
 			};
 			name = Release;
 		};
-		7DB7E7FD270EF18000BD7A45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JH6HFBQXT6;
-				INFOPLIST_FILE = ArcadeUnitTestExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.miiiiiin.itcha.ArcadeUnitTestExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ArcadeUnitTestExample;
-			};
-			name = Debug;
-		};
-		7DB7E7FE270EF18000BD7A45 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JH6HFBQXT6;
-				INFOPLIST_FILE = ArcadeUnitTestExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.miiiiiin.itcha.ArcadeUnitTestExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ArcadeUnitTestExample;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -603,15 +503,6 @@
 			buildConfigurations = (
 				7DB7E7FA270EF18000BD7A45 /* Debug */,
 				7DB7E7FB270EF18000BD7A45 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7DB7E7FC270EF18000BD7A45 /* Build configuration list for PBXNativeTarget "ArcadeUnitTestExampleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7DB7E7FD270EF18000BD7A45 /* Debug */,
-				7DB7E7FE270EF18000BD7A45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

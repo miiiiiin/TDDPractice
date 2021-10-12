@@ -39,15 +39,14 @@ class Converter {
         
         var result = ""
         var localNumber = number
-        
-        
+
         if localNumber >= 5 {
             result += "V"
             localNumber = localNumber - 5
         }
 
         result += String(repeating: "I", count: localNumber)
-        
+
         return result
     }
 }

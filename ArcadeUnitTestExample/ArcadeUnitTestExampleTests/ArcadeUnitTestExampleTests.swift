@@ -9,25 +9,50 @@ import XCTest
 @testable import ArcadeUnitTestExample
 
 class ArcadeUnitTestExampleTests: XCTestCase {
+    
+    func testCanParseWeather() throws {
+        let json = """
+         {
+           "weather": [
+             {
+               "id": 804,
+               "description": "overcast clouds",
+             }
+           ],
+           "main": {
+             "temp": 10.58,
+           },
+           "name": "Calgary"
+         }
+        """
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let jsonData = json.data(using: .utf8)!
+        let weatherData = try! JSONDecoder().decode(WeatherData.self, from: jsonData)
+        
+        XCTAssertEqual(10.58, weatherData.main.temp)
+        XCTAssertEqual("Calgary", weatherData.name)
+        XCTAssertEqual(804, weatherData.weather[0].id)
+        XCTAssertEqual("overcast clouds", weatherData.weather[0].description)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testCanParseJsonFile() throws {
+        
+        guard let pathString = Bundle(for: type(of: self)).path(forResource: "weather", ofType: "json") else {
+            fatalError("json not found")
         }
+        
+        print("\(pathString)")
+        
+        guard let json = try? String(contentsOfFile: pathString, encoding: .utf8) else {
+            fatalError("Unable to convert json to string")
+        }
+        
+        let jsonData = json.data(using: .utf8)!
+        let weatherData = try! JSONDecoder().decode(WeatherData.self, from: jsonData)
+        
+        XCTAssertEqual(25.65, weatherData.main.temp)
+        XCTAssertEqual("Paris", weatherData.name)
+        
+        // that's how we can create "fixtures" on disk. load them in. then read them as a part of a unit test.
     }
-
 }

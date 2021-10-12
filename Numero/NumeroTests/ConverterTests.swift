@@ -38,9 +38,14 @@ class ConverterTests: XCTestCase {
         let result = converter?.convert(6)
         XCTAssertEqual(result, "VI", "6에 관한 convert 결과가 틀림")
     }
+    
+    func testConversionSeven() {
+        let result = converter?.convert(7)
+        XCTAssertEqual(result, "?", "7에 관한 convert 결과가 틀림")
+    }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        // Put teardown code here. This method is called a  fter the invocation of each test method in the class.
     }    
 
     func testPerformanceExample() throws {
@@ -49,5 +54,4 @@ class ConverterTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
