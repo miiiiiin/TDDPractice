@@ -29,49 +29,43 @@
 import XCTest
 @testable import BullsEye
 
-var sut: BullsEyeGame!
+class BullsEyeFakeTests: XCTestCase {
 
-class BullsEyeTests: XCTestCase {
-
-  override func setUpWithError() throws {
-    try super.setUpWithError()
-    sut = BullsEyeGame()
-  }
-
-  override func tearDownWithError() throws {
-    sut = nil
-    try super.tearDownWithError()
-  }
+  var sut: BullsEyeGame!
   
-  func testScoreIsComputedWhenGuessIsHigherThanTarget() {
-    
-    print("target value: \(sut.targetValue)")
+    override func setUpWithError() throws {
+      try super.setUpWithError()
+      sut = BullsEyeGame()
+    }
+
+    override func tearDownWithError() throws {
+      sut = nil
+      try super.tearDownWithError()
+    }
+
+  func testStartNewRoundUsesRandomValueFromApiRequest() throws {
     
     // given
-//    let guess = sut.targetValue + 5
-    let guess = sut.targetValue - 5 // 틀린 예
+    // 1
+    let stubbedData = "[1]".data(using: .utf8)
+    let urlString = "http://www.randomnumberapi.com/api/v1.0/random?min=0&max=100&count=1"
+    let url = URL(string: urlString)!
+    
+    let stubbedResponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)
+    
+    let urlSessionStub = URLSessionStub(data: stubbedData, response: stubbedResponse, error: nil)
+    
+    sut.urlSession = urlSessionStub
+    
+    let promise = expectation(description: "Value Received")
     
     // when
-    sut.check(guess: guess)
-    
-    print("score roun check: \(sut.scoreRound)")
-    
-    // then
-    XCTAssertEqual(sut.scoreRound, 95, "Score computed from guess is wrong")
-    
-  }
-  
-  func testScoreIsComputedPerformance() throws {
-    measure(
-      metrics: [
-        XCTClockMetric(),
-        XCTCPUMetric(),
-        XCTStorageMetric(),
-        XCTMemoryMetric()
-      ]
-    ) {
-      sut.check(guess: 100)
+    sut.startNewRound {
+      // then
+      // 2
+      XCTAssertEqual(self.sut.targetValue, 1)
+      promise.fulfill()
     }
+    wait(for: [promise], timeout: 5)
   }
 }
-

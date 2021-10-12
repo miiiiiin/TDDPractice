@@ -27,51 +27,45 @@
 /// THE SOFTWARE.
 
 import XCTest
-@testable import BullsEye
 
-var sut: BullsEyeGame!
-
-class BullsEyeTests: XCTestCase {
-
-  override func setUpWithError() throws {
-    try super.setUpWithError()
-    sut = BullsEyeGame()
-  }
-
-  override func tearDownWithError() throws {
-    sut = nil
-    try super.tearDownWithError()
-  }
+class BullsEyeUITests: XCTestCase {
   
-  func testScoreIsComputedWhenGuessIsHigherThanTarget() {
-    
-    print("target value: \(sut.targetValue)")
-    
+    var app: XCUIApplication!
+
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launch()
+    }
+
+    override func tearDownWithError() throws {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+  
+  func testGameStyleSwitch() {
     // given
-//    let guess = sut.targetValue + 5
-    let guess = sut.targetValue - 5 // 틀린 예
-    
-    // when
-    sut.check(guess: guess)
-    
-    print("score roun check: \(sut.scoreRound)")
+    let slideButton = app.segmentedControls.buttons["Slide"]
+    let typeButton = app.segmentedControls["Type"]
+    let slideLabel = app.staticTexts["Get as close as you can to: "]
+    let typeLabel = app.staticTexts["Guess where the slider is: "]
     
     // then
-    XCTAssertEqual(sut.scoreRound, 95, "Score computed from guess is wrong")
     
-  }
-  
-  func testScoreIsComputedPerformance() throws {
-    measure(
-      metrics: [
-        XCTClockMetric(),
-        XCTCPUMetric(),
-        XCTStorageMetric(),
-        XCTMemoryMetric()
-      ]
-    ) {
-      sut.check(guess: 100)
+    if slideButton.isSelected {
+      XCTAssertTrue(slideLabel.exists)
+      XCTAssertFalse(typeLabel.exists)
+      
+      typeButton.tap()
+      XCTAssertTrue(typeLabel.exists)
+      XCTAssertFalse(slideLabel.exists)
+    } else if typeButton.isSelected {
+      XCTAssertTrue(typeLabel.exists)
+      XCTAssertFalse(slideLabel.exists)
+      
+      slideButton.tap()
+      XCTAssertTrue(slideLabel.exists)
+      XCTAssertFalse(typeLabel.exists)
     }
   }
 }
-
