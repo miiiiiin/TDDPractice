@@ -50,9 +50,6 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
         switch scene.transition {
         case let .root(viewController):
             currentViewController = SceneCoordinator.actualViewController(for: viewController)
-            
-//            let navigationController = UINavigationController(rootViewController: viewController)
-//            navigationController.navigationBar.isHidden = true
             window.rootViewController = currentViewController
             subject.onCompleted()
         }

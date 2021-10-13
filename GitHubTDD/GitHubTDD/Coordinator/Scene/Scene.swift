@@ -21,7 +21,7 @@ extension Scene: TargetScene {
         switch self {
         case .search(let viewModel):
             var vc = SearchViewController()
-//            vc.bind(to: viewModel)
+            vc.bind(to: viewModel)
             return .root(vc)
         }
     }

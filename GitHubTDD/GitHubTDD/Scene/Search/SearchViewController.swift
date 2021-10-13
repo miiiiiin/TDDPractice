@@ -11,11 +11,11 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class SearchViewController: UIViewController, HasDisposeBag {
-    
+class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableType {
+
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        cv.register(RepositoryCell.nib, forCellWithReuseIdentifier: RepositoryCell.identifier)
+//        cv.register(RepositoryCell.nib, forCellWithReuseIdentifier: RepositoryCell.identifier)
         return cv
     }()
     
@@ -26,8 +26,6 @@ class SearchViewController: UIViewController, HasDisposeBag {
         return indicator
     }()
     
-//    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.returnKeyType = .done
@@ -35,16 +33,7 @@ class SearchViewController: UIViewController, HasDisposeBag {
         return searchBar
     }()
     
-    private let viewModel = SearchViewModel()
-    
-//    init(viewModel: SearchViewModel) {
-//        self.viewModel = viewModel
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    var viewModel: SearchViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +58,21 @@ class SearchViewController: UIViewController, HasDisposeBag {
         activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+    }
+    
+    func bindViewModel() {
+        
+        viewModel.isLoading
+            .distinctUntilChanged()
+            .bind(to: activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        searchBar.rx.text.orEmpty
+            .distinctUntilChanged()
+            .bind(to: viewModel.searchText)
+            .disposed(by: disposeBag)
+        
+        
     }
 }
 

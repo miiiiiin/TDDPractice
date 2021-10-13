@@ -6,7 +6,20 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-class SearchViewModel {
+protocol SearchViewModelType {
+    var isLoading: PublishRelay<Bool> { get }
+    var searchText: PublishRelay<String> { get }
+}
+
+class SearchViewModel: HasDisposeBag, SearchViewModelType {
     
+    let isLoading = PublishRelay<Bool>()
+    let searchText = PublishRelay<String>()
+    
+    init() {
+        
+    }
 }
