@@ -8,22 +8,25 @@
 import Foundation
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, HasDisposeBag {
     
     lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        cv.register(RepositoryCell.nib, forCellWithReuseIdentifier: RepositoryCell.identifier)
         return cv
     }()
     
-//    lazy var activityIndicator: UIActivityIndicatorView = {
-//        let indicator = UIActivityIndicatorView()
-//        indicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-//        indicator.isHidden = true
-//        return indicator
-//    }()
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        indicator.isHidden = true
+        return indicator
+    }()
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+//    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -32,16 +35,16 @@ class SearchViewController: UIViewController {
         return searchBar
     }()
     
-    private let viewModel: SearchViewModel
+    private let viewModel = SearchViewModel()
     
-    init(viewModel: SearchViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    init(viewModel: SearchViewModel) {
+//        self.viewModel = viewModel
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,9 @@ class SearchViewController: UIViewController {
         activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         activityIndicator.isHidden = true
         
+        collectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
         [collectionView, activityIndicator].forEach(view.addSubview(_:))
         
         collectionView.snp.makeConstraints { make in
@@ -64,4 +70,8 @@ class SearchViewController: UIViewController {
             make.center.equalToSuperview()
         }
     }
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    
 }

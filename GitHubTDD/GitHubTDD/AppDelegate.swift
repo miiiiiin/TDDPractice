@@ -15,13 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow()
-        let window = UIWindow()
-//        window.makeKeyAndVisible()
-        let viewModel = SearchViewModel()
-        window.rootViewController = UINavigationController(rootViewController: SearchViewController(viewModel: viewModel))
+//        let window = UIWindow()
+        window?.makeKeyAndVisible()
+        window?.rootViewController = UINavigationController()
+//        let viewModel = SearchViewModel()
+//        window.rootViewController = UINavigationController(rootViewController: SearchViewController(viewModel: viewModel))
 //        window.rootViewController = UINavigationController(rootViewController: SearchViewController(nibName: nil, bundle: nil))
-        window.makeKeyAndVisible()
-        self.window = window
+//        window.makeKeyAndVisible()
+//        self.window = window
+        
+        let sceneCoordinator = SceneCoordinator(window: window!)
+        SceneCoordinator.shared = sceneCoordinator
+        
+        let viewModel = SearchViewModel()
+        sceneCoordinator.transition(to: Scene.search(viewModel))
+        
         return true
     }
 
