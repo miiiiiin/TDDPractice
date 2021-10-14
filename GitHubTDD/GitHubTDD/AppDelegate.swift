@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sceneCoordinator = SceneCoordinator(window: window!)
         SceneCoordinator.shared = sceneCoordinator
         
-        let viewModel = SearchViewModel()
+        let githubService = GithubService()
+        let viewModel = SearchViewModel(service: githubService)
         sceneCoordinator.transition(to: Scene.search(viewModel))
         
         return true

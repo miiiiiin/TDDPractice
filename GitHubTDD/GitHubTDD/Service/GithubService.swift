@@ -18,6 +18,10 @@ class GithubService: GithubServiceType {
         self.networkRequest = networkRequest
     }
     
+    convenience init() {
+        self.init(networkRequest: NetworkRequest.shared)
+    }
+    
     func search(sortOption: SearchOption) -> Single<SearchedRepositories> {
         let path = "/search/repositories"
         return Single.deferred {
