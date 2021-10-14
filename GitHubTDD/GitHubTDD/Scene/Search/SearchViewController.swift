@@ -5,25 +5,25 @@
 //  Created by Running Raccoon on 2021/10/07.
 //
 
-import Foundation
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 
-class SearchViewController: UIViewController {
-    
+class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableType {
+
     lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         return cv
     }()
     
-//    lazy var activityIndicator: UIActivityIndicatorView = {
-//        let indicator = UIActivityIndicatorView()
-//        indicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-//        indicator.isHidden = true
-//        return indicator
-//    }()
-    
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        indicator.isHidden = true
+        return indicator
+    }()
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -32,15 +32,17 @@ class SearchViewController: UIViewController {
         return searchBar
     }()
     
-    private let viewModel: SearchViewModel
+    var viewModel: SearchViewModelType!
     
-    init(viewModel: SearchViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    let dataSource = RxCollectionViewSectionedAnimatedDataSource<RepositorySection> { ds, collectionView, indexPath, item in
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RepositoryCell.identifier, for: indexPath) as? RepositoryCell else { return UICollectionViewCell() }
+        cell.repositoryNameLabel.text = item.name
+        cell.forkCountLabel.text = "\(item.forks_count)"
+        cell.ownerNameLabel.text = item.owner.login
+        cell.starCountLabel.text = "\(item.stargazers_count)"
+        
+        print("datsource check: \(item.name)")
+        return cell
     }
     
     override func viewDidLoad() {
@@ -50,11 +52,17 @@ class SearchViewController: UIViewController {
     }
     
     private func setUp() {
+        view.backgroundColor = .white
         navigationItem.titleView = searchBar
         activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         activityIndicator.isHidden = true
         
+        collectionView.register(RepositoryCell.nib, forCellWithReuseIdentifier: RepositoryCell.identifier)
+        collectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
         [collectionView, activityIndicator].forEach(view.addSubview(_:))
+        view.bringSubviewToFront(activityIndicator)
         
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -63,5 +71,45 @@ class SearchViewController: UIViewController {
         activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+    }
+    
+    func bindViewModel() {
+        
+        viewModel.isLoading
+            .distinctUntilChanged()
+            .bind(to: activityIndicator.rx.showLoading)
+            .disposed(by: disposeBag)
+        
+        searchBar.rx.text.orEmpty
+            .distinctUntilChanged()
+            .bind(to: viewModel.searchText)
+            .disposed(by: disposeBag)
+        
+        searchBar.rx.searchButtonClicked
+            .do(onNext: { [weak searchBar] in
+                searchBar?.resignFirstResponder()
+            })
+            .bind(to: viewModel.doSearch)
+            .disposed(by: disposeBag)
+        
+        viewModel.section
+            .bind(to: collectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
+        
+        let sectionInset = collectionViewLayout.sectionInset
+        let contentWidth = collectionView.safeAreaLayoutGuide.layoutFrame.width
+            - sectionInset.left
+            - sectionInset.right
+            - collectionView.contentInset.left
+            - collectionView.contentInset.right
+        
+        return CGSize(width: contentWidth, height: 150)
     }
 }
