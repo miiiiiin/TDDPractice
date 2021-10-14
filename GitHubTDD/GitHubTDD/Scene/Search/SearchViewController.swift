@@ -15,7 +15,6 @@ class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableTy
 
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-//        cv.backgroundColor = .clear
         return cv
     }()
     
@@ -78,7 +77,7 @@ class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableTy
         
         viewModel.isLoading
             .distinctUntilChanged()
-            .bind(to: activityIndicator.rx.isAnimating)
+            .bind(to: activityIndicator.rx.showLoading)
             .disposed(by: disposeBag)
         
         searchBar.rx.text.orEmpty
@@ -111,7 +110,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
             - collectionView.contentInset.left
             - collectionView.contentInset.right
         
-        print("check contentInset: \(contentWidth)")
         return CGSize(width: contentWidth, height: 150)
     }
 }
