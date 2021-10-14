@@ -14,4 +14,9 @@ class RepositoryCell: UICollectionViewCell, NibForName {
     @IBOutlet var ownerNameLabel: UILabel!
     @IBOutlet var starCountLabel: UILabel!
     @IBOutlet var forkCountLabel: UILabel!
+    
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        self.backgroundColor = .gray
+//    }
 }

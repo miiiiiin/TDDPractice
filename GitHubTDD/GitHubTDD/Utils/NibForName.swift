@@ -14,7 +14,7 @@ protocol NibForName: SwiftIdentifier {
 
 extension NibForName {
     static var nib: UINib {
-        print("nibforname: \(Self.self), \(Self.nib)")
+//        print("nibforname: \(Self.self), \(Self.nib)")
         return UINib(nibName: String(describing: Self.self), bundle: nil)
     }
 }

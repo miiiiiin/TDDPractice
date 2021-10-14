@@ -12,6 +12,7 @@ import RxCocoa
 protocol SearchViewModelType {
     var isLoading: PublishRelay<Bool> { get }
     var searchText: PublishRelay<String> { get }
+    var section: PublishRelay<[RepositorySection]> { get }
     var doSearch: PublishRelay<Void> { get }
 }
 
@@ -21,6 +22,7 @@ class SearchViewModel: HasDisposeBag, SearchViewModelType {
     
     let isLoading = PublishRelay<Bool>()
     let searchText = PublishRelay<String>()
+    let section = PublishRelay<[RepositorySection]>()
     let doSearch = PublishRelay<Void>()
     
     private var _repositories: [Repository] = []
@@ -46,9 +48,12 @@ class SearchViewModel: HasDisposeBag, SearchViewModelType {
             }
             .subscribe(onNext: { [weak self] result in
                 guard let self = self else { return }
+                print("subscribe: \(result)")
                 self.isLoading.accept(false)
                 self._repositories = result.items
-                //section
+                
+                let section = [RepositorySection(header: "repositories", items: result.items)]
+                self.section.accept(section)
             })
             .disposed(by: disposeBag)
     }
