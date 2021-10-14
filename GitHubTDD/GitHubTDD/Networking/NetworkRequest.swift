@@ -22,7 +22,7 @@ class NetworkRequest: NetworkRequestProtocol {
             
             let task = session.dataTask(with: with) { data, response, error in
                 defer {
-                    print("nework defers")
+                    print("nework defers: \(data), \(response), \(error)")
                     HTTPLog.log(data: data, response: response, error: error) }
                 guard let data = data, let response = response else {
                     return

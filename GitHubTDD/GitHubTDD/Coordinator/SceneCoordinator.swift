@@ -53,7 +53,6 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
             currentViewController = SceneCoordinator.actualViewController(for: viewController)
             
             let navigationController = UINavigationController(rootViewController: viewController)
-            navigationController.navigationBar.isHidden = true
             window.rootViewController = navigationController
             subject.onCompleted()
         }

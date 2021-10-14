@@ -8,12 +8,12 @@
 import Foundation
 
 struct SearchOption: Encodable {
-    let query: String
+    let q: String
     let sort: String
     let order: String
     
-    init(query: String, sort: String = "stars", order: String = "desc") {
-        self.query = query
+    init(q: String, sort: String = "stars", order: String = "desc") {
+        self.q = q
         self.sort = sort
         self.order = order
     }

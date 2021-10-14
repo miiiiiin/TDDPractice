@@ -37,7 +37,7 @@ class SearchViewModel: HasDisposeBag, SearchViewModelType {
             })
             .withLatestFrom(shareSearchText)
             .flatMapLatest { [weak service, _repositories] text -> Single<SearchedRepositories> in
-                return (service?.search(sortOption: SearchOption(query: text)) ?? .never())
+                return (service?.search(sortOption: SearchOption(q: text)) ?? .never())
                 .debug("search repositories of Github")
                 .catchError { error in
                     print("search error: \(error)")

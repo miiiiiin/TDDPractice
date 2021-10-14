@@ -41,11 +41,6 @@ class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableTy
         setUp()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viewWillAppear")
-    }
-    
     private func setUp() {
         view.backgroundColor = .white
         navigationItem.titleView = searchBar
@@ -57,6 +52,7 @@ class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableTy
             .disposed(by: disposeBag)
         
         [collectionView, activityIndicator].forEach(view.addSubview(_:))
+        view.bringSubviewToFront(activityIndicator)
         
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -77,6 +73,13 @@ class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableTy
         searchBar.rx.text.orEmpty
             .distinctUntilChanged()
             .bind(to: viewModel.searchText)
+            .disposed(by: disposeBag)
+        
+        searchBar.rx.searchButtonClicked
+            .do(onNext: { [weak searchBar] in
+                searchBar?.resignFirstResponder()
+            })
+            .bind(to: viewModel.doSearch)
             .disposed(by: disposeBag)
         
         
