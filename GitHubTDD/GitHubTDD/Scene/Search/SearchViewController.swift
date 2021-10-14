@@ -15,7 +15,7 @@ class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableTy
 
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-//        cv.register(RepositoryCell.nib, forCellWithReuseIdentifier: RepositoryCell.identifier)
+        cv.backgroundColor = .clear
         return cv
     }()
     
@@ -56,10 +56,7 @@ class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableTy
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-//        [collectionView, activityIndicator].forEach(view.addSubview(_:))
-        
-        view.addSubview(collectionView)
-        view.addSubview(activityIndicator)
+        [collectionView, activityIndicator].forEach(view.addSubview(_:))
         
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
