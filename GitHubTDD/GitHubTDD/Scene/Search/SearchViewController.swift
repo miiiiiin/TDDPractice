@@ -41,15 +41,25 @@ class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableTy
         setUp()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+    }
+    
     private func setUp() {
+        view.backgroundColor = .white
         navigationItem.titleView = searchBar
         activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         activityIndicator.isHidden = true
         
+        collectionView.register(RepositoryCell.self, forCellWithReuseIdentifier: RepositoryCell.identifier)
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-        [collectionView, activityIndicator].forEach(view.addSubview(_:))
+//        [collectionView, activityIndicator].forEach(view.addSubview(_:))
+        
+        view.addSubview(collectionView)
+        view.addSubview(activityIndicator)
         
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

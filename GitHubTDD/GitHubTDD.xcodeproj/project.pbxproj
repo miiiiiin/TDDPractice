@@ -224,7 +224,6 @@
 				7D81BD0A270D853B0026A5A3 /* Model */,
 				7D81BD09270D85370026A5A3 /* Utils */,
 				7D81BD08270D85300026A5A3 /* Networking */,
-				7D81BD07270D852B0026A5A3 /* Controller */,
 				7D81BCD7270D85190026A5A3 /* AppDelegate.swift */,
 				7D81BCE0270D851B0026A5A3 /* Assets.xcassets */,
 				7D81BCE2270D851B0026A5A3 /* LaunchScreen.storyboard */,
@@ -253,13 +252,6 @@
 				7D81BCFB270D851B0026A5A3 /* Info.plist */,
 			);
 			path = GitHubTDDUITests;
-			sourceTree = "<group>";
-		};
-		7D81BD07270D852B0026A5A3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		7D81BD08270D85300026A5A3 /* Networking */ = {

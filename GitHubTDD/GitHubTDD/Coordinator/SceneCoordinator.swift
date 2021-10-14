@@ -44,13 +44,17 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
         return controller
     }
     
+    @discardableResult
     func transition(to scene: TargetScene) -> Observable<Void> {
         let subject = PublishSubject<Void>()
         
         switch scene.transition {
         case let .root(viewController):
             currentViewController = SceneCoordinator.actualViewController(for: viewController)
-            window.rootViewController = currentViewController
+            
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.navigationBar.isHidden = true
+            window.rootViewController = navigationController
             subject.onCompleted()
         }
         
