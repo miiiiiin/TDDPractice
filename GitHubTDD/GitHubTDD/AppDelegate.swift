@@ -20,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sceneCoordinator = SceneCoordinator(window: window!)
         SceneCoordinator.shared = sceneCoordinator
         
-        let githubService = GithubService()
-        let viewModel = SearchViewModel(service: githubService)
+        let scheduler = RxScheduler()
+        let githubService = GithubService(scheduler: scheduler)
+        let viewModel = SearchViewModel(service: githubService, scheduler: scheduler)
         sceneCoordinator.transition(to: Scene.search(viewModel))
         
         return true

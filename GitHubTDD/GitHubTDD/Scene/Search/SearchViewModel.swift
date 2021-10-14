@@ -19,6 +19,7 @@ protocol SearchViewModelType {
 class SearchViewModel: HasDisposeBag, SearchViewModelType {
     
     private let service: GithubServiceType
+    private let scheduler: RxSchedulerType
     
     let isLoading = PublishRelay<Bool>()
     let searchText = PublishRelay<String>()
@@ -27,16 +28,19 @@ class SearchViewModel: HasDisposeBag, SearchViewModelType {
     
     private var _repositories: [Repository] = []
     
-    init(service: GithubServiceType) {
+    init(service: GithubServiceType, scheduler: RxSchedulerType) {
         self.service = service
+        self.scheduler = scheduler
         
         let shareSearchText = searchText.share()
         
         doSearch
+            .observe(on: scheduler.main)
             .do(onNext: { [weak isLoading] _ in
                 
                 isLoading?.accept(true)
             })
+            .observe(on: scheduler.io)
             .withLatestFrom(shareSearchText)
             .flatMapLatest { [weak service, _repositories] text -> Single<SearchedRepositories> in
                 return (service?.search(sortOption: SearchOption(q: text)) ?? .never())

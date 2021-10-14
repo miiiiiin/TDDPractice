@@ -13,13 +13,15 @@ class GithubService: GithubServiceType {
     static let BASE_URL = "https://api.github.com/"
     let timeoutInterval = 5.0
     private let networkRequest: NetworkRequestProtocol
+    private let scheduler: RxSchedulerType
     
-    init(networkRequest: NetworkRequestProtocol) {
+    init(networkRequest: NetworkRequestProtocol, scheduler: RxSchedulerType) {
         self.networkRequest = networkRequest
+        self.scheduler = scheduler
     }
     
-    convenience init() {
-        self.init(networkRequest: NetworkRequest.shared)
+    convenience init(scheduler: RxSchedulerType) {
+        self.init(networkRequest: NetworkRequest.shared, scheduler: scheduler)
     }
     
     func search(sortOption: SearchOption) -> Single<SearchedRepositories> {
