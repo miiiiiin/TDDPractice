@@ -25,6 +25,9 @@
 		7D06963E27181BB6002913C7 /* Data+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D06963D27181BB6002913C7 /* Data+Decode.swift */; };
 		7D06964027182C1C002913C7 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D06963F27182C1C002913C7 /* LoadingIndicator.swift */; };
 		7D06964227182CFA002913C7 /* RxSchedulerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D06964127182CFA002913C7 /* RxSchedulerType.swift */; };
+		7D069645271D785D002913C7 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D069644271D785D002913C7 /* Fixture.swift */; };
+		7D069647271D788D002913C7 /* ResourcesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D069646271D788D002913C7 /* ResourcesLoader.swift */; };
+		7D069649271D7E52002913C7 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D069648271D7E52002913C7 /* sample.json */; };
 		7D119E35271584770036FC89 /* SceneTransitionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D119E34271584770036FC89 /* SceneTransitionType.swift */; };
 		7D119E38271584A30036FC89 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D119E37271584A30036FC89 /* SceneCoordinatorType.swift */; };
 		7D119E3A271584D60036FC89 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D119E39271584D50036FC89 /* Scene.swift */; };
@@ -90,6 +93,9 @@
 		7D06963D27181BB6002913C7 /* Data+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Decode.swift"; sourceTree = "<group>"; };
 		7D06963F27182C1C002913C7 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		7D06964127182CFA002913C7 /* RxSchedulerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSchedulerType.swift; sourceTree = "<group>"; };
+		7D069644271D785D002913C7 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
+		7D069646271D788D002913C7 /* ResourcesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesLoader.swift; sourceTree = "<group>"; };
+		7D069648271D7E52002913C7 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		7D119E34271584770036FC89 /* SceneTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionType.swift; sourceTree = "<group>"; };
 		7D119E37271584A30036FC89 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		7D119E39271584D50036FC89 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -170,6 +176,16 @@
 				0DE6525E4B4033FEDE1CC44E /* Pods-GitHubTDDTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7D069643271D769C002913C7 /* Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				7D069644271D785D002913C7 /* Fixture.swift */,
+				7D069646271D788D002913C7 /* ResourcesLoader.swift */,
+				7D069648271D7E52002913C7 /* sample.json */,
+			);
+			path = Fixture;
 			sourceTree = "<group>";
 		};
 		7D119E332715844B0036FC89 /* Coordinator */ = {
@@ -269,6 +285,7 @@
 		7D81BCED270D851B0026A5A3 /* GitHubTDDTests */ = {
 			isa = PBXGroup;
 			children = (
+				7D069643271D769C002913C7 /* Fixture */,
 				7D81BCEE270D851B0026A5A3 /* GitHubTDDTests.swift */,
 				7D81BCF0270D851B0026A5A3 /* Info.plist */,
 				7D1BCF2B270E8A5A00BC42BC /* TestAppDelegate.swift */,
@@ -446,6 +463,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D069649271D7E52002913C7 /* sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,9 +638,11 @@
 			files = (
 				7D1BCF2C270E8A5A00BC42BC /* TestAppDelegate.swift in Sources */,
 				7D1BCF32270E8ADF00BC42BC /* TestError.swift in Sources */,
+				7D069647271D788D002913C7 /* ResourcesLoader.swift in Sources */,
 				7D81BCEF270D851B0026A5A3 /* GitHubTDDTests.swift in Sources */,
 				7D1BCF30270E8ABC00BC42BC /* GithubServiceTest.swift in Sources */,
 				7D1BCF2E270E8A9F00BC42BC /* SearchViewControllerTest.swift in Sources */,
+				7D069645271D785D002913C7 /* Fixture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
