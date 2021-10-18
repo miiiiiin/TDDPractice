@@ -40,8 +40,6 @@ class SearchViewController: UIViewController, HasDisposeBag, ViewModelBindableTy
         cell.forkCountLabel.text = "\(item.forks_count)"
         cell.ownerNameLabel.text = item.owner.login
         cell.starCountLabel.text = "\(item.stargazers_count)"
-        
-        print("datsource check: \(item.name)")
         return cell
     }
     

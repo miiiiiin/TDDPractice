@@ -13,7 +13,6 @@ protocol SwiftIdentifier {
 
 extension SwiftIdentifier {    
     static var identifier: String {
-        print("identifier: \(Self.self)")
         return String(describing: Self.self)
     }
 }
