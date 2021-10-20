@@ -8,7 +8,7 @@ target 'HPCounter' do
   # Pods for HPCounte
   pod 'RxSwift'
   pod 'RxCocoa'
-
+  pod 'Moya/RxSwift'
   target 'HPCounterTests' do
     inherit! :search_paths
     # Pods for testing

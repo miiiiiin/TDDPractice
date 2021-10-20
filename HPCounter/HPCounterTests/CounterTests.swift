@@ -20,6 +20,7 @@ class CounterTests: XCTestCase {
     
     var disposeBag: DisposeBag!
     
+    var refreshSubject: PublishSubject<Void>!
     var plusSubject: PublishSubject<Void>!
     var subtractSubject: PublishSubject<Void>!
 
@@ -27,16 +28,16 @@ class CounterTests: XCTestCase {
         
         disposeBag = DisposeBag()
         scheduler = TestScheduler(initialClock: 0)
+        refreshSubject = PublishSubject<Void>()
         plusSubject = PublishSubject<Void>()
         subtractSubject = PublishSubject<Void>()
         viewModel = CounterViewModel()
-        output = viewModel.transform(input: CounterViewModel.Input(plusAction: plusSubject.asObservable(), subtractAction: subtractSubject.asObservable()))
+        output = viewModel.transform(input: CounterViewModel.Input(refresh: .just(()), plusAction: plusSubject.asObservable(), subtractAction: subtractSubject.asObservable()))
     }
 
     func testCountedValue() {
         scheduler.createColdObservable([
             .next(10, ()),
-            
             .next(20, ()),
             .next(30, ())
         ]).bind(to: plusSubject).disposed(by: disposeBag)
