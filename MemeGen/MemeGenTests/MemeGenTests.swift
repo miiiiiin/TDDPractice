@@ -57,18 +57,42 @@ class MainViewModelTests: QuickSpec {
                     scheduler.createColdObservable([
                         .next(10, 0),
                         .next(20, 1),
-                        .next(30, 2),
-                        .next(40, -1)
+                        .next(30, -1)
                     ])
                     .bind(to: sut_viewModel.onThumbnailTap)
                     .disposed(by: disposeBag)
                     
                     scheduler.start()
                 }
+                
+                it("then display should receive image") {
+                    expect(displayObserver.events) == [
+                        .next(0, #imageLiteral(resourceName: "placeholder-meme")),
+                        .next(10, #imageLiteral(resourceName: "meme0")),
+                        .next(20, #imageLiteral(resourceName: "meme1")),
+                    ]
+                }
+            }
+            
+            describe("when onResetTap emits") {
+                
+                beforeEach {
+                    scheduler.createColdObservable([
+                        .next(10, ())
+                    ])
+                    .bind(to: sut_viewModel.onResetTap)
+                    .disposed(by: disposeBag)
+                    
+                    scheduler.start()
+                }
+                
+                it("then display should receive placeholder") {
+                    expect(displayObserver.events) == [
+                        .next(0, #imageLiteral(resourceName: "placeholder-meme")),
+                        .next(10, #imageLiteral(resourceName: "placeholder-meme"))
+                    ]
+                }
             }
         }
-        
     }
-    
-
 }
