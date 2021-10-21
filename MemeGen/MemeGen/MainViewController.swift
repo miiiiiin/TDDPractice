@@ -13,7 +13,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet var displayImageView: UIImageView!
     @IBOutlet var clearButton: UIButton!
-    @IBOutlet var proceedButton: UIButton!
     @IBOutlet var tableView: UITableView!
     
     private let viewModel = MainViewModel()
@@ -24,6 +23,7 @@ class MainViewController: UIViewController {
         configureTableView()
         bind()
     }
+    
     
     private func bind() {
         

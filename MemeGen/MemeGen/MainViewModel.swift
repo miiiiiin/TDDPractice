@@ -15,7 +15,7 @@ class MainViewModel {
     let displayImage: Observable<UIImage>
     let onResetTap = PublishSubject<Void>()
     let onThumbnailTap = PublishSubject<Int>()
-    let thumbnails = [#imageLiteral(resourceName: "sandra-annerberg"), #imageLiteral(resourceName: "meme0"), #imageLiteral(resourceName: "meme1")]
+    let thumbnails = [#imageLiteral(resourceName: "meme0"), #imageLiteral(resourceName: "meme1")]
     
     // Private
     private let selectedImage = BehaviorRelay<UIImage?>(value: nil)

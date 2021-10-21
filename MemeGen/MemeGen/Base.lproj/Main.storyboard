@@ -27,12 +27,8 @@
                                 <rect key="frame" x="47" y="384" width="320" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7P-FP-Xu7">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                         <state key="normal" title="Clear"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXE-uq-cv1">
-                                        <rect key="frame" x="170" y="0.0" width="150" height="60"/>
-                                        <state key="normal" title="Proceed"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -85,7 +81,6 @@
                     <connections>
                         <outlet property="clearButton" destination="c7P-FP-Xu7" id="R0z-Se-yfI"/>
                         <outlet property="displayImageView" destination="Uh3-jw-BWf" id="IJ4-9b-Nck"/>
-                        <outlet property="proceedButton" destination="fXE-uq-cv1" id="9zE-FB-n5N"/>
                         <outlet property="tableView" destination="2Du-7m-jvZ" id="Zcp-ot-UEZ"/>
                     </connections>
                 </viewController>
