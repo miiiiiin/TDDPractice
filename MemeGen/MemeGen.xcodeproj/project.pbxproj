@@ -16,6 +16,7 @@
 		7DAF69D727210EC800977A53 /* MemeGenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAF69D627210EC800977A53 /* MemeGenUITests.swift */; };
 		7DAF69E5272110F700977A53 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAF69E4272110F700977A53 /* MainViewController.swift */; };
 		7DAF69E7272111D400977A53 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAF69E6272111D400977A53 /* MainViewModel.swift */; };
+		7DAF69E9272113A600977A53 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAF69E8272113A600977A53 /* Placeholder.swift */; };
 		E6835FEDDF83F43FA664E892 /* Pods_MemeGen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AC3327B8BC7CE338A56893 /* Pods_MemeGen.framework */; };
 		FBCCCE3E30F05070A05E4A29 /* Pods_MemeGenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881ABA66D3109BA9EB83EC36 /* Pods_MemeGenTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		7DAF69D827210EC800977A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DAF69E4272110F700977A53 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7DAF69E6272111D400977A53 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		7DAF69E8272113A600977A53 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		881ABA66D3109BA9EB83EC36 /* Pods_MemeGenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeGenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89530DE2E66629F37365CA9F /* Pods-MemeGenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGenTests.release.xcconfig"; path = "Target Support Files/Pods-MemeGenTests/Pods-MemeGenTests.release.xcconfig"; sourceTree = "<group>"; };
 		942AABBFA8204A7999A11AD0 /* Pods-MemeGen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeGen.debug.xcconfig"; path = "Target Support Files/Pods-MemeGen/Pods-MemeGen.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				7DAF69C227210EC800977A53 /* Info.plist */,
 				7DAF69E4272110F700977A53 /* MainViewController.swift */,
 				7DAF69E6272111D400977A53 /* MainViewModel.swift */,
+				7DAF69E8272113A600977A53 /* Placeholder.swift */,
 			);
 			path = MemeGen;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				7DAF69B527210EC600977A53 /* AppDelegate.swift in Sources */,
 				7DAF69E5272110F700977A53 /* MainViewController.swift in Sources */,
 				7DAF69E7272111D400977A53 /* MainViewModel.swift in Sources */,
+				7DAF69E9272113A600977A53 /* Placeholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
