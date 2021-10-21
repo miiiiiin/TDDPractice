@@ -62,3 +62,9 @@ class MockGithubServiceType: GithubServiceType, Cuckoo.ProtocolMock {
         }
     }
 }
+
+class GithubServiceTypeStub: GithubServiceType {
+    func search(sortOption: SearchOption) -> Single<SearchedRepositories> {
+        return DefaultValueRegistry.defaultValue(for: Single<SearchedRepositories>.self)
+    }
+}
