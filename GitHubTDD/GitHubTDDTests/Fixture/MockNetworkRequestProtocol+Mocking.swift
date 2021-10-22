@@ -29,5 +29,26 @@ extension MockNetworkRequestProtocol {
                         }
                 }
         })
-    }    
+    }
+}
+
+extension MockGithubServiceType {
+    
+    // search protocol function 확인
+    func setMocking(data: SearchedRepositories? = nil, error: Error? = nil) {
+        stub(self, block: { mock in
+            let mockData = data ?? Fixture.Repositories.sample
+            when(mock.search(sortOption: any()))
+                .then { _ in
+                    Single.just(mockData)
+                        .map {
+                            if let error = error {
+                                throw error
+                            } else {
+                                return $0
+                            }
+                        }
+                }
+        })
+    }
 }
