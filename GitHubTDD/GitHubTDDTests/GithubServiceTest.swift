@@ -22,7 +22,8 @@ class GithubServiceTest: XCTestCase {
         
         disposeBag = DisposeBag()
         scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
-        service = GithubService(scheduler: scheduler as! RxSchedulerType)
+
+        service = GithubService(scheduler: TestRxScheduler(scheduler))
     }
     
     func testSampleSuccess() {
