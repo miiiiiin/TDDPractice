@@ -8,6 +8,7 @@
 import RxSwift
 import RxTest
 import XCTest
+import Cuckoo
 @testable import GitHubTDD
 
 class SearchViewModelTest: XCTestCase {
@@ -26,7 +27,7 @@ class SearchViewModelTest: XCTestCase {
         disposeBag = DisposeBag()
     }
     
-    func testIsLoading() {
+    func testLoadingOnSuccess() {
         
         service.setMocking()
         
@@ -45,9 +46,46 @@ class SearchViewModelTest: XCTestCase {
         testScheduler.start()
         
         XCTAssertEqual(isLoading.events, [
-            .next(0, false)
-//            ,
-//            .next(1, true)
+            .next(0, false),
+            .next(1, true)
         ])
+        
+        verify(service, times(1)).search(sortOption: any())
+    }
+
+    
+    func testSections() {
+        
+        let (data, _) = service.setMocking()
+        let sections = testScheduler.createObserver([RepositorySection].self)
+        
+        viewModel.section
+            .bind(to: sections)
+            .disposed(by: disposeBag)
+        
+        viewModel.searchText.accept("test")
+        
+        testScheduler.createHotObservable([
+            .next(0, ())
+        ])
+        .bind(to: viewModel.doSearch)
+        .disposed(by: disposeBag)
+        
+        testScheduler.start()
+
+        let expect = [RepositorySection(header: "test", items: data.items)]
+
+        XCTAssertEqual(sections.events, [
+            .next(0, expect)
+        ])
+        
+        verify(service, times(1)).search(sortOption: any())
+        
+    }
+}
+
+extension SearchedRepositories: Equatable {
+    public static func == (lhs: SearchedRepositories, rhs: SearchedRepositories) -> Bool {
+        return lhs.total_count == rhs.total_count && lhs.items == rhs.items
     }
 }
