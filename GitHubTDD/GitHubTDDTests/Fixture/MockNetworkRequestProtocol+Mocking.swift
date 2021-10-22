@@ -11,7 +11,7 @@ import RxSwift
 @testable import GitHubTDD
 
 extension MockNetworkRequestProtocol {
-    
+    @discardableResult
     func setMocking(data: Data? = nil, error: Error? = nil) {
         stub(self, block: { mock in
             let mockData = data ?? Fixture.Repositories.sampleData
@@ -35,6 +35,7 @@ extension MockNetworkRequestProtocol {
 extension MockGithubServiceType {
     
     // search protocol function 확인
+    @discardableResult
     func setMocking(data: SearchedRepositories? = nil, error: Error? = nil) -> (SearchedRepositories, Error?) {
         let mockData = data ?? Fixture.Repositories.sample
         stub(self, block: { mock in

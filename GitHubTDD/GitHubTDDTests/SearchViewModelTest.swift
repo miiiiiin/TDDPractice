@@ -49,7 +49,6 @@ class SearchViewModelTest: XCTestCase {
             .next(0, true),
             .next(0, false)
         ])
-        
         verify(service, times(1)).search(sortOption: any())
     }
 
@@ -103,9 +102,9 @@ class SearchViewModelTest: XCTestCase {
 
         let expect = [RepositorySection(header: "test", items: data.items)]
 
-//        XCTAssertEqual(sections.events, [
-//            .next(0, expect)
-//        ])
+        XCTAssertEqual(sections.events, [
+            .next(0, expect)
+        ])
         
         verify(service, times(1)).search(sortOption: any())
         
@@ -115,5 +114,11 @@ class SearchViewModelTest: XCTestCase {
 extension SearchedRepositories: Equatable {
     public static func == (lhs: SearchedRepositories, rhs: SearchedRepositories) -> Bool {
         return lhs.total_count == rhs.total_count && lhs.items == rhs.items
+    }
+}
+
+extension RepositorySection: Equatable {
+    public static func ==(rhs: RepositorySection, lhs: RepositorySection) -> Bool {
+        return rhs.items == lhs.items
     }
 }

@@ -79,10 +79,7 @@ class MockGithubServiceType: GithubServiceType, Cuckoo.ProtocolMock {
     typealias Verification = __VerificationProxy_GithubServiceType
     
     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
-    
-    
     private var __defaultImplStub: GithubServiceType?
-    
     
     func enableDefaultImplementation(_ stub: GithubServiceType) {
         __defaultImplStub = stub
@@ -90,7 +87,7 @@ class MockGithubServiceType: GithubServiceType, Cuckoo.ProtocolMock {
     }
     
     func search(sortOption: SearchOption) -> Single<SearchedRepositories> {
-        return cuckoo_manager.call("search(sortOption: SearchOption) -> Single<SearchedRepositories>", parameters: (sortOption), escapingParameters: (sortOption), superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(), defaultCall: __defaultImplStub?.search(sortOption: sortOption)) as! Single<SearchedRepositories>
+        return cuckoo_manager.call("search(sortOption: SearchOption) -> Single<SearchedRepositories>", parameters: (sortOption), escapingParameters: (sortOption), superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(), defaultCall: __defaultImplStub!.search(sortOption: sortOption))
     }
     
     struct __StubbingProxy_GithubServiceType: Cuckoo.StubbingProxy {
