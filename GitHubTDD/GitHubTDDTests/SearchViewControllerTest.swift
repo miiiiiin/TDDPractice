@@ -7,27 +7,38 @@
 
 import XCTest
 import Foundation
+import RxSwift
+import RxTest
+import Cuckoo
+@testable import GitHubTDD
 
 class SearchViewControllerTest: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    var viewController: SearchViewController!
+    var viewModel: SearchViewModel!
+    var service: MockGithubServiceType!
+    var testSchduler: TestScheduler!
+    var disposeBag: DisposeBag!
+    
+    override func setUp() {
+        super.setUp()
+        
+        service = MockGithubServiceType()
+        testSchduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
+        viewModel = SearchViewModel(service: service, scheduler: TestRxScheduler(testSchduler))
+        viewController = SearchViewController()
+        disposeBag = DisposeBag()
+        
+        // trigger viewDidLoad
+        _ = viewController.view
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testPresentCell() {
+        let (data, _) = service.setMocking()
+        viewModel.searchText.accept("test")
+        viewModel.doSearch.accept(())
+        testSchduler.start()
+        let cell = viewController.dataSource.collectionView(viewController.collectionView, cellForItemAt: IndexPath(item: 0, section: 0)) as! RepositoryCell
+        XCTAssertEqual(cell.repositoryNameLabel.text, data.items.first!.name)        
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
