@@ -49,6 +49,24 @@ class GithubServiceTest: XCTestCase {
         ])
     }
     
-    
-
+    func testSampleFailture() {
+        
+        // MARK: - Set Error Mock -
+        requests.setMocking(error: RequestsError.failDecoding)
+        
+        let response = scheduler.createObserver(SearchedRepositories.self)
+        
+        service.search(sortOption: SearchOption(q: "", sort: "", order: ""))
+            .asObservable()
+            .subscribe(response)
+            .disposed(by: disposeBag)
+        
+        scheduler.start()
+        
+        // then
+        
+        XCTAssertEqual(response.events, [
+            .error(0, RequestsError.failDecoding)
+        ])
+    }
 }
