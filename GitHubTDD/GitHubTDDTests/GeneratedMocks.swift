@@ -27,7 +27,7 @@ class MockNetworkRequestProtocol: NetworkRequestProtocol, Cuckoo.ProtocolMock {
     
     func request(with: URLRequest) -> Single<Data> {
         // requeset(with: URLRequest -> Single<Data> -> failure case (요청 시 메소드 인식 못함)
-        return cuckoo_manager.call("request(with: URLRequest -> Single<Data>",
+        return cuckoo_manager.call("request(with: URLRequest) -> Single<Data>",
                                    parameters: (with),
                                    escapingParameters: (with),
                                    superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),

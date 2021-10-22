@@ -29,6 +29,9 @@ class GithubServiceTest: XCTestCase {
     
     func testSampleSuccess() {
         
+        // MARK: - Set Mock -
+        requests.setMocking(data: Fixture.Repositories.sampleData)
+        
         let response = scheduler.createObserver(SearchedRepositories.self)
         
         service.search(sortOption: SearchOption(q: "", sort: "", order: ""))
