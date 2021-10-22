@@ -14,6 +14,7 @@ import Foundation
 class GithubServiceTest: XCTestCase {
     
     var service: GithubService!
+    var requests: MockNetworkRequestProtocol!
     var scheduler: TestScheduler!
     var disposeBag: DisposeBag!
     
@@ -22,14 +23,13 @@ class GithubServiceTest: XCTestCase {
         
         disposeBag = DisposeBag()
         scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
-
-        service = GithubService(scheduler: TestRxScheduler(scheduler))
+        requests = MockNetworkRequestProtocol()
+        service = GithubService(networkRequest: requests, scheduler: TestRxScheduler(scheduler))
     }
     
     func testSampleSuccess() {
         
         let response = scheduler.createObserver(SearchedRepositories.self)
-        
         
         service.search(sortOption: SearchOption(q: "", sort: "", order: ""))
             .asObservable()
@@ -44,8 +44,8 @@ class GithubServiceTest: XCTestCase {
             .next(0, Fixture.Repositories.sample),
             .completed(0)
         ])
-        
-        
     }
+    
+    
 
 }
