@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewModel = SearchViewModel(service: githubService, scheduler: scheduler)
         sceneCoordinator.transition(to: Scene.search(viewModel))
         
+        
+//        let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
+        
         return true
     }
 }

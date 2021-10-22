@@ -29,20 +29,19 @@ class GithubService: GithubServiceType {
         return Single.deferred {
             var urlRequest: URLRequest
 
-            urlRequest = try URLRequestBuilder
-                .get(baseURL: GithubService.BASE_URL)
-                .path(path)
-                .queryItems(sortOption.getQueryItem())
-                .build()
-            
-            urlRequest.addValue("", forHTTPHeaderField: "User-Agent")
-            
-//            return self.networkRequest.request(with: urlRequest)
-//                .map(SearchedRepositories.self)
-            
+            do {
+                urlRequest = try URLRequestBuilder
+                    .get(baseURL: GithubService.BASE_URL)
+                    .path(path)
+                    .queryItems(sortOption.getQueryItem())
+                    .build()
+                urlRequest.addValue("", forHTTPHeaderField: "User-Agent")
+            } catch {
+                return Single.error(error)
+            }
             return self.networkRequest.request(with: urlRequest)
                 .map(SearchedRepositories.self)
-            
         }
+        .subscribe(on: self.scheduler.netowrk)
     }
 }
