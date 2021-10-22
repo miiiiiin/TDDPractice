@@ -12,7 +12,7 @@ import Cuckoo
 @testable import GitHubTDD
 
 class SearchViewModelTest: XCTestCase {
-
+    
     var viewModel: SearchViewModel!
     var service: MockGithubServiceType!
     var testScheduler: TestScheduler!
@@ -37,10 +37,11 @@ class SearchViewModelTest: XCTestCase {
             .bind(to: isLoading)
             .disposed(by: disposeBag)
         
+        viewModel.searchText.accept("test")
         testScheduler.createHotObservable([
-            .next(0, "loading")
+            .next(0, ())
         ])
-        .bind(to: viewModel.searchText)
+        .bind(to: viewModel.doSearch)
         .disposed(by: disposeBag)
         
         testScheduler.start()
@@ -51,7 +52,7 @@ class SearchViewModelTest: XCTestCase {
         ])
         verify(service, times(1)).search(sortOption: any())
     }
-
+    
     func testLoadingOnFailure() {
         
         service.setMocking(error: TestError.test)
@@ -60,13 +61,14 @@ class SearchViewModelTest: XCTestCase {
         viewModel.isLoading
             .bind(to: isLoading)
             .disposed(by: disposeBag)
+        
         viewModel.searchText.accept("test")
         testScheduler.createHotObservable([
             .next(0, ()),
             .next(50, ())
-            ])
-            .bind(to: viewModel.doSearch)
-            .disposed(by: disposeBag)
+        ])
+        .bind(to: viewModel.doSearch)
+        .disposed(by: disposeBag)
         
         testScheduler.start()
         
@@ -76,7 +78,7 @@ class SearchViewModelTest: XCTestCase {
             .next(0, false),
             .next(50, true),
             .next(50, false)
-            ])
+        ])
         
         verify(service, times(2)).search(sortOption: any())
     }
@@ -99,9 +101,9 @@ class SearchViewModelTest: XCTestCase {
         .disposed(by: disposeBag)
         
         testScheduler.start()
-
+        
         let expect = [RepositorySection(header: "test", items: data.items)]
-
+        
         XCTAssertEqual(sections.events, [
             .next(0, expect)
         ])
