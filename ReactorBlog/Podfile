@@ -1,0 +1,41 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'ReactorBlog' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ReactorBlo
+  pod 'ReactorKit'
+  
+  # UI
+  pod 'SnapKit'
+  pod 'DropDown'
+  
+  # Rx
+  pod 'RxSwift', '5.1.1'
+  pod 'RxCocoa', '5.1.1'
+  pod 'RxViewController'
+  pod 'RxGesture'
+  pod 'RxFlow'
+  
+  # Network
+  pod 'Moya/RxSwift'
+  pod 'Kingfisher'
+  
+  # Tool
+  pod 'Then'
+
+  target 'ReactorBlogTests' do
+    inherit! :search_paths
+    # Pods for testin
+    pod 'Nimble'
+    pod 'RxTest'
+    pod 'RxExpect'
+  end
+
+  target 'ReactorBlogUITests' do
+    # Pods for testing
+  end
+
+end

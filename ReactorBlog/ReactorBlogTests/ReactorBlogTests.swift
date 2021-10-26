@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import ReactorBlog
 
 class ReactorBlogTests: XCTestCase {
 
