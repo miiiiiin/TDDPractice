@@ -23,11 +23,29 @@ final class AppFlow: Flow {
     }
     
     func navigate(to step: Step) -> FlowContributors {
-        return .none
+        guard let step = step as? BlogStep else { return .none }
+        switch step {
+        case .main:
+            return navigateToMain()
+        }        
     }
     
     
     deinit {
-        print("❎ \(type(of: self)): \(#function)")
+        print("AppFlow deinit: \(type(of: self)): \(#function)")
+    }
+}
+
+
+// MARK: - Navigation -
+
+extension AppFlow {
+    
+    private func navigateToMain() -> FlowContributors {
+        let reactor = MainViewReactor()
+        let viewController = MainViewController(reactor: reactor)
+        
+        self.rootViewController.pushViewController(viewController, animated: true)
+        return .one(flowContributor: .contribute(withNextPresentable: viewController, withNextStepper: reactor))
     }
 }

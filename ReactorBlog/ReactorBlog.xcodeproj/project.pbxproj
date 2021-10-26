@@ -15,6 +15,10 @@
 		7DB1FAC52727DDC300113EAC /* ReactorBlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAC42727DDC300113EAC /* ReactorBlogTests.swift */; };
 		7DB1FAD02727DDC300113EAC /* ReactorBlogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FACF2727DDC300113EAC /* ReactorBlogUITests.swift */; };
 		7DB1FAE22727E06C00113EAC /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAE12727E06C00113EAC /* AppFlow.swift */; };
+		7DB1FAE42727E1C900113EAC /* BlogStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAE32727E1C900113EAC /* BlogStep.swift */; };
+		7DB1FAE92727E2E200113EAC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAE82727E2E200113EAC /* BaseViewController.swift */; };
+		7DB1FAEB2727E39700113EAC /* MainViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAEA2727E39700113EAC /* MainViewReactor.swift */; };
+		7DB1FAED2727E89300113EAC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAEC2727E89300113EAC /* MainViewController.swift */; };
 		DF5D83E416B0EB6838D33A81 /* Pods_ReactorBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A2680E976DE30472CFA347 /* Pods_ReactorBlog.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,10 @@
 		7DB1FACF2727DDC300113EAC /* ReactorBlogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorBlogUITests.swift; sourceTree = "<group>"; };
 		7DB1FAD12727DDC300113EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DB1FAE12727E06C00113EAC /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		7DB1FAE32727E1C900113EAC /* BlogStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogStep.swift; sourceTree = "<group>"; };
+		7DB1FAE82727E2E200113EAC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7DB1FAEA2727E39700113EAC /* MainViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewReactor.swift; sourceTree = "<group>"; };
+		7DB1FAEC2727E89300113EAC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		90426327AAD82909AB918E98 /* Pods-ReactorBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorBlog.debug.xcconfig"; path = "Target Support Files/Pods-ReactorBlog/Pods-ReactorBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		C78EBC7075434FA04B8FCAC0 /* Pods-ReactorBlog-ReactorBlogUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorBlog-ReactorBlogUITests.release.xcconfig"; path = "Target Support Files/Pods-ReactorBlog-ReactorBlogUITests/Pods-ReactorBlog-ReactorBlogUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DB43C935361D258E6E40E4AA /* Pods-ReactorBlogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorBlogTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactorBlogTests/Pods-ReactorBlogTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 		7DB1FAAC2727DDC100113EAC /* ReactorBlog */ = {
 			isa = PBXGroup;
 			children = (
+				7DB1FAE52727E2BD00113EAC /* Scene */,
 				7DB1FAE02727E03D00113EAC /* Flow */,
 				7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */,
 				7DB1FAB62727DDC200113EAC /* Assets.xcassets */,
@@ -190,8 +199,27 @@
 			isa = PBXGroup;
 			children = (
 				7DB1FAE12727E06C00113EAC /* AppFlow.swift */,
+				7DB1FAE32727E1C900113EAC /* BlogStep.swift */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		7DB1FAE52727E2BD00113EAC /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				7DB1FAE72727E2DA00113EAC /* Main */,
+				7DB1FAE82727E2E200113EAC /* BaseViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		7DB1FAE72727E2DA00113EAC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7DB1FAEA2727E39700113EAC /* MainViewReactor.swift */,
+				7DB1FAEC2727E89300113EAC /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,6 +477,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DB1FAE42727E1C900113EAC /* BlogStep.swift in Sources */,
+				7DB1FAE92727E2E200113EAC /* BaseViewController.swift in Sources */,
+				7DB1FAEB2727E39700113EAC /* MainViewReactor.swift in Sources */,
+				7DB1FAED2727E89300113EAC /* MainViewController.swift in Sources */,
 				7DB1FAAE2727DDC100113EAC /* AppDelegate.swift in Sources */,
 				7DB1FAE22727E06C00113EAC /* AppFlow.swift in Sources */,
 			);

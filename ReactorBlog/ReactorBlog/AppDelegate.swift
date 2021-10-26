@@ -22,7 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
-    
+        
+        self.coordinator.rx.willNavigate.subscribe(onNext: { (flow, step) in
+            print("will navigate to flow=\(flow) and step=\(step)")
+        }).disposed(by: self.disposeBag)
+        
+        self.coordinator.rx.didNavigate.subscribe(onNext: { (flow, step) in
+            print("did navigate to flow=\(flow) and step=\(step)")
+        }).disposed(by: self.disposeBag)
         
         let appFlow = AppFlow()
         
@@ -30,7 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = root
         }
         
-        self.coordinator.coordinate(flow: appFlow)
+        let stepper = OneStepper(withSingleStep: BlogStep.main)
+        self.coordinator.coordinate(flow: appFlow, with: stepper)
         
         return true
     }
