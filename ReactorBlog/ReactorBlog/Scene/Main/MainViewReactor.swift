@@ -25,7 +25,7 @@ final class MainViewReactor: Reactor, Stepper {
     enum Mutation {
         case setLoading(Bool)
         case setRefreshing(Bool)
-        case setPosts([Void]) // fixme
+        case setPosts([Post])
         case setSearchWord(String)
         case appendPosts([Post], Bool)
     }
@@ -69,7 +69,7 @@ final class MainViewReactor: Reactor, Stepper {
             )
             .asObservable()
             .map { list in
-                return Mutation.appendPosts(list.documents, list.meta.isEnd)
+                return Mutation.setPosts(list.documents)
             }
             .catchError { error in
                 self.errorRelay.accept(error as? ErrorResponse)
@@ -92,7 +92,13 @@ final class MainViewReactor: Reactor, Stepper {
         case let .setSearchWord(keyword):
             state.query = keyword
             
+        case let .setPosts(posts):
+            state.isPageEnd = false
+            state.page = 2
+            state.items = posts.sorted(by: { $0.title < $1.title })
             
+            state.searchedKeyword = state.query
+        
         case let .appendPosts(posts, isEnd):
             state.isPageEnd = isEnd
             state.page += 1
