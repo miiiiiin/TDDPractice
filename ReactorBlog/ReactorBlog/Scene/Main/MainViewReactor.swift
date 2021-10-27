@@ -18,12 +18,14 @@ final class MainViewReactor: Reactor, Stepper {
     
     enum Action {
         case refresh
+        case updateSearchWord(String)
         
     }
     
     enum Mutation {
         case setRefreshing(Bool)
         case setPosts([Void]) // fixme
+        case setSearchWord(String)
     }
     
     
@@ -67,6 +69,24 @@ final class MainViewReactor: Reactor, Stepper {
 //            }
             
             return .concat([startRefreshing, search, stopRefreshing])
+            
+        case let .updateSearchWord(keyword):
+            return .just(.setSearchWord(keyword.trimmingCharacters(in: .whitespacesAndNewlines)))
         }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var state = state
+        
+        switch mutation {
+        case let .setSearchWord(keyword):
+            state.query = keyword
+            
+        default:
+            break
+        }
+        
+        print("reduce state: \(state), \(state.query)")
+        return state
     }
 }

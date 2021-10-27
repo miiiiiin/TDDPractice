@@ -96,6 +96,10 @@ extension MainViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        self.searchField.rx.text.orEmpty
+            .map(Reactor.Action.updateSearchWord)
+            .bind(to: reactor.action )
+            .disposed(by: disposeBag)
         
         let searchButtonTap = self.searchButton.rx.tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
@@ -123,8 +127,12 @@ extension MainViewController {
         
         reactor.state.map { $0.query }
             .distinctUntilChanged()
-            .map { $0 != "" }
-            .bind(to: self.searchButton.rx.isEnabled)
+//            .map { $0 != "" }
+//            .bind(to: self.searchButton.rx.isEnabled)
+//            .disposed(by: disposeBag)
+            .subscribe(onNext: { [weak self] query in
+                print("query check: \(query)")
+            })
             .disposed(by: disposeBag)
         
         
