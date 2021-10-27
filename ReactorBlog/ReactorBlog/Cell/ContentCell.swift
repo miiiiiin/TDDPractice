@@ -94,6 +94,5 @@ final class ContentCell: BaseTableViewCell, View {
     
     func bind(reactor: ContentCellReactor) {
         self.reactor = reactor
-    }
-    
+    }    
 }
