@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Post: Codable {
+struct Post: Codable, Equatable {
     var blogName: String?
     var contents: String?
-    var dateTime: Date?
+    var dateTime: Date
     var thumbnail: String?
     var title: String
     var url: URL
@@ -26,6 +26,10 @@ struct Post: Codable {
         
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        blogName = try? values.decode(String.self, forKey: .blogName)
+        contents = try? values.decode(String.self, forKey: .contents)
+        dateTime = try values.decode(Date.self, forKey: .dateTime)
+        thumbnail = try? values.decode(String.self, forKey: .thumbnail)
         title = try values.decode(String.self, forKey: .title)
         url = try values.decode(URL.self, forKey: .url)
     }

@@ -122,6 +122,7 @@ extension MainViewController {
         // MARK: - State -
         
         reactor.state.map { $0.items }
+            .distinctUntilChanged()
             .bind(to: self.tableView.rx.items) { tableView, indexPath, element in
                 guard let cell = tableView.dequeue(Reusable.contentCell) else { return UITableViewCell() }
                 

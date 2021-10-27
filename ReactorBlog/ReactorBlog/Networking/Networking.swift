@@ -23,7 +23,7 @@ class Networking<API: TargetType>: MoyaProvider<API> {
 
     func request(_ api: API) -> Single<Response> {
         return rx.request(api)
-//            .handleResponse() // fixme
+            .handleResponse()
             .filterSuccessfulStatusCodes()
     }
 }
@@ -35,6 +35,6 @@ extension Networking {
         decoder.dateDecodingStrategy = .formatted(.iso8601Full)
         return request(target)
             .map(T.self, using: decoder)
-            .debug("List")
+            .debug("SearchResult")
     }
 }
