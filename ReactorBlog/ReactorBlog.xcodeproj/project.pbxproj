@@ -15,6 +15,10 @@
 		7D73A4E72728E9AD001D4991 /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4E62728E9AD001D4991 /* ContentCell.swift */; };
 		7D73A4EA2728EACF001D4991 /* CGFloatLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4E92728EACF001D4991 /* CGFloatLiteral.swift */; };
 		7D73A4EC2728EBD5001D4991 /* ContentCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4EB2728EBD5001D4991 /* ContentCellReactor.swift */; };
+		7D73A4EF2728EF77001D4991 /* ServiceProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4EE2728EF77001D4991 /* ServiceProviderType.swift */; };
+		7D73A4F32728EFA7001D4991 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4F22728EFA7001D4991 /* UserDefaultService.swift */; };
+		7D73A4F52728EFBE001D4991 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4F42728EFBE001D4991 /* BaseService.swift */; };
+		7D73A4F72728F1D9001D4991 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4F62728F1D9001D4991 /* SearchService.swift */; };
 		7DB1FAAE2727DDC100113EAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */; };
 		7DB1FAB72727DDC200113EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB62727DDC200113EAC /* Assets.xcassets */; };
 		7DB1FABA2727DDC200113EAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB82727DDC200113EAC /* LaunchScreen.storyboard */; };
@@ -58,6 +62,10 @@
 		7D73A4E62728E9AD001D4991 /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		7D73A4E92728EACF001D4991 /* CGFloatLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatLiteral.swift; sourceTree = "<group>"; };
 		7D73A4EB2728EBD5001D4991 /* ContentCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCellReactor.swift; sourceTree = "<group>"; };
+		7D73A4EE2728EF77001D4991 /* ServiceProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderType.swift; sourceTree = "<group>"; };
+		7D73A4F22728EFA7001D4991 /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
+		7D73A4F42728EFBE001D4991 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		7D73A4F62728F1D9001D4991 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		7DB1FAAA2727DDC100113EAC /* ReactorBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB1FAB62727DDC200113EAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +172,17 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		7D73A4ED2728EF74001D4991 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7D73A4EE2728EF77001D4991 /* ServiceProviderType.swift */,
+				7D73A4F22728EFA7001D4991 /* UserDefaultService.swift */,
+				7D73A4F42728EFBE001D4991 /* BaseService.swift */,
+				7D73A4F62728F1D9001D4991 /* SearchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		7DB1FAA12727DDC100113EAC = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +208,7 @@
 		7DB1FAAC2727DDC100113EAC /* ReactorBlog */ = {
 			isa = PBXGroup;
 			children = (
+				7D73A4ED2728EF74001D4991 /* Service */,
 				7D73A4E82728EAC6001D4991 /* Util */,
 				7D73A4E32728E94F001D4991 /* Cell */,
 				7D73A4E02728E37A001D4991 /* View */,
@@ -532,9 +552,13 @@
 				7D73A4EC2728EBD5001D4991 /* ContentCellReactor.swift in Sources */,
 				7DB1FAE92727E2E200113EAC /* BaseViewController.swift in Sources */,
 				7DB1FAEB2727E39700113EAC /* MainViewReactor.swift in Sources */,
+				7D73A4F72728F1D9001D4991 /* SearchService.swift in Sources */,
 				7D73A4E52728E953001D4991 /* BaseTableViewCell.swift in Sources */,
 				7D73A4E22728E388001D4991 /* TableHeaderView.swift in Sources */,
 				7D73A4EA2728EACF001D4991 /* CGFloatLiteral.swift in Sources */,
+				7D73A4F52728EFBE001D4991 /* BaseService.swift in Sources */,
+				7D73A4F32728EFA7001D4991 /* UserDefaultService.swift in Sources */,
+				7D73A4EF2728EF77001D4991 /* ServiceProviderType.swift in Sources */,
 				7DB1FAED2727E89300113EAC /* MainViewController.swift in Sources */,
 				7D73A4E72728E9AD001D4991 /* ContentCell.swift in Sources */,
 				7DB1FAAE2727DDC100113EAC /* AppDelegate.swift in Sources */,
