@@ -32,7 +32,7 @@ class MainViewController: BaseViewController, ReactorKit.View {
     let searchDropDown = DropDown()
     let filterDropDown = DropDown()
     
-//    let refreshControl = RefreshControl()
+    let refreshControl = RefreshControl()
     
     let searchField = UISearchBar().then {
         $0.placeholder = "검색하기"
@@ -44,8 +44,8 @@ class MainViewController: BaseViewController, ReactorKit.View {
     
     lazy var tableView = UITableView(frame: .zero, style: .plain)
         .then {
-//            $0.refreshControl
             $0.register(Reusable.contentCell)
+            $0.refreshControl = refreshControl
         }
 
     let tableHeader = TableHeaderView(frame: CGRect(x: 0, y: 0, width: .zero, height: 50))
@@ -91,6 +91,10 @@ extension MainViewController {
         // MARK: - ACTION -
         
         
+        self.refreshControl.rx.controlEvent([.valueChanged])
+            .map { Reactor.Action.refresh }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
         
         
         let searchButtonTap = self.searchButton.rx.tap
@@ -103,6 +107,14 @@ extension MainViewController {
             })
             .disposed(by: disposeBag)
         
+        
+        
+        // MARK: - State -
+        
+        reactor.state.map { $0.isRefreshing }
+            .distinctUntilChanged()
+            .bind(to: self.refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
         
         
         // MARK: - TableView -

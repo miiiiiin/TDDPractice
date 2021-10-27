@@ -17,12 +17,15 @@ final class MainViewReactor: Reactor, Stepper {
     var steps = PublishRelay<Step>()
     
     enum Action {
-        
+        case refresh
         
     }
     
+    
     struct State {
-        
+        var query: String = ""
+        var isRefreshing: Bool = false
+        var searchedKeyword: String = ""
     }
     
     
