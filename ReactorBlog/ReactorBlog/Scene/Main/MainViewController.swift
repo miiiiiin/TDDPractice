@@ -14,6 +14,7 @@ import DropDown
 import SnapKit
 import RxGesture
 import ReusableKit
+import RxViewController
 
 class MainViewController: BaseViewController, ReactorKit.View {
     
@@ -93,6 +94,11 @@ extension MainViewController {
         
         self.refreshControl.rx.controlEvent([.valueChanged])
             .map { Reactor.Action.refresh }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        self.rx.viewDidLoad
+            .map { _ in Reactor.Action.loadSearchHistory }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         

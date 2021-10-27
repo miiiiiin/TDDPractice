@@ -19,6 +19,7 @@ final class MainViewReactor: Reactor, Stepper {
     enum Action {
         case refresh
         case updateSearchWord(String)
+        case loadSearchHistory
         
     }
     
@@ -28,6 +29,7 @@ final class MainViewReactor: Reactor, Stepper {
         case setPosts([Post])
         case setSearchWord(String)
         case appendPosts([Post], Bool)
+        case setSearchHistories([String])
     }
     
     
@@ -42,6 +44,7 @@ final class MainViewReactor: Reactor, Stepper {
         var isRefreshing: Bool = false
         
         var searchedKeyword: String = ""
+        var searchHistory: [String] = [""]
     }
     
     
@@ -57,6 +60,7 @@ final class MainViewReactor: Reactor, Stepper {
         switch action {
         case .refresh:
             if self.currentState.isRefreshing { return .empty() }
+            if self.currentState.isLoading { return .empty() }
             
             let startRefreshing = Observable.just(Mutation.setRefreshing(true))
             let stopRefreshing = Observable.just(Mutation.setRefreshing(false))
@@ -76,6 +80,12 @@ final class MainViewReactor: Reactor, Stepper {
                 return .empty()
             }            
             return .concat([startRefreshing, search, stopRefreshing])
+            
+        case .loadSearchHistory:
+            return self.provider.searchService.getSearchHistory()
+                .map { histories -> Mutation in
+                    Mutation.setSearchHistories(histories)
+                }
             
         case let .updateSearchWord(keyword):
             return .just(.setSearchWord(keyword.trimmingCharacters(in: .whitespacesAndNewlines)))
@@ -106,6 +116,9 @@ final class MainViewReactor: Reactor, Stepper {
             
             print("check state items:  \(state.items.count), \(state.items)")
         
+        case let .setSearchHistories(histories):
+            state.searchHistory = histories
+            
         default:
             break
         }

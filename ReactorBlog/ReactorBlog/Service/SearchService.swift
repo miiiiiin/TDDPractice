@@ -18,6 +18,8 @@ protocol SearchServiceType {
     
     func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Single<SearchResult>
     
+    func getSearchHistory() -> Observable<[String]>
+    
     func isCheckedURL(url: URL) -> Bool
 }
 
@@ -35,12 +37,22 @@ final class SearchService: BaseService, SearchServiceType {
     }
 
     
+    var readURLs: [String]? {
+        return self.provider.userDefaultService.value(object: [String].self, forKey: "readURLs")
+    }
+    
+    var searchHistories: [String]? {
+        return self.provider.userDefaultService.value(object: [String].self, forKey: "SearchHistory")
+    }
+    
+    
     func searchBlog(query: String, page: Int, size: Int) -> Single<SearchResult> {
         return self.network.requestObject(.searchBlog(query, page, size), type: SearchResult.self)
     }
     
-    var readURLs: [String]? {
-        return self.provider.userDefaultService.value(object: [String].self, forKey: "readURLs")
+    func getSearchHistory() -> Observable<[String]> {
+        guard let histories = self.searchHistories else { return .empty() }
+        return .just(histories)
     }
     
     func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Single<SearchResult> {
