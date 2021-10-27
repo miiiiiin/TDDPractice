@@ -8,7 +8,15 @@
 import Foundation
 import RxSwift
 
+enum FilterType {
+    case blog
+    case cafe
+    case all
+}
+
 protocol SearchServiceType {
+    
+    func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Observable<Void> // fixme
     
     func isCheckedURL(url: URL) -> Bool
 }
@@ -30,9 +38,14 @@ final class SearchService: BaseService, SearchServiceType {
         return self.provider.userDefaultService.value(object: [String].self, forKey: "readURLs")
     }
     
+    func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Observable<Void> {
+        return .empty() // fixme
+    }
+    
     func isCheckedURL(url: URL) -> Bool {
         let url = url.absoluteString
         let urls = self.readURLs ?? [""]
         return urls.contains(url)
     }
+    
 }

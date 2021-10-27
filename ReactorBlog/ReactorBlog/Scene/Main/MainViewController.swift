@@ -107,6 +107,11 @@ extension MainViewController {
             })
             .disposed(by: disposeBag)
         
+        searchButtonTap
+            .map { Reactor.Action.refresh }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         
         
         // MARK: - State -
@@ -114,6 +119,12 @@ extension MainViewController {
         reactor.state.map { $0.isRefreshing }
             .distinctUntilChanged()
             .bind(to: self.refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.query }
+            .distinctUntilChanged()
+            .map { $0 != "" }
+            .bind(to: self.searchButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
         
