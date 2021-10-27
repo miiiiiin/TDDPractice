@@ -27,10 +27,12 @@ final class MainViewReactor: Reactor, Stepper {
         case setRefreshing(Bool)
         case setPosts([Void]) // fixme
         case setSearchWord(String)
+        case appendPosts([Post], Bool)
     }
     
     
     struct State {
+        var items: [Post] = []
         var query: String = ""
         var filterType: FilterType = .all
         var page: Int = 1
@@ -42,7 +44,7 @@ final class MainViewReactor: Reactor, Stepper {
     }
     
     
-    private let errorRelay = PublishRelay<Error>()
+    private let errorRelay = PublishRelay<ErrorResponse?>()
     let initialState: State = State()
     
     init(provider: ServiceProviderType) {
@@ -66,12 +68,12 @@ final class MainViewReactor: Reactor, Stepper {
             )
             .asObservable()
             .map { list in
-                return Mutation.setPosts([list]) // fixme
+                return Mutation.appendPosts(list.documents, list.meta.isEnd)
             }
-//            .catchError { error in
-//                self.errorRelay.accept(error)
-//            }
-            
+            .catchError { error in
+                self.errorRelay.accept(error as? ErrorResponse)
+                return .empty()
+            }            
             return .concat([startRefreshing, search, stopRefreshing])
             
         case let .updateSearchWord(keyword):
