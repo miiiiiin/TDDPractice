@@ -36,6 +36,7 @@ final class MainViewReactor: Reactor, Stepper {
         var query: String = ""
         var filterType: FilterType = .all
         var page: Int = 1
+        var isPageEnd: Bool = false
         
         var isLoading: Bool = false
         var isRefreshing: Bool = false
@@ -91,6 +92,14 @@ final class MainViewReactor: Reactor, Stepper {
         case let .setSearchWord(keyword):
             state.query = keyword
             
+            
+        case let .appendPosts(posts, isEnd):
+            state.isPageEnd = isEnd
+            state.page += 1
+            state.items += posts.sorted(by: { $0.title < $1.title })
+            
+            print("check state items:  \(state.items.count), \(state.items)")
+        
         default:
             break
         }

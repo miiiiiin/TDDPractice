@@ -121,6 +121,22 @@ extension MainViewController {
         
         // MARK: - State -
         
+        reactor.state.map { $0.items }
+            .bind(to: self.tableView.rx.items) { tableView, indexPath, element in
+                guard let cell = tableView.dequeue(Reusable.contentCell) else { return UITableViewCell() }
+                
+                print("tableview cell element: \(element)")
+                cell.reactor = ContentCellReactor(post: element, provider: reactor.provider)
+                return cell
+            }
+            .disposed(by: disposeBag)
+            
+        
+        reactor.state.map { $0.isLoading }
+            .distinctUntilChanged()
+            .bind(to: self.activityIndicatorView.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
         reactor.state.map { $0.isRefreshing }
             .distinctUntilChanged()
             .bind(to: self.refreshControl.rx.isRefreshing)
@@ -136,10 +152,6 @@ extension MainViewController {
             })
             .disposed(by: disposeBag)
         
-        reactor.state.map { $0.isLoading }
-            .distinctUntilChanged()
-            .bind(to: self.activityIndicatorView.rx.isAnimating)
-            .disposed(by: disposeBag)
         
         
         // MARK: - TableView -
@@ -172,4 +184,7 @@ extension MainViewController {
 
 extension MainViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Metric.tableViewCellHeight
+    }
 }

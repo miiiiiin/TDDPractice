@@ -32,9 +32,9 @@ final class ContentCellReactor: Reactor {
     var initialState: State
     let provider: ServiceProviderType
 
-    init(provider: ServiceProviderType) {
+    init(post: Post, provider: ServiceProviderType) {
         self.provider = provider
         
-        self.initialState = State(url: URL(string: "")!) // fixmes
+        self.initialState = State(url: post.url)
     }
 }
