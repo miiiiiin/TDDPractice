@@ -22,6 +22,8 @@
 		7D73A4FE2728FDB5001D4991 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4FD2728FDB5001D4991 /* BaseAPI.swift */; };
 		7D73A5002728FE3C001D4991 /* KakaoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4FF2728FE3C001D4991 /* KakaoAPI.swift */; };
 		7D73A5022728FF5E001D4991 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A5012728FF5E001D4991 /* Bundle.swift */; };
+		7D73A504272901B1001D4991 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A503272901B1001D4991 /* Networking.swift */; };
+		7D73A507272912BE001D4991 /* Extension+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A506272912BE001D4991 /* Extension+DateFormatter.swift */; };
 		7DB1FAAE2727DDC100113EAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */; };
 		7DB1FAB72727DDC200113EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB62727DDC200113EAC /* Assets.xcassets */; };
 		7DB1FABA2727DDC200113EAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB82727DDC200113EAC /* LaunchScreen.storyboard */; };
@@ -72,6 +74,8 @@
 		7D73A4FD2728FDB5001D4991 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		7D73A4FF2728FE3C001D4991 /* KakaoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPI.swift; sourceTree = "<group>"; };
 		7D73A5012728FF5E001D4991 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		7D73A503272901B1001D4991 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		7D73A506272912BE001D4991 /* Extension+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+DateFormatter.swift"; sourceTree = "<group>"; };
 		7DB1FAAA2727DDC100113EAC /* ReactorBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB1FAB62727DDC200113EAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				7D73A4FC2728FDB2001D4991 /* API */,
+				7D73A503272901B1001D4991 /* Networking.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -212,6 +217,14 @@
 				7D73A4FF2728FE3C001D4991 /* KakaoAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		7D73A505272912B7001D4991 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7D73A506272912BE001D4991 /* Extension+DateFormatter.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		7DB1FAA12727DDC100113EAC = {
@@ -239,6 +252,7 @@
 		7DB1FAAC2727DDC100113EAC /* ReactorBlog */ = {
 			isa = PBXGroup;
 			children = (
+				7D73A505272912B7001D4991 /* Extension */,
 				7D73A4FB2728FD91001D4991 /* Networking */,
 				7D73A4F82728FD6E001D4991 /* Model */,
 				7D73A4ED2728EF74001D4991 /* Service */,
@@ -591,9 +605,11 @@
 				7D73A4E52728E953001D4991 /* BaseTableViewCell.swift in Sources */,
 				7D73A4E22728E388001D4991 /* TableHeaderView.swift in Sources */,
 				7D73A4EA2728EACF001D4991 /* CGFloatLiteral.swift in Sources */,
+				7D73A504272901B1001D4991 /* Networking.swift in Sources */,
 				7D73A4F52728EFBE001D4991 /* BaseService.swift in Sources */,
 				7D73A4F32728EFA7001D4991 /* UserDefaultService.swift in Sources */,
 				7D73A4EF2728EF77001D4991 /* ServiceProviderType.swift in Sources */,
+				7D73A507272912BE001D4991 /* Extension+DateFormatter.swift in Sources */,
 				7DB1FAED2727E89300113EAC /* MainViewController.swift in Sources */,
 				7D73A4E72728E9AD001D4991 /* ContentCell.swift in Sources */,
 				7D73A4FE2728FDB5001D4991 /* BaseAPI.swift in Sources */,

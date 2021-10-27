@@ -15,7 +15,10 @@ protocol SearchServiceType {
 
 final class SearchService: BaseService, SearchServiceType {
     
+    private var network: Networking<KakaoAPI>
+    
     init(provider: ServiceProviderType, isStub: Bool) {
+        self.network = Networking(plugins: [], isStub: false) // fixme
         super.init(provider: provider)
     }
     
