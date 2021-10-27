@@ -16,7 +16,7 @@ enum FilterType {
 
 protocol SearchServiceType {
     
-    func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Observable<Void> // fixme
+    func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Single<SearchResult>
     
     func isCheckedURL(url: URL) -> Bool
 }
@@ -34,12 +34,17 @@ final class SearchService: BaseService, SearchServiceType {
         self.init(provider: provider, isStub: false)
     }
 
+    
+    func searchBlog(query: String, page: Int, size: Int) -> Single<SearchResult> {
+        return self.network.requestObject(.searchBlog(query, page, size), type: SearchResult.self)
+    }
+    
     var readURLs: [String]? {
         return self.provider.userDefaultService.value(object: [String].self, forKey: "readURLs")
     }
     
-    func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Observable<Void> {
-        return .empty() // fixme
+    func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Single<SearchResult> {
+        return searchBlog(query: query, page: page, size: size)
     }
     
     func isCheckedURL(url: URL) -> Bool {
@@ -47,5 +52,4 @@ final class SearchService: BaseService, SearchServiceType {
         let urls = self.readURLs ?? [""]
         return urls.contains(url)
     }
-    
 }
