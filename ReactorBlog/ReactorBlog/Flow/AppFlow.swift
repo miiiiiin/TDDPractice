@@ -12,14 +12,16 @@ import RxFlow
 
 final class AppFlow: Flow {
     
+    private let provider: ServiceProviderType
+    
     private lazy var rootViewController = UINavigationController()
     
     var root: Presentable {
         self.rootViewController
     }
     
-    init() {
-        
+    init(provider: ServiceProviderType) {
+        self.provider = provider
     }
     
     func navigate(to step: Step) -> FlowContributors {
@@ -42,7 +44,7 @@ final class AppFlow: Flow {
 extension AppFlow {
     
     private func navigateToMain() -> FlowContributors {
-        let reactor = MainViewReactor()
+        let reactor = MainViewReactor(provider: self.provider)
         let viewController = MainViewController(reactor: reactor)
         
         self.rootViewController.pushViewController(viewController, animated: true)

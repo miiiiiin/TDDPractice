@@ -19,19 +19,22 @@ final class ContentCellReactor: Reactor {
     }
     
     struct State {
-        var isWebPageRead: Bool
+//        var isWebPageRead: Bool
         
-        let thumbnail: URL?
-        let name: String
-        let title: String
-        let date: Date
+//        let thumbnail: URL?
+//        let name: String
+//        let title: String
+//        let date: Date
 //        let kind: PostKind
         let url: URL
     }
     
     var initialState: State
-    
-    init() {
+    let provider: ServiceProviderType
+
+    init(provider: ServiceProviderType) {
+        self.provider = provider
         
+        self.initialState = State(url: URL(string: "")!) // fixmes
     }
 }

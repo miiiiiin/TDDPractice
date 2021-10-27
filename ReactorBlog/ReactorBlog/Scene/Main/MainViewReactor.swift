@@ -12,6 +12,8 @@ import RxFlow
 
 final class MainViewReactor: Reactor, Stepper {
 
+    
+    let provider: ServiceProviderType
     var steps = PublishRelay<Step>()
     
     enum Action {
@@ -26,8 +28,7 @@ final class MainViewReactor: Reactor, Stepper {
     
     let initialState: State = State()
     
-    init() {
-        
-    }
-    
+    init(provider: ServiceProviderType) {
+        self.provider = provider
+    }    
 }

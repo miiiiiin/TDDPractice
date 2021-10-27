@@ -15,7 +15,7 @@ final class TableHeaderView: UIView {
     }
     
     let sortButton = UIButton().then {
-        $0.setImage(UIImage(named: "sortIcon"), for: .normal)
+        $0.setImage(UIImage(named: "icMenuFilled"), for: .normal)
         $0.backgroundColor = .green
     }
     
