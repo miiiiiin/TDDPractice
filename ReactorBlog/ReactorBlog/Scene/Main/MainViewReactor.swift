@@ -23,6 +23,7 @@ final class MainViewReactor: Reactor, Stepper {
     }
     
     enum Mutation {
+        case setLoading(Bool)
         case setRefreshing(Bool)
         case setPosts([Void]) // fixme
         case setSearchWord(String)
@@ -33,6 +34,8 @@ final class MainViewReactor: Reactor, Stepper {
         var query: String = ""
         var filterType: FilterType = .all
         var page: Int = 1
+        
+        var isLoading: Bool = false
         var isRefreshing: Bool = false
         
         var searchedKeyword: String = ""
@@ -46,6 +49,7 @@ final class MainViewReactor: Reactor, Stepper {
         self.provider = provider
     }
     
+    // 액션 바인딩 시 아래 메소드 통해 액션 케이스 실행
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .refresh:
@@ -79,6 +83,9 @@ final class MainViewReactor: Reactor, Stepper {
         var state = state
         
         switch mutation {
+        case let .setLoading(isLoading):
+            state.isLoading = isLoading
+            
         case let .setSearchWord(keyword):
             state.query = keyword
             

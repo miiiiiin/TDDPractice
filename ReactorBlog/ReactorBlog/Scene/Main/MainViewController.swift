@@ -96,6 +96,7 @@ extension MainViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        // searchField 텍스트 & reactor 액션 바인딩
         self.searchField.rx.text.orEmpty
             .map(Reactor.Action.updateSearchWord)
             .bind(to: reactor.action )
@@ -133,6 +134,11 @@ extension MainViewController {
             .subscribe(onNext: { [weak self] query in
                 print("query check: \(query)")
             })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isLoading }
+            .distinctUntilChanged()
+            .bind(to: self.activityIndicatorView.rx.isAnimating)
             .disposed(by: disposeBag)
         
         
