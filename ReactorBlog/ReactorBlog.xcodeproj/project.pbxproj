@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		13065FDE0EEDCE47C0439ED6 /* Pods_ReactorBlog_ReactorBlogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B40A32F7AE5EE2CB7BA5D06 /* Pods_ReactorBlog_ReactorBlogUITests.framework */; };
 		4276628F95FA1DAF9E00F0BD /* Pods_ReactorBlogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067A669D521B29C6452187D6 /* Pods_ReactorBlogTests.framework */; };
+		7D73A4DF2728E0C3001D4991 /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4DE2728E0C3001D4991 /* UITableView+Rx.swift */; };
+		7D73A4E22728E388001D4991 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4E12728E388001D4991 /* TableHeaderView.swift */; };
+		7D73A4E52728E953001D4991 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4E42728E953001D4991 /* BaseTableViewCell.swift */; };
+		7D73A4E72728E9AD001D4991 /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4E62728E9AD001D4991 /* ContentCell.swift */; };
+		7D73A4EA2728EACF001D4991 /* CGFloatLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4E92728EACF001D4991 /* CGFloatLiteral.swift */; };
+		7D73A4EC2728EBD5001D4991 /* ContentCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4EB2728EBD5001D4991 /* ContentCellReactor.swift */; };
 		7DB1FAAE2727DDC100113EAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */; };
 		7DB1FAB72727DDC200113EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB62727DDC200113EAC /* Assets.xcassets */; };
 		7DB1FABA2727DDC200113EAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB82727DDC200113EAC /* LaunchScreen.storyboard */; };
@@ -46,6 +52,12 @@
 		42685D70E68FC56B69ABA720 /* Pods-ReactorBlogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorBlogTests.release.xcconfig"; path = "Target Support Files/Pods-ReactorBlogTests/Pods-ReactorBlogTests.release.xcconfig"; sourceTree = "<group>"; };
 		54B610FDE3830E78FBEE6562 /* Pods-ReactorBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorBlog.release.xcconfig"; path = "Target Support Files/Pods-ReactorBlog/Pods-ReactorBlog.release.xcconfig"; sourceTree = "<group>"; };
 		56359EDE3A817081B5CA98E6 /* Pods-ReactorBlog-ReactorBlogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorBlog-ReactorBlogUITests.debug.xcconfig"; path = "Target Support Files/Pods-ReactorBlog-ReactorBlogUITests/Pods-ReactorBlog-ReactorBlogUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7D73A4DE2728E0C3001D4991 /* UITableView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
+		7D73A4E12728E388001D4991 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
+		7D73A4E42728E953001D4991 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		7D73A4E62728E9AD001D4991 /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
+		7D73A4E92728EACF001D4991 /* CGFloatLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatLiteral.swift; sourceTree = "<group>"; };
+		7D73A4EB2728EBD5001D4991 /* ContentCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCellReactor.swift; sourceTree = "<group>"; };
 		7DB1FAAA2727DDC100113EAC /* ReactorBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB1FAB62727DDC200113EAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +130,40 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7D73A4DD2728E0B6001D4991 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				7D73A4DE2728E0C3001D4991 /* UITableView+Rx.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		7D73A4E02728E37A001D4991 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D73A4E12728E388001D4991 /* TableHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D73A4E32728E94F001D4991 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7D73A4E42728E953001D4991 /* BaseTableViewCell.swift */,
+				7D73A4E62728E9AD001D4991 /* ContentCell.swift */,
+				7D73A4EB2728EBD5001D4991 /* ContentCellReactor.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7D73A4E82728EAC6001D4991 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7D73A4E92728EACF001D4991 /* CGFloatLiteral.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		7DB1FAA12727DDC100113EAC = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +189,10 @@
 		7DB1FAAC2727DDC100113EAC /* ReactorBlog */ = {
 			isa = PBXGroup;
 			children = (
+				7D73A4E82728EAC6001D4991 /* Util */,
+				7D73A4E32728E94F001D4991 /* Cell */,
+				7D73A4E02728E37A001D4991 /* View */,
+				7D73A4DD2728E0B6001D4991 /* Rx */,
 				7DB1FAE52727E2BD00113EAC /* Scene */,
 				7DB1FAE02727E03D00113EAC /* Flow */,
 				7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */,
@@ -478,9 +528,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DB1FAE42727E1C900113EAC /* BlogStep.swift in Sources */,
+				7D73A4DF2728E0C3001D4991 /* UITableView+Rx.swift in Sources */,
+				7D73A4EC2728EBD5001D4991 /* ContentCellReactor.swift in Sources */,
 				7DB1FAE92727E2E200113EAC /* BaseViewController.swift in Sources */,
 				7DB1FAEB2727E39700113EAC /* MainViewReactor.swift in Sources */,
+				7D73A4E52728E953001D4991 /* BaseTableViewCell.swift in Sources */,
+				7D73A4E22728E388001D4991 /* TableHeaderView.swift in Sources */,
+				7D73A4EA2728EACF001D4991 /* CGFloatLiteral.swift in Sources */,
 				7DB1FAED2727E89300113EAC /* MainViewController.swift in Sources */,
+				7D73A4E72728E9AD001D4991 /* ContentCell.swift in Sources */,
 				7DB1FAAE2727DDC100113EAC /* AppDelegate.swift in Sources */,
 				7DB1FAE22727E06C00113EAC /* AppFlow.swift in Sources */,
 			);

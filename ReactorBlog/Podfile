@@ -25,6 +25,7 @@ target 'ReactorBlog' do
   
   # Tool
   pod 'Then'
+  pod 'ReusableKit/RxSwift'
 
   target 'ReactorBlogTests' do
     inherit! :search_paths

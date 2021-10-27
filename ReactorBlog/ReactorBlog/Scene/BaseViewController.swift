@@ -12,6 +12,13 @@ import SnapKit
 
 class BaseViewController: UIViewController {
     
+    lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        return view
+    }()
+    
+    private(set) var didSetupConstraints = false
+    
     // MARK: - Init -
     
     init() {
@@ -22,19 +29,39 @@ class BaseViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("activityIndicatorView stop")
+        activityIndicatorView.stopAnimating()
+    }
+    
     
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.setNeedsUpdateConstraints()
-        
         setUpUI()
+    }
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
         
+        if !self.didSetupConstraints {
+            self.didSetupConstraints = true
+            self.setupConstraints()
+        }
+    }
+    
+    func setupConstraints() {
+        activityIndicatorView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
     
     private func setUpUI() {
+        self.view.setNeedsUpdateConstraints()
+        self.view.addSubview(activityIndicatorView)
+        
         let backItem = UIBarButtonItem()
         backItem.title = ""
         backItem.tintColor = .systemGray
