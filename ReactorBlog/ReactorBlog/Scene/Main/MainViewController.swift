@@ -69,8 +69,12 @@ class MainViewController: BaseViewController, ReactorKit.View {
         self.view.addSubview(self.tableView)
         self.tableView.tableHeaderView = self.tableHeader
         
-        self.navigationItem.titleView = searchField
-        self.navigationItem.rightBarButtonItem = searchButton
+        self.navigationItem.titleView = self.searchField
+        self.navigationItem.rightBarButtonItem = self.searchButton
+        
+        self.searchDropDown.anchorView = self.searchField
+        self.searchDropDown.width = self.view.bounds.width - 80
+        self.searchDropDown.bottomOffset = CGPoint(x: 5, y: (self.navigationController?.navigationBar.bounds.height)! + 10)
     }
     
     override func setupConstraints() {
@@ -104,6 +108,26 @@ extension MainViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        self.tableHeader.sortButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                
+                let titleAction = UIAlertAction(title: "Title", style: .default) { _ in
+                    reactor.action.onNext(.updateSort(.titleAsc))
+                }
+                
+                let dateAction = UIAlertAction(title: "DateTime", style: .default) { _ in
+                    reactor.action.onNext(.updateSort(.recency))
+                }
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                
+                [titleAction, dateAction, cancelAction].forEach(actionSheet.addAction(_:))
+                self?.present(actionSheet, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+        
+        
         // searchField 텍스트 & reactor 액션 바인딩
         self.searchField.rx.text.orEmpty
             .map(Reactor.Action.updateSearchWord)
@@ -125,25 +149,21 @@ extension MainViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        self.tableHeader.sortButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                
-                let titleAction = UIAlertAction(title: "Title", style: .default) { _ in
-                    reactor.action.onNext(.updateSort(.titleAsc))
-                }
-                
-                let dateAction = UIAlertAction(title: "DateTime", style: .default) { _ in
-                    reactor.action.onNext(.updateSort(.recency))
-                }
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                
-                [titleAction, dateAction, cancelAction].forEach(actionSheet.addAction(_:))
-                self?.present(actionSheet, animated: true, completion: nil)
-            })
+        searchButtonTap
+            .map { Reactor.Action.updateSearchHistory }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        
+        self.searchDropDown.selectionAction = { [unowned self] index, item in
+                self.searchDropDown.clearSelection()
+                self.searchField.resignFirstResponder()
+            
+                self.searchField.text = item
+                reactor.action.onNext(.updateSearchWord(item))
+                reactor.action.onNext(.refresh)
+                reactor.action.onNext(.updateSearchHistory)
+            }
         
         // MARK: - State -
         
@@ -173,6 +193,13 @@ extension MainViewController {
 //            .subscribe(onNext: { [weak self] query in
 //                print("query check: \(query)")
 //            })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.searchHistory }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] list in
+                self?.searchDropDown.dataSource = list.reversed()
+            })
             .disposed(by: disposeBag)
         
         

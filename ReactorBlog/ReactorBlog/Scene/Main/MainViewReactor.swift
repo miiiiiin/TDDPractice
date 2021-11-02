@@ -24,6 +24,7 @@ final class MainViewReactor: Reactor, Stepper {
         case loadMore
         case loadSearchHistory
         case updateSearchWord(String)
+        case updateSearchHistory
         case updateSort(SortType)
     }
     
@@ -33,6 +34,7 @@ final class MainViewReactor: Reactor, Stepper {
         case setPosts([Post])
         case setSearchWord(String)
         case appendPosts([Post], Bool)
+        case setSearchHistory(String)
         case setSearchHistories([String])
         case applySortType(SortType)
     }
@@ -122,6 +124,9 @@ final class MainViewReactor: Reactor, Stepper {
             
         case let .updateSearchWord(keyword):
             return .just(.setSearchWord(keyword.trimmingCharacters(in: .whitespacesAndNewlines)))
+        
+        case .updateSearchHistory:
+            return .just(.setSearchHistory(self.currentState.query))
         }
     }
     
@@ -154,6 +159,16 @@ final class MainViewReactor: Reactor, Stepper {
             
             print("check state items:  \(state.items.count), \(state.items)")
         
+        case let .setSearchHistory(history):
+            print("set search history reduce: \(history)")
+            if state.searchHistory.contains(history) {
+                state.searchHistory.removeAll(where: { $0 == history || $0 == ""})
+                state.searchHistory.append(history)
+            } else {
+                state.searchHistory.removeAll(where: { $0 == "" })
+                state.searchHistory.append(history)
+            }
+            
         case let .setSearchHistories(histories):
             state.searchHistory = histories
             

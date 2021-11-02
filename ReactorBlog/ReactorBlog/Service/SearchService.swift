@@ -18,6 +18,8 @@ protocol SearchServiceType {
     
     func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Single<SearchResult>
     
+    func setSearchHistory(histories: [String])
+    
     func getSearchHistory() -> Observable<[String]>
     
     var urlEvent: PublishSubject<[String]> { get }
@@ -25,6 +27,7 @@ protocol SearchServiceType {
     func isCheckedURL(url: URL) -> Bool
     
     func setCheckedURL(url: URL)
+    
 }
 
 final class SearchService: BaseService, SearchServiceType {
@@ -53,6 +56,10 @@ final class SearchService: BaseService, SearchServiceType {
     
     func searchBlog(query: String, page: Int, size: Int) -> Single<SearchResult> {
         return self.network.requestObject(.searchBlog(query, page, size), type: SearchResult.self)
+    }
+    
+    func setSearchHistory(histories: [String]) {
+        self.provider.userDefaultService.set(value: histories, forKey: "SearchHistory")
     }
     
     func getSearchHistory() -> Observable<[String]> {
