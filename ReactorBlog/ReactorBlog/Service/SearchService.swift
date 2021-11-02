@@ -42,7 +42,17 @@ final class SearchService: BaseService, SearchServiceType {
     override convenience init(provider: ServiceProviderType) {
         self.init(provider: provider, isStub: false)
     }
-
+    
+    // MARK: - Private -
+    
+    private func searchBlog(query: String, page: Int, size: Int) -> Single<SearchResult> {
+        return self.network.requestObject(.searchBlog(query, page, size), type: SearchResult.self)
+    }
+    
+    private func searchCafe(query: String, page: Int, size: Int) -> Single<SearchResult> {
+        return self.network.requestObject(.searchCafe(query, page, size), type: SearchResult.self)
+    }
+    
     let urlEvent = PublishSubject<[String]>()
     
     var readURLs: [String]? {
@@ -51,11 +61,6 @@ final class SearchService: BaseService, SearchServiceType {
     
     var searchHistories: [String]? {
         return self.provider.userDefaultService.value(object: [String].self, forKey: "SearchHistory")
-    }
-    
-    
-    func searchBlog(query: String, page: Int, size: Int) -> Single<SearchResult> {
-        return self.network.requestObject(.searchBlog(query, page, size), type: SearchResult.self)
     }
     
     func setSearchHistory(histories: [String]) {
@@ -67,8 +72,30 @@ final class SearchService: BaseService, SearchServiceType {
         return .just(histories)
     }
     
+    
     func searchPost(query: String, filter: FilterType, page: Int, size: Int) -> Single<SearchResult> {
-        return searchBlog(query: query, page: page, size: size)
+        switch filter {
+        case .all:
+            let size = size / 2
+            let blog = searchBlog(query: query, page: page, size: size)
+            let cafe = searchCafe(query: query, page: page, size: size)
+            return Single.zip(blog, cafe) { lhs, rhs in
+                let documents = lhs.documents + rhs.documents
+                let meta = Meta(
+                    isEnd: lhs.meta.isEnd || rhs.meta.isEnd,
+                    pageableCount: lhs.meta.pageableCount + rhs.meta.pageableCount,
+                    totalCount: lhs.meta.totalCount + rhs.meta.totalCount)
+                
+                print("all search check: \(documents.count), \(meta)")
+                return SearchResult(documents: documents, meta: meta)
+            }
+            
+        case .blog:
+            return searchBlog(query: query, page: page, size: size)
+            
+        case .cafe:
+            return searchCafe(query: query, page: page, size: size)
+        }
     }
     
     func setCheckedURL(url: URL) {

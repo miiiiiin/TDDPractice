@@ -85,6 +85,7 @@ final class MainViewReactor: Reactor, Stepper {
                 return Mutation.setPosts(result.documents)
             }
             .catchError { error in
+                print("fetch error: \(error as? ErrorResponse)")
                 self.errorRelay.accept(error as? ErrorResponse)
                 return .empty()
             }            
