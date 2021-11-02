@@ -75,6 +75,11 @@ class MainViewController: BaseViewController, ReactorKit.View {
         self.searchDropDown.anchorView = self.searchField
         self.searchDropDown.width = self.view.bounds.width - 80
         self.searchDropDown.bottomOffset = CGPoint(x: 5, y: (self.navigationController?.navigationBar.bounds.height)! + 10)
+        
+        self.filterDropDown.anchorView = self.tableHeader
+        self.filterDropDown.width = self.view.bounds.width - 80
+        self.filterDropDown.bottomOffset = CGPoint(x: 5, y: self.tableHeader.bounds.height)
+        self.filterDropDown.dataSource = [FilterType.all.rawValue, FilterType.cafe.rawValue, FilterType.blog.rawValue]
     }
     
     override func setupConstraints() {
@@ -154,7 +159,6 @@ extension MainViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        
         self.searchDropDown.selectionAction = { [unowned self] index, item in
                 self.searchDropDown.clearSelection()
                 self.searchField.resignFirstResponder()
@@ -164,6 +168,36 @@ extension MainViewController {
                 reactor.action.onNext(.refresh)
                 reactor.action.onNext(.updateSearchHistory)
             }
+        
+        
+        self.filterDropDown.selectionAction = { [unowned self] index, item in
+            self.filterDropDown.clearSelection()
+            self.searchField.resignFirstResponder()
+            
+            guard let filterType = FilterType(rawValue: item) else { return }
+            print("filterdropdown check: \(filterType)")
+            
+//            switch filterType {
+//            case .all:
+//
+////                    self.tableViewHeader.filterButton.setTitle("All", for: .normal)
+////                    reactor.action.onNext(.updateFilter(.all))
+//
+//                self.tableHeader.filterButton.setTitle(item, for: .normal)
+//                reactor.action.onNext(.updateFilter())
+//
+//            case .blog:
+//                break
+//            case. cafe:
+//                break
+//            }
+            
+            self.tableHeader.filterButton.setTitle(item, for: .normal)
+            reactor.action.onNext(.updateFilter(filterType))
+            
+            reactor.action.onNext(.refresh)
+        }
+        
         
         // MARK: - State -
         
@@ -210,6 +244,12 @@ extension MainViewController {
         
         self.tableView.rx.itemSelected
             .bind(to: self.tableView.rx.deselectRow)
+            .disposed(by: disposeBag)
+        
+        self.tableHeader.filterButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.filterDropDown.show()
+            })
             .disposed(by: disposeBag)
         
         self.searchField.rx.tapGesture()

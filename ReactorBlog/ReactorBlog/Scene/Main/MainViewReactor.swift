@@ -26,6 +26,7 @@ final class MainViewReactor: Reactor, Stepper {
         case updateSearchWord(String)
         case updateSearchHistory
         case updateSort(SortType)
+        case updateFilter(FilterType)
     }
     
     enum Mutation {
@@ -37,6 +38,7 @@ final class MainViewReactor: Reactor, Stepper {
         case setSearchHistory(String)
         case setSearchHistories([String])
         case applySortType(SortType)
+        case setFilterType(FilterType)
     }
     
     struct State {
@@ -122,11 +124,15 @@ final class MainViewReactor: Reactor, Stepper {
         case let .updateSort(type):
             return .just(.applySortType(type))
             
+        case let .updateFilter(type):
+            return .just(.setFilterType(type))
+            
         case let .updateSearchWord(keyword):
             return .just(.setSearchWord(keyword.trimmingCharacters(in: .whitespacesAndNewlines)))
         
         case .updateSearchHistory:
             return .just(.setSearchHistory(self.currentState.query))
+            
         }
     }
     
@@ -170,6 +176,7 @@ final class MainViewReactor: Reactor, Stepper {
             }
             
         case let .setSearchHistories(histories):
+            print("set search histories: \(histories)")
             state.searchHistory = histories
             
         case let .applySortType(type):
@@ -180,6 +187,9 @@ final class MainViewReactor: Reactor, Stepper {
             case .recency:
                 state.items.sort(by: { $0.dateTime > $1.dateTime })
             }
+            
+        case let .setFilterType(type):
+            state.filterType = type
             
         default:
             break

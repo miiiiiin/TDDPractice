@@ -8,10 +8,10 @@
 import Foundation
 import RxSwift
 
-enum FilterType {
-    case blog
-    case cafe
-    case all
+enum FilterType: String {
+    case blog = "Blog"
+    case cafe = "Cafe"
+    case all = "All"
 }
 
 protocol SearchServiceType {
