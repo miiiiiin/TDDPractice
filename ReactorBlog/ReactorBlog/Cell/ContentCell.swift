@@ -30,7 +30,7 @@ final class ContentCell: BaseTableViewCell, View {
         let view = UIImageView()
         return view
     }()
-
+    
     let kindLabel = UILabel().then {
         $0.font = Font.kindLabel
         $0.textColor = .blue
@@ -56,6 +56,8 @@ final class ContentCell: BaseTableViewCell, View {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        self.backgroundColor = .clear
         
         self.thumbnail.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-Metric.cellPddding)
@@ -88,7 +90,6 @@ final class ContentCell: BaseTableViewCell, View {
     }
     
     func bind(reactor: ContentCellReactor) {
-        self.reactor = reactor
         
         // MARK: - State -
         
@@ -139,6 +140,5 @@ final class ContentCell: BaseTableViewCell, View {
             .map { String($0.rawValue.first!) }
             .bind(to: self.kindLabel.rx.text)
             .disposed(by: disposeBag)
-        
     }    
 }

@@ -46,7 +46,7 @@ class MainViewController: BaseViewController, ReactorKit.View {
     lazy var tableView = UITableView(frame: .zero, style: .plain)
         .then {
             $0.register(Reusable.contentCell)
-            $0.refreshControl = refreshControl
+            $0.refreshControl = self.refreshControl
         }
 
     let tableHeader = TableHeaderView(frame: CGRect(x: 0, y: 0, width: .zero, height: 50))
@@ -66,13 +66,11 @@ class MainViewController: BaseViewController, ReactorKit.View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(tableView)
+        self.view.addSubview(self.tableView)
+        self.tableView.tableHeaderView = self.tableHeader
         
         self.navigationItem.titleView = searchField
         self.navigationItem.rightBarButtonItem = searchButton
-        
-        self.tableView.tableHeaderView = tableHeader
-        
     }
     
     override func setupConstraints() {
@@ -148,12 +146,11 @@ extension MainViewController {
         
         reactor.state.map { $0.query }
             .distinctUntilChanged()
-//            .map { $0 != "" }
-//            .bind(to: self.searchButton.rx.isEnabled)
-//            .disposed(by: disposeBag)
-            .subscribe(onNext: { [weak self] query in
-                print("query check: \(query)")
-            })
+            .map { $0 != "" }
+            .bind(to: self.searchButton.rx.isEnabled)
+//            .subscribe(onNext: { [weak self] query in
+//                print("query check: \(query)")
+//            })
             .disposed(by: disposeBag)
         
         

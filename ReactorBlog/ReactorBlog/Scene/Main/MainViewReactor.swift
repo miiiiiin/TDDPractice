@@ -12,15 +12,12 @@ import RxFlow
 
 final class MainViewReactor: Reactor, Stepper {
 
-    
-    let provider: ServiceProviderType
     var steps = PublishRelay<Step>()
     
     enum Action {
         case refresh
         case updateSearchWord(String)
         case loadSearchHistory
-        
     }
     
     enum Mutation {
@@ -31,7 +28,6 @@ final class MainViewReactor: Reactor, Stepper {
         case appendPosts([Post], Bool)
         case setSearchHistories([String])
     }
-    
     
     struct State {
         var items: [Post] = []
@@ -50,6 +46,7 @@ final class MainViewReactor: Reactor, Stepper {
     
     private let errorRelay = PublishRelay<ErrorResponse?>()
     let initialState: State = State()
+    let provider: ServiceProviderType
     
     init(provider: ServiceProviderType) {
         self.provider = provider
@@ -98,6 +95,9 @@ final class MainViewReactor: Reactor, Stepper {
         switch mutation {
         case let .setLoading(isLoading):
             state.isLoading = isLoading
+            
+        case let .setRefreshing(isRefreshing):
+            state.isRefreshing = isRefreshing
             
         case let .setSearchWord(keyword):
             state.query = keyword
