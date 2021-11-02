@@ -36,7 +36,7 @@ final class ContentCellReactor: Reactor {
         
         self.initialState = State(isWebPageRead: provider.searchService.isCheckedURL(url: post.url),
                                   thumbnail: post.thumbnail,
-                                  name: post.blogName ?? "",
+                                  name: post.name,
                                   title: post.title,
                                   date: post.dateTime,
                                   kind: post.kind,

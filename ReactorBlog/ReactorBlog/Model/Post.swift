@@ -14,6 +14,7 @@ enum PostKind: String {
 
 struct Post: Codable, Equatable {
     var blogName: String?
+    var cafeName: String?
     var contents: String?
     var dateTime: Date
     var thumbnail: URL?
@@ -22,6 +23,7 @@ struct Post: Codable, Equatable {
     
     enum CodingKeys: String, CodingKey {
         case blogName = "blogname"
+        case cafeName = "cafename"
         case contents
         case dateTime = "datetime"
         case thumbnail
@@ -30,26 +32,24 @@ struct Post: Codable, Equatable {
     }
     
     var name: String {
-//        if let name = cafeName {
-//            return name
-//        } else if let name = blogName {
+        if let name = cafeName {
             return name
-//        } else {
-//            return ""
-//        }
+        } else if let name = blogName {
+            return name
+        } else {
+             return ""
+        }
     }
     
     var kind: PostKind {
-//        if cafeName != nil {
-//            return .cafe
-//        } else {
-            return .blog
-//        }
+        guard cafeName != nil else { return .blog }
+        return .cafe
     }
         
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         blogName = try? values.decode(String.self, forKey: .blogName)
+        cafeName = try? values.decode(String.self, forKey: .cafeName)
         contents = try? values.decode(String.self, forKey: .contents)
         dateTime = try values.decode(Date.self, forKey: .dateTime)
         thumbnail = try? values.decode(URL.self, forKey: .thumbnail)
