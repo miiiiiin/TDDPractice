@@ -108,6 +108,8 @@ final class MainViewReactor: Reactor, Stepper {
             state.items = posts.sorted(by: { $0.title < $1.title })
             
             state.searchedKeyword = state.query
+            
+            print("set posts check: \(posts)")
         
         case let .appendPosts(posts, isEnd):
             state.isPageEnd = isEnd
@@ -123,7 +125,6 @@ final class MainViewReactor: Reactor, Stepper {
             break
         }
         
-        print("reduce state: \(state), \(state.query)")
         return state
     }
 }

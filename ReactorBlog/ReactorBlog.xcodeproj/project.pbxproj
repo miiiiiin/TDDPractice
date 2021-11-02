@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		13065FDE0EEDCE47C0439ED6 /* Pods_ReactorBlog_ReactorBlogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B40A32F7AE5EE2CB7BA5D06 /* Pods_ReactorBlog_ReactorBlogUITests.framework */; };
 		4276628F95FA1DAF9E00F0BD /* Pods_ReactorBlogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067A669D521B29C6452187D6 /* Pods_ReactorBlogTests.framework */; };
+		7D2B18242730C92300768E2E /* UIImageView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2B18232730C92300768E2E /* UIImageView+Rx.swift */; };
+		7D2B18262730CA5700768E2E /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2B18252730CA5700768E2E /* Extension+String.swift */; };
 		7D73A4DF2728E0C3001D4991 /* UITableView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4DE2728E0C3001D4991 /* UITableView+Rx.swift */; };
 		7D73A4E22728E388001D4991 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4E12728E388001D4991 /* TableHeaderView.swift */; };
 		7D73A4E52728E953001D4991 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A4E42728E953001D4991 /* BaseTableViewCell.swift */; };
@@ -67,6 +69,8 @@
 		42685D70E68FC56B69ABA720 /* Pods-ReactorBlogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorBlogTests.release.xcconfig"; path = "Target Support Files/Pods-ReactorBlogTests/Pods-ReactorBlogTests.release.xcconfig"; sourceTree = "<group>"; };
 		54B610FDE3830E78FBEE6562 /* Pods-ReactorBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorBlog.release.xcconfig"; path = "Target Support Files/Pods-ReactorBlog/Pods-ReactorBlog.release.xcconfig"; sourceTree = "<group>"; };
 		56359EDE3A817081B5CA98E6 /* Pods-ReactorBlog-ReactorBlogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactorBlog-ReactorBlogUITests.debug.xcconfig"; path = "Target Support Files/Pods-ReactorBlog-ReactorBlogUITests/Pods-ReactorBlog-ReactorBlogUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7D2B18232730C92300768E2E /* UIImageView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Rx.swift"; sourceTree = "<group>"; };
+		7D2B18252730CA5700768E2E /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		7D73A4DE2728E0C3001D4991 /* UITableView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Rx.swift"; sourceTree = "<group>"; };
 		7D73A4E12728E388001D4991 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 		7D73A4E42728E953001D4991 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				7D73A4DE2728E0C3001D4991 /* UITableView+Rx.swift */,
+				7D2B18232730C92300768E2E /* UIImageView+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				7D73A506272912BE001D4991 /* Extension+DateFormatter.swift */,
+				7D2B18252730CA5700768E2E /* Extension+String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -636,9 +642,11 @@
 				7DF6B71327293EDD00256376 /* HandleResponse.swift in Sources */,
 				7DB1FAAE2727DDC100113EAC /* AppDelegate.swift in Sources */,
 				7DB1FAE22727E06C00113EAC /* AppFlow.swift in Sources */,
+				7D2B18242730C92300768E2E /* UIImageView+Rx.swift in Sources */,
 				7DF6B70D27292B8D00256376 /* Meta.swift in Sources */,
 				7D73A50927291507001D4991 /* RefreshControl.swift in Sources */,
 				7DF6B70F272935CC00256376 /* ErrorResponse.swift in Sources */,
+				7D2B18262730CA5700768E2E /* Extension+String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

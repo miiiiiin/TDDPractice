@@ -124,20 +124,17 @@ extension MainViewController {
             .disposed(by: disposeBag)
         
         
-        
         // MARK: - State -
         
         reactor.state.map { $0.items }
             .distinctUntilChanged()
             .bind(to: self.tableView.rx.items) { tableView, indexPath, element in
-                guard let cell = tableView.dequeue(Reusable.contentCell) else { return UITableViewCell() }
-                
-                print("tableview cell element: \(element)")
+                guard let cell = tableView.dequeue(Reusable.contentCell) else { return UITableViewCell() }                
+                print("tableview cell element: \(element.blogName)")
                 cell.reactor = ContentCellReactor(post: element, provider: reactor.provider)
                 return cell
             }
             .disposed(by: disposeBag)
-            
         
         reactor.state.map { $0.isLoading }
             .distinctUntilChanged()

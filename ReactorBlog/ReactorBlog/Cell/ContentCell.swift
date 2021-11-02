@@ -10,7 +10,7 @@ import ReactorKit
 
 final class ContentCell: BaseTableViewCell, View {
     typealias Reactor = ContentCellReactor
-    
+
     struct Font {
         static let kindLabel = UIFont.systemFont(ofSize: 20, weight: .black)
         static let nameLabel = UIFont.systemFont(ofSize: 20, weight: .medium)
@@ -51,12 +51,7 @@ final class ContentCell: BaseTableViewCell, View {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         [self.thumbnail, self.kindLabel, self.nameLabel, self.titleLabel, self.dateLabel].forEach(self.contentView.addSubview(_:))
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
@@ -94,5 +89,56 @@ final class ContentCell: BaseTableViewCell, View {
     
     func bind(reactor: ContentCellReactor) {
         self.reactor = reactor
+        
+        // MARK: - State -
+        
+        reactor.state.map { $0.thumbnail }
+            .bind(to: self.thumbnail.rx.image(placeholder: UIImage(named: "placeholder")))
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.name }
+            .distinctUntilChanged()
+            .bind(to: self.nameLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.title }
+            .distinctUntilChanged()
+            .map { $0.htmlAttributedString(font: Font.titleLabel, color: .darkGray) }
+            .bind(to: self.titleLabel.rx.attributedText)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.isWebPageRead }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] isWebPageRead in
+                if isWebPageRead {
+                    self?.contentView.alpha = 0.3
+                } else {
+                    self?.contentView.alpha = 1
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.date }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] date in
+                let calendar = Calendar.current
+                if calendar.isDateInToday(date) {
+                    self?.dateLabel.text = "오늘"
+                } else if calendar.isDateInYesterday(date) {
+                    self?.dateLabel.text = "어제"
+                } else {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+                    self?.dateLabel.text = dateFormatter.string(from: date)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.kind }
+            .distinctUntilChanged()
+            .map { String($0.rawValue.first!) }
+            .bind(to: self.kindLabel.rx.text)
+            .disposed(by: disposeBag)
+        
     }    
 }
