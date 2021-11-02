@@ -89,14 +89,18 @@ extension MainViewController {
         
         // MARK: - ACTION -
         
-        
         self.refreshControl.rx.controlEvent([.valueChanged])
             .map { Reactor.Action.refresh }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
         self.rx.viewDidLoad
-            .map { _ in Reactor.Action.loadSearchHistory }
+            .map { Reactor.Action.loadSearchHistory }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        self.tableView.rx.reachedBottom
+            .map { Reactor.Action.loadMore }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -127,8 +131,7 @@ extension MainViewController {
         reactor.state.map { $0.items }
             .distinctUntilChanged()
             .bind(to: self.tableView.rx.items) { tableView, indexPath, element in
-                guard let cell = tableView.dequeue(Reusable.contentCell) else { return UITableViewCell() }                
-                print("tableview cell element: \(element.blogName)")
+                guard let cell = tableView.dequeue(Reusable.contentCell) else { return UITableViewCell() }
                 cell.reactor = ContentCellReactor(post: element, provider: reactor.provider)
                 return cell
             }
@@ -154,7 +157,6 @@ extension MainViewController {
             .disposed(by: disposeBag)
         
         
-        
         // MARK: - TableView -
         
         self.tableView.rx.setDelegate(self)
@@ -176,8 +178,6 @@ extension MainViewController {
                 self?.searchField.resignFirstResponder()
             })
             .disposed(by: disposeBag)
-        
-        
         
     }
 }

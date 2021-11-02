@@ -16,6 +16,7 @@ final class MainViewReactor: Reactor, Stepper {
     
     enum Action {
         case refresh
+        case loadMore
         case updateSearchWord(String)
         case loadSearchHistory
     }
@@ -69,14 +70,39 @@ final class MainViewReactor: Reactor, Stepper {
                 size: 25
             )
             .asObservable()
-            .map { list in
-                return Mutation.setPosts(list.documents)
+            .map { result in
+                return Mutation.setPosts(result.documents)
             }
             .catchError { error in
                 self.errorRelay.accept(error as? ErrorResponse)
                 return .empty()
             }            
             return .concat([startRefreshing, search, stopRefreshing])
+            
+        case .loadMore:
+            if self.currentState.isRefreshing { return .empty() }
+            if self.currentState.isLoading { return .empty() }
+            if self.currentState.isPageEnd { return .empty() }
+            
+            let startLoading = Observable.just(Mutation.setLoading(true))
+            let stopLoading = Observable.just(Mutation.setLoading(false))
+            
+            let search = self.provider.searchService.searchPost(
+                query: self.currentState.searchedKeyword,
+                filter: self.currentState.filterType,
+                page: self.currentState.page,
+                size: 25
+            )
+            .asObservable()
+            .map { result in
+                return Mutation.appendPosts(result.documents, result.meta.isEnd)
+            }
+            .catchError { error in
+                self.errorRelay.accept(error as? ErrorResponse)
+                return .empty()
+            }
+            
+            return .concat([startLoading, search, stopLoading])
             
         case .loadSearchHistory:
             return self.provider.searchService.getSearchHistory()

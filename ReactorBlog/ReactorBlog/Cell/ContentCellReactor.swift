@@ -31,17 +31,7 @@ final class ContentCellReactor: Reactor {
     var initialState: State
     let provider: ServiceProviderType
     
-    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        let urlEventMutation = self.provider.searchService.urlEvent
-            .map { urls in
-                Mutation.setIsWebPageRead(urls.contains(self.currentState.url.absoluteString))
-            }
-        print("cellreactor transform: \(mutation), \(urlEventMutation), \(self.currentState.url)")
-        return .merge(mutation, urlEventMutation)
-    }
-    
     init(post: Post, provider: ServiceProviderType) {
-        print("cell reactor post: \(post.blogName)")
         self.provider = provider
         
         self.initialState = State(isWebPageRead: provider.searchService.isCheckedURL(url: post.url),
@@ -51,6 +41,15 @@ final class ContentCellReactor: Reactor {
                                   date: post.dateTime,
                                   kind: post.kind,
                                   url: post.url)
+    }
+    
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+        let urlEventMutation = self.provider.searchService.urlEvent
+            .map { urls in
+                Mutation.setIsWebPageRead(urls.contains(self.currentState.url.absoluteString))
+            }
+        print("cellreactor transform: \(self.currentState.url)")
+        return .merge(mutation, urlEventMutation)
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -68,7 +67,6 @@ final class ContentCellReactor: Reactor {
         case let .setIsWebPageRead(isWebPageRead):
             state.isWebPageRead = isWebPageRead
         }
-        
         return state
     }
 }

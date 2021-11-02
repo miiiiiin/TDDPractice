@@ -27,6 +27,7 @@
 		7D73A504272901B1001D4991 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A503272901B1001D4991 /* Networking.swift */; };
 		7D73A507272912BE001D4991 /* Extension+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A506272912BE001D4991 /* Extension+DateFormatter.swift */; };
 		7D73A50927291507001D4991 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D73A50827291507001D4991 /* RefreshControl.swift */; };
+		7D8D97672731055D00775274 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D97662731055D00775274 /* UIScrollView+Rx.swift */; };
 		7DB1FAAE2727DDC100113EAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */; };
 		7DB1FAB72727DDC200113EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB62727DDC200113EAC /* Assets.xcassets */; };
 		7DB1FABA2727DDC200113EAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB82727DDC200113EAC /* LaunchScreen.storyboard */; };
@@ -87,6 +88,7 @@
 		7D73A503272901B1001D4991 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		7D73A506272912BE001D4991 /* Extension+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+DateFormatter.swift"; sourceTree = "<group>"; };
 		7D73A50827291507001D4991 /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
+		7D8D97662731055D00775274 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
 		7DB1FAAA2727DDC100113EAC /* ReactorBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactorBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB1FAAD2727DDC100113EAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DB1FAB62727DDC200113EAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				7D73A4DE2728E0C3001D4991 /* UITableView+Rx.swift */,
 				7D2B18232730C92300768E2E /* UIImageView+Rx.swift */,
+				7D8D97662731055D00775274 /* UIScrollView+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				7D73A4EF2728EF77001D4991 /* ServiceProviderType.swift in Sources */,
 				7D73A507272912BE001D4991 /* Extension+DateFormatter.swift in Sources */,
 				7DB1FAED2727E89300113EAC /* MainViewController.swift in Sources */,
+				7D8D97672731055D00775274 /* UIScrollView+Rx.swift in Sources */,
 				7D73A4E72728E9AD001D4991 /* ContentCell.swift in Sources */,
 				7D73A4FE2728FDB5001D4991 /* BaseAPI.swift in Sources */,
 				7DF6B71327293EDD00256376 /* HandleResponse.swift in Sources */,
