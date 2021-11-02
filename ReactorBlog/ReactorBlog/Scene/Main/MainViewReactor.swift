@@ -10,6 +10,11 @@ import RxSwift
 import RxCocoa
 import RxFlow
 
+enum SortType {
+    case titleAsc
+    case recency
+}
+
 final class MainViewReactor: Reactor, Stepper {
 
     var steps = PublishRelay<Step>()
@@ -17,8 +22,9 @@ final class MainViewReactor: Reactor, Stepper {
     enum Action {
         case refresh
         case loadMore
-        case updateSearchWord(String)
         case loadSearchHistory
+        case updateSearchWord(String)
+        case updateSort(SortType)
     }
     
     enum Mutation {
@@ -28,6 +34,7 @@ final class MainViewReactor: Reactor, Stepper {
         case setSearchWord(String)
         case appendPosts([Post], Bool)
         case setSearchHistories([String])
+        case applySortType(SortType)
     }
     
     struct State {
@@ -102,13 +109,16 @@ final class MainViewReactor: Reactor, Stepper {
                 return .empty()
             }
             
-            return .concat([startLoading, search, stopLoading])
+            return .concat([startLoading, search, stopLoading]) // concat?
             
         case .loadSearchHistory:
             return self.provider.searchService.getSearchHistory()
                 .map { histories -> Mutation in
                     Mutation.setSearchHistories(histories)
                 }
+            
+        case let .updateSort(type):
+            return .just(.applySortType(type))
             
         case let .updateSearchWord(keyword):
             return .just(.setSearchWord(keyword.trimmingCharacters(in: .whitespacesAndNewlines)))
@@ -146,6 +156,15 @@ final class MainViewReactor: Reactor, Stepper {
         
         case let .setSearchHistories(histories):
             state.searchHistory = histories
+            
+        case let .applySortType(type):
+            switch type {
+            case .titleAsc:
+                state.items.sort(by: { $0.title < $1.title })
+                
+            case .recency:
+                state.items.sort(by: { $0.dateTime > $1.dateTime })
+            }
             
         default:
             break

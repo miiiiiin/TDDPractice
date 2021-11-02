@@ -125,6 +125,25 @@ extension MainViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        self.tableHeader.sortButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                
+                let titleAction = UIAlertAction(title: "Title", style: .default) { _ in
+                    reactor.action.onNext(.updateSort(.titleAsc))
+                }
+                
+                let dateAction = UIAlertAction(title: "DateTime", style: .default) { _ in
+                    reactor.action.onNext(.updateSort(.recency))
+                }
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                
+                [titleAction, dateAction, cancelAction].forEach(actionSheet.addAction(_:))
+                self?.present(actionSheet, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+        
         
         // MARK: - State -
         
