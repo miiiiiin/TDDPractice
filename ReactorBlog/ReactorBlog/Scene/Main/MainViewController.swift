@@ -113,26 +113,6 @@ extension MainViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        self.tableHeader.sortButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                
-                let titleAction = UIAlertAction(title: "Title", style: .default) { _ in
-                    reactor.action.onNext(.updateSort(.titleAsc))
-                }
-                
-                let dateAction = UIAlertAction(title: "DateTime", style: .default) { _ in
-                    reactor.action.onNext(.updateSort(.recency))
-                }
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                
-                [titleAction, dateAction, cancelAction].forEach(actionSheet.addAction(_:))
-                self?.present(actionSheet, animated: true, completion: nil)
-            })
-            .disposed(by: disposeBag)
-        
-        
         // searchField 텍스트 & reactor 액션 바인딩
         self.searchField.rx.text.orEmpty
             .map(Reactor.Action.updateSearchWord)
@@ -169,7 +149,6 @@ extension MainViewController {
                 reactor.action.onNext(.updateSearchHistory)
             }
         
-        
         self.filterDropDown.selectionAction = { [unowned self] index, item in
             self.filterDropDown.clearSelection()
             self.searchField.resignFirstResponder()
@@ -177,26 +156,29 @@ extension MainViewController {
             guard let filterType = FilterType(rawValue: item) else { return }
             print("filterdropdown check: \(filterType)")
             
-//            switch filterType {
-//            case .all:
-//
-////                    self.tableViewHeader.filterButton.setTitle("All", for: .normal)
-////                    reactor.action.onNext(.updateFilter(.all))
-//
-//                self.tableHeader.filterButton.setTitle(item, for: .normal)
-//                reactor.action.onNext(.updateFilter())
-//
-//            case .blog:
-//                break
-//            case. cafe:
-//                break
-//            }
-            
             self.tableHeader.filterButton.setTitle(item, for: .normal)
             reactor.action.onNext(.updateFilter(filterType))
-            
             reactor.action.onNext(.refresh)
         }
+        
+        self.tableHeader.sortButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                
+                let titleAction = UIAlertAction(title: "Title", style: .default) { _ in
+                    reactor.action.onNext(.updateSort(.titleAsc))
+                }
+                
+                let dateAction = UIAlertAction(title: "DateTime", style: .default) { _ in
+                    reactor.action.onNext(.updateSort(.recency))
+                }
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                
+                [titleAction, dateAction, cancelAction].forEach(actionSheet.addAction(_:))
+                self?.present(actionSheet, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
         
         
         // MARK: - State -
@@ -235,6 +217,16 @@ extension MainViewController {
                 self?.searchDropDown.dataSource = list.reversed()
             })
             .disposed(by: disposeBag)
+        
+        reactor.error
+            .subscribe(onNext: { [weak self] error in
+                let alertController = UIAlertController(title: error?.errorType, message: error?.message, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self?.present(alertController, animated: false, completion: nil)
+            })
+            .disposed(by: disposeBag)
+        
         
         
         // MARK: - TableView -

@@ -57,6 +57,8 @@ final class MainViewReactor: Reactor, Stepper {
     
     
     private let errorRelay = PublishRelay<ErrorResponse?>()
+    lazy var error = errorRelay.asObservable()
+    
     let initialState: State = State()
     let provider: ServiceProviderType
     
