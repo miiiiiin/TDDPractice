@@ -31,7 +31,7 @@ final class AppFlow: Flow {
             return navigateToMain()
             
         case let .postDetail(post):
-            <#code#>
+            return navigateToMain() // fixme
         }
     }
     
@@ -53,4 +53,8 @@ extension AppFlow {
         self.rootViewController.pushViewController(viewController, animated: true)
         return .one(flowContributor: .contribute(withNextPresentable: viewController, withNextStepper: reactor))
     }
+    
+//    private func navigateToPostDetail(post: Post) -> FlowContributors {
+//
+//    }
 }
