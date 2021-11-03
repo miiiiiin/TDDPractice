@@ -31,7 +31,7 @@ final class ContentDetailReactor: Reactor, Stepper {
     let initialState: State = State()
     let provider: ServiceProviderType
     
-    init(provider: ServiceProviderType) {
+    init(post: Post, provider: ServiceProviderType) {
         self.provider = provider
     }
     

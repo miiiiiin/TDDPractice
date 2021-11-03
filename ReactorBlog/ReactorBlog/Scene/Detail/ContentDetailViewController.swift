@@ -14,6 +14,17 @@ final class ContentDetailViewController: BaseViewController, ReactorKit.View {
 
     typealias Reactor = ContentDetailReactor
     
+    
+    struct Font {
+        static let nameLabel = UIFont.systemFont(ofSize: 15, weight: .black)
+        static let titleLabel = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        static let contentsLabel = UIFont.systemFont(ofSize: 17, weight: .medium)
+        static let dateLabel = UIFont.systemFont(ofSize: 15, weight: .medium)
+    }
+    
+    // MARK: - UI -
+    
+    
     // MARK: - Init -
     
     init(reactor: Reactor) {
