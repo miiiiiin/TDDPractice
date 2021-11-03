@@ -29,7 +29,10 @@ final class AppFlow: Flow {
         switch step {
         case .main:
             return navigateToMain()
-        }        
+            
+        case let .postDetail(post):
+            <#code#>
+        }
     }
     
     

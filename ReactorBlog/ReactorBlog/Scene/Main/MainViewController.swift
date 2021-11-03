@@ -244,6 +244,17 @@ extension MainViewController {
             })
             .disposed(by: disposeBag)
         
+        self.tableView.rx.modelSelected(Post.self)
+            .subscribe(onNext: { [weak self] model in
+                print("table selected: \(model.blogName)")
+                reactor.action.onNext(Reactor.Action.postSelected(model))
+            })
+            .disposed(by: disposeBag)
+        
+//        self.tableView.rx.itemSelected
+//            .bind(to: self.tableView.rx.deselectRow)
+//            .disposed(by: disposeBag)
+        
         self.searchField.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in

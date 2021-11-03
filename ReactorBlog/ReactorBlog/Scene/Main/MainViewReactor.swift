@@ -27,6 +27,7 @@ final class MainViewReactor: Reactor, Stepper {
         case updateSearchHistory
         case updateSort(SortType)
         case updateFilter(FilterType)
+        case postSelected(Post)
     }
     
     enum Mutation {
@@ -135,6 +136,10 @@ final class MainViewReactor: Reactor, Stepper {
         
         case .updateSearchHistory:
             return .just(.setSearchHistory(self.currentState.query))
+            
+        case let .postSelected(post):
+            self.steps.accept(BlogStep.postDetail(post: post))
+            return .empty()
             
         }
     }

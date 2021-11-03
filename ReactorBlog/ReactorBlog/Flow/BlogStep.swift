@@ -9,4 +9,5 @@ import RxFlow
 
 enum BlogStep: Step {
     case main
+    case postDetail(post: Post)
 }
