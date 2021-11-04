@@ -38,14 +38,17 @@ final class ContentDetailViewController: BaseViewController, ReactorKit.View {
     
     let nameLabel = UILabel().then {
         $0.font = Font.nameLabel
+        $0.numberOfLines = 0
     }
     
     let titleLabel = UILabel().then {
         $0.font = Font.titleLabel
+        $0.numberOfLines = 0
     }
     
     let contentsLabel = UILabel().then {
         $0.font = Font.contentsLabel
+        $0.numberOfLines = 0
     }
     
     let dateLabel = UILabel().then {
@@ -64,13 +67,25 @@ final class ContentDetailViewController: BaseViewController, ReactorKit.View {
         $0.layer.cornerRadius = Metric.urlButtonCornerRadius
     }
     
+    lazy var horizontalStackView = UIStackView(
+        arrangedSubviews: [
+            urlLabel,
+            urlButton
+        ]
+    )
+    .then {
+        $0.axis = .horizontal
+        $0.distribution = .fill
+    }
+    
     lazy var verticalStackView = UIStackView(
         arrangedSubviews: [
             thumbnailImageView,
             nameLabel,
             titleLabel,
             contentsLabel,
-            dateLabel
+            dateLabel,
+            horizontalStackView
         ]
     )
     .then {
@@ -78,13 +93,17 @@ final class ContentDetailViewController: BaseViewController, ReactorKit.View {
         $0.distribution = .fill
         $0.alignment = .fill
         $0.spacing = 25
-        $0.backgroundColor = .lightGray
     }
     
     // MARK: - Init -
     
     init(reactor: Reactor) {
+        defer {
+            print("defer reactor")
+            self.reactor = reactor
+        }
         super.init()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -98,7 +117,13 @@ final class ContentDetailViewController: BaseViewController, ReactorKit.View {
     
     override func setupConstraints() {
         self.verticalStackView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(Metric.stackViewTop)
+            make.leading.equalToSuperview().offset(Metric.stackViewLeftRight)
+            make.trailing.equalToSuperview().offset(-Metric.stackViewLeftRight)
+        }
+        
+        self.horizontalStackView.snp.makeConstraints { make in
+            make.height.equalTo(Metric.horizontalStackViewHeight)
         }
         
         self.thumbnailImageView.snp.makeConstraints { make in
@@ -123,12 +148,40 @@ final class ContentDetailViewController: BaseViewController, ReactorKit.View {
             .disposed(by: disposeBag)
         
         reactor.state.map { $0.title }
-            .bind(to: self.titleLabel.rx.text)
+            .map { $0.htmlToAttributedString(font: Font.titleLabel, color: .black) }
+            .bind(to: self.titleLabel.rx.attributedText)
             .disposed(by: disposeBag)
         
         reactor.state.map { $0.contents }
-            .bind(to: self.contentsLabel.rx.text)
+            .map { $0.htmlToAttributedString(font: Font.contentsLabel, color: .darkGray) }
+            .bind(to: self.contentsLabel.rx.attributedText)
             .disposed(by: disposeBag)
         
+        reactor.state.map { $0.date }
+            .subscribe(onNext: { [weak self] date in
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy년 MM월 dd일 a hh시 mm분"
+                dateFormatter.locale = Locale(identifier: "ko_KR")
+                self?.dateLabel.text = dateFormatter.string(from: date)
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.url.absoluteString }
+            .bind(to: self.urlLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        reactor.state.map { $0.kind.rawValue }
+            .subscribe(onNext: { [weak self] kind in
+                self?.title = kind
+            })
+            .disposed(by: disposeBag)
+        
+        
+        // MARK: - ACTION -
+        
+        urlButton.rx.tap
+            .map { Reactor.Action.navigateToURLPage }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
 }

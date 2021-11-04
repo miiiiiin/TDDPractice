@@ -104,7 +104,7 @@ final class ContentCell: BaseTableViewCell, View {
         
         reactor.state.map { $0.title }
             .distinctUntilChanged()
-            .map { $0.htmlAttributedString(font: Font.titleLabel, color: .darkGray) }
+            .map { $0.htmlToAttributedString(font: Font.titleLabel, color: .darkGray) }
             .bind(to: self.titleLabel.rx.attributedText)
             .disposed(by: disposeBag)
         
