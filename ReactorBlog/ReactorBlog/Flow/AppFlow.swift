@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxFlow
+import SafariServices
 
 final class AppFlow: Flow {
     
@@ -32,6 +33,9 @@ final class AppFlow: Flow {
             
         case let .postDetail(post):
             return navigateToPostDetail(post: post)
+            
+        case let .urlPage(url):
+            return navigateToURLPage(url: url)
         }
     }
     
@@ -60,5 +64,11 @@ extension AppFlow {
         
         self.rootViewController.pushViewController(viewController, animated: true)
         return .one(flowContributor: .contribute(withNextPresentable: viewController, withNextStepper: reactor))
+    }
+    
+    private func navigateToURLPage(url: URL) -> FlowContributors {
+        let viewController = SFSafariViewController(url: url)
+        self.rootViewController.present(viewController, animated: true, completion: nil)
+        return .none
     }
 }

@@ -10,4 +10,5 @@ import RxFlow
 enum BlogStep: Step {
     case main
     case postDetail(post: Post)
+    case urlPage(url: URL)
 }
