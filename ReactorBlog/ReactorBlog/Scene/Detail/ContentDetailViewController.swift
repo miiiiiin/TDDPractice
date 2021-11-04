@@ -57,7 +57,8 @@ final class ContentDetailViewController: BaseViewController, ReactorKit.View {
     
     let urlLabel = UILabel().then {
         $0.font = Font.dateLabel
-        $0.textColor = .darkGray
+        $0.textColor = .blue
+        $0.numberOfLines = 0
     }
     
     let urlButton = UIButton().then {
