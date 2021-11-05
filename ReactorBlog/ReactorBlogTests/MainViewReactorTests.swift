@@ -47,4 +47,29 @@ class MainViewReactorTests: XCTestCase {
             expect(state[4].isRefreshing) == false
         }
     }
+    
+    // MARK: - Search History -
+    
+    func testSearchHistory() {
+        let test = RxExpect()
+        let provider = StubServiceProvider()
+        let reactor = test.retain(MainViewReactor(provider: provider))
+        
+        // Action
+        test.input(reactor.action, [
+            Recorded.next(1, .updateSearchWord("iOS")),
+            Recorded.next(2, .updateSearchHistory)
+        ])
+        
+        // Assertion
+        test.assert(reactor.state) { events in
+            let state = events.elements
+            let testKeyword = "iOS"
+            expect(state.count) == 3
+            
+            expect(state[0].query) == ""
+            expect(state[1].query) == testKeyword
+            expect(state[2].searchHistory.contains(testKeyword)) == true
+        }
+    }
 }
