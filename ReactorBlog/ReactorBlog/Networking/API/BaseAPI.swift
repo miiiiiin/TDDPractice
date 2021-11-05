@@ -19,10 +19,6 @@ extension BaseAPI {
         .get
     }
     
-//    var sampleData: Data {
-//        Data()
-//    }
-    
     var task: Task {
         .requestPlain
     }
