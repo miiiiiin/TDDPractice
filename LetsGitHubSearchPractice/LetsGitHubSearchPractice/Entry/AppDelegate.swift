@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = SearchRepositoryViewController()
+//        window?.rootViewController = SearchRepositoryViewController()
+        window?.rootViewController = UINavigationController(rootViewController: SearchRepositoryViewController())
         window?.makeKeyAndVisible()
         
         return true

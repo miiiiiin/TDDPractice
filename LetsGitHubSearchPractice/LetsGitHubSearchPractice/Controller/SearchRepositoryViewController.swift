@@ -6,15 +6,33 @@
 //
 
 import UIKit
+import SnapKit
 
 class SearchRepositoryViewController: UIViewController {
     
+    lazy var tableView: UITableView = {
+        let tv = UITableView()
+        tv.delegate = self
+        tv.dataSource = self
+        return tv
+    }()
+    
+    lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let iv = UIActivityIndicatorView()
+        return iv
+    }()
     
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("searchrepo")
+        
+        setUpUI()
+    }
+    
+    
+    private func setUpUI(){
         
         self.definesPresentationContext = true
 
@@ -23,10 +41,41 @@ class SearchRepositoryViewController: UIViewController {
 
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        self.view.addSubview(tableView)
+        self.tableView.addSubview(activityIndicatorView)
+        
+        
+        self.tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        self.activityIndicatorView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
     }
+    
 }
 
 
 extension SearchRepositoryViewController: UISearchBarDelegate {
     
+}
+
+extension SearchRepositoryViewController: UITableViewDelegate {
+    
+}
+
+extension SearchRepositoryViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+        cell.textLabel?.text = "ddd"
+        return cell
+    }
 }
