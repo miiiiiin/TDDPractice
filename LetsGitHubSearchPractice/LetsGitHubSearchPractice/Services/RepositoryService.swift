@@ -8,6 +8,13 @@
 import Alamofire
 
 final class RepositoryService {
+    
+    private let sessionManager: SessionManagerProtocol
+    
+    init(session: SessionManagerProtocol) {
+        self.sessionManager = session
+    }
+    
     @discardableResult
     class func search(keyword: String, completionHandler: @escaping (Result<RepoSearchResult, AFError>) -> Void) -> DataRequest {
         let url = "https://api.github.com/search/repositories"
