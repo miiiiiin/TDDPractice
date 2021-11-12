@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'LetsGitHubSearchPractice' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for LetsGitHubSearchPractic
+  pod 'Alamofire'
+  pod 'ReactorKit'
+  pod 'SnapKit'
+
+  target 'LetsGitHubSearchPracticeTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'LetsGitHubSearchPracticeUITests' do
+    # Pods for testing
+  end
+
+end
