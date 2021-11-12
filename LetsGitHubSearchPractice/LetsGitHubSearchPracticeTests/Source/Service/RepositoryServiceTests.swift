@@ -6,16 +6,26 @@
 //
 
 import XCTest
+import Alamofire
 @testable import LetsGitHubSearchPractice
 
 final class RepositoryServiceTests: XCTestCase {
     
-    func testSearch_includesSearchResult() {
+    func testSearch_api_with_Parameters() {
         // given
-        let expectation = XCTestExpectation()
-        XCTWaiter().wait(for: [expectation], timeout: 10)
+        
+        let sessionManager = SessionManagerStub()
+        let service = RepositoryService(session: sessionManager)
+        
+//        let expectation = XCTestExpectation()
+//        XCTWaiter().wait(for: [expectation], timeout: 10)
         
         // when
+        
+        
+        
+        
+        
         
         RepositoryService.search(keyword: "RxSwift") { result in
             expectation.fulfill()

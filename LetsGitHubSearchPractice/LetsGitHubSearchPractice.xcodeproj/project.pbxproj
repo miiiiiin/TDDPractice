@@ -13,6 +13,7 @@
 		7D98D980273E47C300128084 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D97F273E47C300128084 /* RepositoryService.swift */; };
 		7D98D989273E534200128084 /* RepositoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D988273E534200128084 /* RepositoryServiceTests.swift */; };
 		7D98D98C273E605A00128084 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D98B273E605A00128084 /* SessionManagerProtocol.swift */; };
+		7D98D990273E66AE00128084 /* SessionManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D98F273E66AE00128084 /* SessionManagerStub.swift */; };
 		7DDBC478273CF8D300538B22 /* SearchRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDBC477273CF8D300538B22 /* SearchRepositoryViewController.swift */; };
 		7DE25144273CE04800891637 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25143273CE04800891637 /* AppDelegate.swift */; };
 		7DE2514D273CE04900891637 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DE2514C273CE04900891637 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		7D98D97F273E47C300128084 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
 		7D98D988273E534200128084 /* RepositoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceTests.swift; sourceTree = "<group>"; };
 		7D98D98B273E605A00128084 /* SessionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerProtocol.swift; sourceTree = "<group>"; };
+		7D98D98F273E66AE00128084 /* SessionManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerStub.swift; sourceTree = "<group>"; };
 		7DDBC477273CF8D300538B22 /* SearchRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryViewController.swift; sourceTree = "<group>"; };
 		7DE25140273CE04800891637 /* LetsGitHubSearchPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGitHubSearchPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE25143273CE04800891637 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		7D98D985273E531B00128084 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7D98D98D273E669C00128084 /* Mocks */,
 				7D98D987273E532B00128084 /* ViewController */,
 				7D98D986273E532600128084 /* Service */,
 			);
@@ -154,6 +157,22 @@
 				7D98D98B273E605A00128084 /* SessionManagerProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7D98D98D273E669C00128084 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7D98D98E273E66A400128084 /* Networking */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		7D98D98E273E66A400128084 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7D98D98F273E66AE00128084 /* SessionManagerStub.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		7DDBC476273CF8C400538B22 /* Controller */ = {
@@ -493,6 +512,7 @@
 			files = (
 				7DE2515B273CE04A00891637 /* LetsGitHubSearchPracticeTests.swift in Sources */,
 				7D98D989273E534200128084 /* RepositoryServiceTests.swift in Sources */,
+				7D98D990273E66AE00128084 /* SessionManagerStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

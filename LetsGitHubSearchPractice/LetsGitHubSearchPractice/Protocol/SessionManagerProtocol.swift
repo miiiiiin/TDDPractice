@@ -13,5 +13,6 @@ protocol SessionManagerProtocol {
 }
 
 extension Session: SessionManagerProtocol {
+    
 
 }
