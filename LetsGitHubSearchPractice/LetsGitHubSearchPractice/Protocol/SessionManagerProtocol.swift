@@ -12,5 +12,9 @@ protocol SessionManagerProtocol {
     func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> DataRequest
 }
 
-//extension Session: SessionManagerProtocol {
-//}
+extension Session: SessionManagerProtocol {
+    func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> DataRequest {
+        return AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+    }
+    
+}

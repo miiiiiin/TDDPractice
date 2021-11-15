@@ -35,7 +35,7 @@ class SearchRepositoryViewController: UIViewController {
         super.viewDidLoad()
         
         setUpUI()
-    }    
+    }
     
     private func setUpUI(){
         
