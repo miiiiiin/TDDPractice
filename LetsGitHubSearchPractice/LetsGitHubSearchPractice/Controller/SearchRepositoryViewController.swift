@@ -12,6 +12,7 @@ import Alamofire
 class SearchRepositoryViewController: UIViewController {
     
     var repositoryService: RepositoryServiceProtocol!
+    var urlOpener: URLOpenerProtocol!
     
     lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -140,5 +141,12 @@ extension SearchRepositoryViewController: UITableViewDataSource {
         cell.textLabel?.text = repository.name
         cell.detailTextLabel?.text = self.formattedStargazersCount(repository.stargazersCount)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repository = self.repositories[indexPath.row]
+        let urlString = "https://github.com/\(repository.fullName)"
+        guard let url = URL(string: urlString) else { return }
+        self.urlOpener.open(url, options: [:], completionHandler: nil)
     }
 }

@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let rootViewController = self.rootViewController() {
             rootViewController.repositoryService = self.appDependency.repositoryService
+            rootViewController.urlOpener = self.appDependency.urlOpener
         }
         
         return true
