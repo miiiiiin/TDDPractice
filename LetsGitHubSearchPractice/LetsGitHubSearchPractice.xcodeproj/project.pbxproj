@@ -15,6 +15,7 @@
 		7D8235F02742544800B2A877 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8235EF2742544800B2A877 /* TestAppDelegate.swift */; };
 		7D8235F22742546200B2A877 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8235F12742546200B2A877 /* main.swift */; };
 		7D8235F4274263BF00B2A877 /* URLOpenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8235F3274263BF00B2A877 /* URLOpenerProtocol.swift */; };
+		7D8235F7274264B600B2A877 /* URLOpenerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8235F6274264B600B2A877 /* URLOpenerStub.swift */; };
 		7D98D97B273E45D900128084 /* RepoSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D97A273E45D900128084 /* RepoSearchResult.swift */; };
 		7D98D97D273E463C00128084 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D97C273E463C00128084 /* Repository.swift */; };
 		7D98D980273E47C300128084 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D97F273E47C300128084 /* RepositoryService.swift */; };
@@ -60,6 +61,7 @@
 		7D8235EF2742544800B2A877 /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
 		7D8235F12742546200B2A877 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7D8235F3274263BF00B2A877 /* URLOpenerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpenerProtocol.swift; sourceTree = "<group>"; };
+		7D8235F6274264B600B2A877 /* URLOpenerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpenerStub.swift; sourceTree = "<group>"; };
 		7D98D97A273E45D900128084 /* RepoSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchResult.swift; sourceTree = "<group>"; };
 		7D98D97C273E463C00128084 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		7D98D97F273E47C300128084 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		7D8235F5274264AE00B2A877 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7D8235F6274264B600B2A877 /* URLOpenerStub.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		7D98D979273E45D300128084 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +197,7 @@
 		7D98D98D273E669C00128084 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				7D8235F5274264AE00B2A877 /* Utils */,
 				7D8235E827423D9800B2A877 /* Service */,
 				7D98D98E273E66A400128084 /* Networking */,
 				7D8235EB2742475600B2A877 /* TestError.swift */,
@@ -542,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D8235F7274264B600B2A877 /* URLOpenerStub.swift in Sources */,
 				7D8235F02742544800B2A877 /* TestAppDelegate.swift in Sources */,
 				7D8235EC2742475600B2A877 /* TestError.swift in Sources */,
 				7D8235E7274235F400B2A877 /* SearchRepositoryViewControllerTests.swift in Sources */,

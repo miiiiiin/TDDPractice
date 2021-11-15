@@ -12,12 +12,16 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
     
     private var repositoryService: RepositoryServiceStub!
     private var viewController: SearchRepositoryViewController!
+    private var urlOpener: URLOpenerStub!
     
     override func setUp() {
+        super.setUp()
         self.repositoryService = RepositoryServiceStub()
+        self.urlOpener = URLOpenerStub()
         
         viewController = SearchRepositoryViewController()
-        viewController.repositoryService = repositoryService
+        viewController.repositoryService = self.repositoryService
+        viewController.urlOpener = self.urlOpener
         _ = viewController.view
     }
     
@@ -68,9 +72,9 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
         
         // when
         let repositories = [
-            Repository(name: "ReactorKit1"),
-            Repository(name: "ReactorKit2"),
-            Repository(name: "ReactorKit3"),
+            Repository(name: "ReactorKit1", fullName: "devxoul/ReactorKit1", stargazersCount: 1289),
+            Repository(name: "ReactorKit2", fullName: "younatics/ReactorKit2", stargazersCount: 987),
+            Repository(name: "ReactorKit3", fullName: "cruisediary/ReactorKit3", stargazersCount: 543),
         ]
         let searchResult = RepoSearchResult(totalCount: 3, items: repositories)
         self.repositoryService.searchParameters?.completionHandler(.success(searchResult))
@@ -87,6 +91,28 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
         
         let cell2 = self.viewController.tableView.cellForRow(at: IndexPath(row: 2, section: 0))
         XCTAssertEqual(cell2?.textLabel?.text, "ReactorKit3")
+    }
+    
+    func testTableView_openRepositoryWebPage_whenSelectItem() {
+      // given
+      let searchBar = self.viewController.searchController.searchBar
+      searchBar.text = "ReactorKit"
+      searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+
+      let repositories = [
+        Repository(name: "ReactorKit1", fullName: "devxoul/ReactorKit1", stargazersCount: 1289),
+        Repository(name: "ReactorKit2", fullName: "younatics/ReactorKit2", stargazersCount: 987),
+        Repository(name: "ReactorKit3", fullName: "cruisediary/ReactorKit3", stargazersCount: 543),
+      ]
+      let searchResult = RepoSearchResult(totalCount: 3, items: repositories)
+      self.repositoryService.searchParameters?.completionHandler(.success(searchResult))
+
+      // when
+        let tableView = self.viewController.tableView
+      tableView.delegate?.tableView?(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+
+      // then
+      XCTAssertEqual(self.urlOpener.openParameters?.absoluteString, "https://github.com/devxoul/ReactorKit1")
     }
     
 }
