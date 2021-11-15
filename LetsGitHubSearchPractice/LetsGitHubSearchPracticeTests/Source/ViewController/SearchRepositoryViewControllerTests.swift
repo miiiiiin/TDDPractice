@@ -34,4 +34,22 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
 //        let cell = viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
 //        XCTAssertEqual(cell?.textLabel?.text, "ReactorKit")
     }
+    
+    func testTableView_isHidden_whileSearching() {
+        
+        // given
+        let repositoryService = RepositoryServiceStub()
+        let viewController = SearchRepositoryViewController()
+        
+        viewController.repositoryService = repositoryService
+        _ = viewController.view
+        
+        // when
+        let searchBar = viewController.searchController.searchBar
+        searchBar.text = "ReactorKit"
+        searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+
+        // then
+        XCTAssertTrue(viewController.tableView.isHidden)
+    }
 }
