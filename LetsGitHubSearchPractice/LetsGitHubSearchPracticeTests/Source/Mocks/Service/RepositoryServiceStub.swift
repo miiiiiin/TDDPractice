@@ -10,10 +10,10 @@
 
 final class RepositoryServiceStub: RepositoryServiceProtocol {
     
-    var searchParameters: String?
+    var searchParameters: (keyword: String, completionHandler: (Result<RepoSearchResult, AFError>) -> Void)?
     
     func search(keyword: String, completionHandler: @escaping (Result<RepoSearchResult, AFError>) -> Void) -> DataRequest {
-        self.searchParameters = keyword
+        self.searchParameters = (keyword, completionHandler)
         let url: URLConvertible = try! keyword.asURL() as! URLConvertible
         return AF.request(url)
     }

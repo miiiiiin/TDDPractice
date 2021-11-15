@@ -28,7 +28,7 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
         
         // then
         
-        XCTAssertEqual(repositoryService.searchParameters, "ReactorKit")
+        XCTAssertEqual(repositoryService.searchParameters?.keyword, "ReactorKit")
         
 //        XCTWaiter().wait(for: [XCTestExpectation()], timeout: 3)
 //        let cell = viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
@@ -48,6 +48,24 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
         let searchBar = viewController.searchController.searchBar
         searchBar.text = "ReactorKit"
         searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+
+        // then
+        XCTAssertTrue(viewController.tableView.isHidden)
+    }
+    
+    func testTableView_isVisible_afterSearching() {
+        // given
+        let repositoryService = RepositoryServiceStub()
+        let viewController = SearchRepositoryViewController()
+        
+        viewController.repositoryService = repositoryService
+        _ = viewController.view
+        
+        // when
+        let searchBar = viewController.searchController.searchBar
+        searchBar.text = "ReactorKit"
+        searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+        repositoryService.searchParameters?.completionHandler(.failure(TestError().asAFError(orFailWith: "")))
 
         // then
         XCTAssertTrue(viewController.tableView.isHidden)
