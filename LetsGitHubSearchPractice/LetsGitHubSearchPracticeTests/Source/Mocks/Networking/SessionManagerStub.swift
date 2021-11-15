@@ -11,13 +11,10 @@
 
 final class SessionManagerStub: SessionManagerProtocol {
     
-//    var requestParameters: (url: URLConvertible, method: HTTPMethod, parameters: Parameters?)?
-//
-//    func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> DataRequest {
-//      self.requestParameters = (url, method, parameters)
-//      return DataRequest(session: URLSession(), requestTask: .data(nil, nil))
-//    }
-    
-    
-    
+    var requestParameters: (url: URLConvertible, method: HTTPMethod, parameters: Parameters?)?
+
+    func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> DataRequest {
+        self.requestParameters = (url, method, parameters)
+        return AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+    }
 }

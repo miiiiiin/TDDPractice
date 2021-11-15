@@ -22,15 +22,21 @@ final class RepositoryServiceTests: XCTestCase {
         
         // when
         
+        service.search(keyword: "RxSwift", completionHandler: { _ in })
+        
+        // then
+        
+        let expectedURL = "https://api.github.com/search/repositories"
+        let actualURL = try? sessionManager.requestParameters?.url.asURL().absoluteString
+        XCTAssertEqual(actualURL, expectedURL)
+        
+        let expectedMethod = HTTPMethod.get
+        let actualMethod = sessionManager.requestParameters?.method
+        XCTAssertEqual(actualMethod, expectedMethod)
         
         
-        
-        
-        
-        RepositoryService.search(keyword: "RxSwift") { result in
-            expectation.fulfill()
-            XCTAssertEqual(try? (result.get().totalCount > 0) , true)
-            XCTAssertEqual(try? (result.get().items.contains(where: { $0.name == "RxSwift" })) , true)
-        }
+        let expectedParameters = ["q": "RxSwift"]
+        let actualParameters = sessionManager.requestParameters?.parameters as? [String: String]
+        XCTAssertEqual(actualParameters, expectedParameters)
     }
 }

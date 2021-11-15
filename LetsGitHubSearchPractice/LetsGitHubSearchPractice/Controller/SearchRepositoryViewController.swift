@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class SearchRepositoryViewController: UIViewController {
     
@@ -24,6 +25,9 @@ class SearchRepositoryViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
+    
+    var currentSearchRequest: DataRequest?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("searchrepo")
@@ -35,10 +39,10 @@ class SearchRepositoryViewController: UIViewController {
     private func setUpUI(){
         
         self.definesPresentationContext = true
-
+        
         self.searchController.searchBar.delegate = self
         self.searchController.searchBar.autocapitalizationType = .none
-
+        
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
@@ -56,11 +60,20 @@ class SearchRepositoryViewController: UIViewController {
         }
     }
     
+    private func search(keyword: String) {
+        
+    }
+    
 }
 
 
 extension SearchRepositoryViewController: UISearchBarDelegate {
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            self.search(keyword: text)
+        }
+        self.searchController.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension SearchRepositoryViewController: UITableViewDelegate {
