@@ -14,8 +14,10 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
     func testSearchBar_whenSearchBarSearchButtonClicked_searchWithText() {
         // given
         
+        let repositoryService = RepositoryServiceStub()
         let viewController = SearchRepositoryViewController()
         
+        viewController.repositoryService = repositoryService
         _ = viewController.view
         
         // when
@@ -25,9 +27,11 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
         searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
         
         // then
-
-        XCTWaiter().wait(for: [XCTestExpectation()], timeout: 3)
-        let cell = viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-        XCTAssertEqual(cell?.textLabel?.text, "ReactorKit")
-    }    
+        
+        XCTAssertEqual(repositoryService.searchParameters, "ReactorKit")
+        
+//        XCTWaiter().wait(for: [XCTestExpectation()], timeout: 3)
+//        let cell = viewController.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+//        XCTAssertEqual(cell?.textLabel?.text, "ReactorKit")
+    }
 }

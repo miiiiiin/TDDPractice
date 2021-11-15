@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7BEB45686A31463842B12E7A /* Pods_LetsGitHubSearchPractice_LetsGitHubSearchPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028D065A917D295E49144459 /* Pods_LetsGitHubSearchPractice_LetsGitHubSearchPracticeUITests.framework */; };
 		7D8235E7274235F400B2A877 /* SearchRepositoryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8235E6274235F400B2A877 /* SearchRepositoryViewControllerTests.swift */; };
+		7D8235EA27423DA300B2A877 /* RepositoryServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8235E927423DA300B2A877 /* RepositoryServiceStub.swift */; };
 		7D98D97B273E45D900128084 /* RepoSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D97A273E45D900128084 /* RepoSearchResult.swift */; };
 		7D98D97D273E463C00128084 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D97C273E463C00128084 /* Repository.swift */; };
 		7D98D980273E47C300128084 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98D97F273E47C300128084 /* RepositoryService.swift */; };
@@ -48,6 +49,7 @@
 		6487ECA36A4A343289232853 /* Pods-LetsGitHubSearchPractice-LetsGitHubSearchPracticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGitHubSearchPractice-LetsGitHubSearchPracticeUITests.release.xcconfig"; path = "Target Support Files/Pods-LetsGitHubSearchPractice-LetsGitHubSearchPracticeUITests/Pods-LetsGitHubSearchPractice-LetsGitHubSearchPracticeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7A1B82147DFCDC749224CB4A /* Pods-LetsGitHubSearchPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGitHubSearchPractice.debug.xcconfig"; path = "Target Support Files/Pods-LetsGitHubSearchPractice/Pods-LetsGitHubSearchPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8235E6274235F400B2A877 /* SearchRepositoryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryViewControllerTests.swift; sourceTree = "<group>"; };
+		7D8235E927423DA300B2A877 /* RepositoryServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceStub.swift; sourceTree = "<group>"; };
 		7D98D97A273E45D900128084 /* RepoSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchResult.swift; sourceTree = "<group>"; };
 		7D98D97C273E463C00128084 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		7D98D97F273E47C300128084 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7D8235E827423D9800B2A877 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7D8235E927423DA300B2A877 /* RepositoryServiceStub.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		7D98D979273E45D300128084 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 		7D98D98D273E669C00128084 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				7D8235E827423D9800B2A877 /* Service */,
 				7D98D98E273E66A400128084 /* Networking */,
 			);
 			path = Mocks;
@@ -516,6 +527,7 @@
 				7D8235E7274235F400B2A877 /* SearchRepositoryViewControllerTests.swift in Sources */,
 				7DE2515B273CE04A00891637 /* LetsGitHubSearchPracticeTests.swift in Sources */,
 				7D98D989273E534200128084 /* RepositoryServiceTests.swift in Sources */,
+				7D8235EA27423DA300B2A877 /* RepositoryServiceStub.swift in Sources */,
 				7D98D990273E66AE00128084 /* SessionManagerStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
