@@ -7,7 +7,12 @@
 
 import Alamofire
 
-final class RepositoryService {
+protocol RepositoryServiceProtocol {
+    @discardableResult
+    func search(keyword: String, completionHandler: @escaping (Result<RepoSearchResult, AFError>) -> Void) -> DataRequest
+}
+
+final class RepositoryService: RepositoryServiceProtocol {
     
     private let sessionManager: SessionManagerProtocol
     
@@ -19,8 +24,7 @@ final class RepositoryService {
     func search(keyword: String, completionHandler: @escaping (Result<RepoSearchResult, AFError>) -> Void) -> DataRequest {
         let url = "https://api.github.com/search/repositories"
         let parameters: Parameters = ["q": keyword]
-        
-        return Session.default.request(url, method: .get, parameters: parameters, encoding: URLEncoding(), headers: nil)
+        return self.sessionManager.request(url, method: .get, parameters: parameters, encoding: URLEncoding(), headers: nil)
             .responseData { response in
                 let decoder = JSONDecoder()
                 let result = response.result.flatMap { data -> Result<RepoSearchResult, AFError> in
