@@ -63,10 +63,10 @@ class SearchRepositoryViewController: UIViewController {
     
     private func setLoading(_ isLoading: Bool) {
         if isLoading {
-            self.activityIndicatorView.stopAnimating()
+            self.activityIndicatorView.startAnimating()
             self.tableView.isHidden = true
         } else {
-            self.activityIndicatorView.startAnimating()
+            self.activityIndicatorView.stopAnimating()
             self.tableView.isHidden = false
         }
     }
@@ -93,7 +93,7 @@ class SearchRepositoryViewController: UIViewController {
             }
         })
     }
-
+    
     private func setSearchResult(_ searchResult: RepoSearchResult) {
         self.repositories = searchResult.items
         self.tableView.reloadData()
@@ -105,6 +105,12 @@ class SearchRepositoryViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    private func formattedStargazersCount(_ count: Int) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        guard let formattedCount = formatter.string(from: count as NSNumber) else { return nil }
+        return "⭐️ \(formattedCount)"
+    }
 }
 
 
@@ -132,6 +138,7 @@ extension SearchRepositoryViewController: UITableViewDataSource {
         
         let repository = self.repositories[indexPath.row]
         cell.textLabel?.text = repository.name
+        cell.detailTextLabel?.text = self.formattedStargazersCount(repository.stargazersCount)
         return cell
     }
 }
