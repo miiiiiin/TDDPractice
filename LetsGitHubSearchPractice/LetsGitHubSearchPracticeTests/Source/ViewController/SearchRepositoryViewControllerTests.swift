@@ -13,15 +13,19 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
     private var repositoryService: RepositoryServiceStub!
     private var viewController: SearchRepositoryViewController!
     private var urlOpener: URLOpenerStub!
+    private var firebaseAnalytics: FirebaseAnalyticsStub.Type!
     
     override func setUp() {
         super.setUp()
         self.repositoryService = RepositoryServiceStub()
         self.urlOpener = URLOpenerStub()
+        self.firebaseAnalytics = FirebaseAnalyticsStub.self
+        self.firebaseAnalytics.logEventParameters = nil
         
         viewController = SearchRepositoryViewController()
         viewController.repositoryService = self.repositoryService
         viewController.urlOpener = self.urlOpener
+        viewController.firebaseAnalytics = self.firebaseAnalytics
         _ = viewController.view
     }
     
@@ -116,4 +120,15 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
       XCTAssertEqual(self.urlOpener.openParameters?.absoluteString, "https://github.com/devxoul/ReactorKit1")
     }
     
+    func testSearchBar_whenSearchBarSearchButtonClicked_logAnalyticsSearchEvent() {
+        // when
+        let searchBar = self.viewController.searchController.searchBar
+        searchBar.text = "LetSwift18"
+        searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
+
+        // then
+        let parameters = self.firebaseAnalytics.logEventParameters
+        XCTAssertEqual(parameters?.name, "search")
+        XCTAssertEqual(parameters?.parameters as? [String: String], ["keyword": "LetSwift18"])
+    }
 }
