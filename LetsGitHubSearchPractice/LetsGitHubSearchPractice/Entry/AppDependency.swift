@@ -12,6 +12,7 @@ struct AppDependency {
     let repositoryService: RepositoryServiceProtocol
     let urlOpener: URLOpenerProtocol
     let firebaseApp: FirebaseAppProtocol.Type
+    let firebaseAnalytics: FirebaseAnalyticsProtocol.Type
 }
 
 extension AppDependency {
@@ -20,6 +21,6 @@ extension AppDependency {
         let repositoryService = RepositoryService(session: sessionManager)
         let urlOpener = UIApplication.shared
         
-        return AppDependency(repositoryService: repositoryService, urlOpener: urlOpener, firebaseApp: FirebaseApp.self)
+        return AppDependency(repositoryService: repositoryService, urlOpener: urlOpener, firebaseApp: FirebaseApp.self, firebaseAnalytics: Firebase.Analytics.self)
     }
 }

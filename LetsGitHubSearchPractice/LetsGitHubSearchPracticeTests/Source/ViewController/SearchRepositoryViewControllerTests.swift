@@ -57,7 +57,8 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
         let searchBar = viewController.searchController.searchBar
         searchBar.text = "ReactorKit"
         searchBar.delegate?.searchBarSearchButtonClicked?(searchBar)
-        repositoryService.searchParameters?.completionHandler(.failure(TestError().asAFError(orFailWith: "")))
+        
+        repositoryService.searchParameters?.completionHandler(.failure(.createURLRequestFailed(error: TestError())))
         
         // then
         XCTAssertTrue(viewController.tableView.isHidden)

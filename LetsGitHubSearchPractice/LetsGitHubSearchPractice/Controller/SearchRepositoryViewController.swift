@@ -13,6 +13,7 @@ class SearchRepositoryViewController: UIViewController {
     
     var repositoryService: RepositoryServiceProtocol!
     var urlOpener: URLOpenerProtocol!
+    var firebaseAnalytics: FirebaseAnalyticsProtocol.Type!
     
     lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -120,6 +121,7 @@ extension SearchRepositoryViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
             self.search(keyword: text)
+            self.firebaseAnalytics.logEvent("search", parameters: ["keyword": text])
         }
         self.searchController.dismiss(animated: true, completion: nil)
     }
