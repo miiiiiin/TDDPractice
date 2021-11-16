@@ -23,9 +23,16 @@ final class SearchRepositoryViewControllerTests: XCTestCase {
         self.firebaseAnalytics.logEventParameters = nil
         
         viewController = SearchRepositoryViewController()
-        viewController.repositoryService = self.repositoryService
-        viewController.urlOpener = self.urlOpener
-        viewController.firebaseAnalytics = self.firebaseAnalytics
+//        viewController.repositoryService = self.repositoryService
+//        viewController.urlOpener = self.urlOpener
+//        viewController.firebaseAnalytics = self.firebaseAnalytics
+        
+        viewController.dependency = .init(
+            repositoryService: self.repositoryService,
+            urlOpener: self.urlOpener,
+            firebaseAnalytics: self.firebaseAnalytics
+        )
+        
         _ = viewController.view
     }
     

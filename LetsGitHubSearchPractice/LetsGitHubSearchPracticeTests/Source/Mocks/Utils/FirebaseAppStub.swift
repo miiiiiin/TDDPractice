@@ -12,6 +12,6 @@ final class FirebaseAppStub: FirebaseAppProtocol {
     static var configureExecutionCount = 0
     
     static func confiure() {
-        configureExecutionCount += 1
+        self.configureExecutionCount += 1
     }
 }

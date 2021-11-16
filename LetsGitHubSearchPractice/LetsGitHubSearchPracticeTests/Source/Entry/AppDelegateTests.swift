@@ -15,12 +15,19 @@ class AppDelegateTests: XCTestCase {
         let firebaseApp = FirebaseAppStub.self
         firebaseApp.configureExecutionCount = 0
         
-        let dependency = AppDependency(
-            repositoryService: RepositoryServiceStub(),
-            urlOpener: URLOpenerStub(),
-            firebaseApp: firebaseApp,
-            firebaseAnalytics: FirebaseAnalyticsStub.self)
+//        let dependency = AppDependency(
+//            repositoryService: RepositoryServiceStub(),
+//            urlOpener: URLOpenerStub(),
+//            firebaseApp: firebaseApp,
+//            firebaseAnalytics: FirebaseAnalyticsStub.self)
         
+        let dependency = AppDependency(
+            firebaseApp: firebaseApp,
+            searchRepositoryVCDependency:
+                .init(repositoryService: RepositoryServiceStub(),
+                      urlOpener: URLOpenerStub(),
+                      firebaseAnalytics: FirebaseAnalyticsStub.self))
+//
         let appDelegate = AppDelegate(dependency: dependency)
         
         // when
