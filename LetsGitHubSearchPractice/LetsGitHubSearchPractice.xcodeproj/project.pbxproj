@@ -12,6 +12,7 @@
 		7D0712172743390B00E19B80 /* FirebaseAppStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0712162743390B00E19B80 /* FirebaseAppStub.swift */; };
 		7D07121A2743396100E19B80 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0712192743396100E19B80 /* AppDelegateTests.swift */; };
 		7D07121C27433AEB00E19B80 /* FirebaseAnalyticsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D07121B27433AEB00E19B80 /* FirebaseAnalyticsProtocol.swift */; };
+		7D07121E27433C5C00E19B80 /* FirebaseAnalyticsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D07121D27433C5C00E19B80 /* FirebaseAnalyticsStub.swift */; };
 		7D8235E7274235F400B2A877 /* SearchRepositoryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8235E6274235F400B2A877 /* SearchRepositoryViewControllerTests.swift */; };
 		7D8235EA27423DA300B2A877 /* RepositoryServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8235E927423DA300B2A877 /* RepositoryServiceStub.swift */; };
 		7D8235EC2742475600B2A877 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8235EB2742475600B2A877 /* TestError.swift */; };
@@ -62,6 +63,7 @@
 		7D0712162743390B00E19B80 /* FirebaseAppStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppStub.swift; sourceTree = "<group>"; };
 		7D0712192743396100E19B80 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		7D07121B27433AEB00E19B80 /* FirebaseAnalyticsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsProtocol.swift; sourceTree = "<group>"; };
+		7D07121D27433C5C00E19B80 /* FirebaseAnalyticsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsStub.swift; sourceTree = "<group>"; };
 		7D8235E6274235F400B2A877 /* SearchRepositoryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryViewControllerTests.swift; sourceTree = "<group>"; };
 		7D8235E927423DA300B2A877 /* RepositoryServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryServiceStub.swift; sourceTree = "<group>"; };
 		7D8235EB2742475600B2A877 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				7D8235F6274264B600B2A877 /* URLOpenerStub.swift */,
 				7D0712162743390B00E19B80 /* FirebaseAppStub.swift */,
+				7D07121D27433C5C00E19B80 /* FirebaseAnalyticsStub.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 			files = (
 				7D0712172743390B00E19B80 /* FirebaseAppStub.swift in Sources */,
 				7D8235F7274264B600B2A877 /* URLOpenerStub.swift in Sources */,
+				7D07121E27433C5C00E19B80 /* FirebaseAnalyticsStub.swift in Sources */,
 				7D8235F02742544800B2A877 /* TestAppDelegate.swift in Sources */,
 				7D8235EC2742475600B2A877 /* TestError.swift in Sources */,
 				7D8235E7274235F400B2A877 /* SearchRepositoryViewControllerTests.swift in Sources */,
