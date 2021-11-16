@@ -33,7 +33,6 @@
 		7DB1FAB72727DDC200113EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB62727DDC200113EAC /* Assets.xcassets */; };
 		7DB1FABA2727DDC200113EAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB1FAB82727DDC200113EAC /* LaunchScreen.storyboard */; };
 		7DB1FAC52727DDC300113EAC /* ReactorBlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAC42727DDC300113EAC /* ReactorBlogTests.swift */; };
-		7DB1FAD02727DDC300113EAC /* ReactorBlogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FACF2727DDC300113EAC /* ReactorBlogUITests.swift */; };
 		7DB1FAE22727E06C00113EAC /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAE12727E06C00113EAC /* AppFlow.swift */; };
 		7DB1FAE42727E1C900113EAC /* BlogStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAE32727E1C900113EAC /* BlogStep.swift */; };
 		7DB1FAE92727E2E200113EAC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1FAE82727E2E200113EAC /* BaseViewController.swift */; };
@@ -48,18 +47,10 @@
 		7DF6B70F272935CC00256376 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6B70E272935CC00256376 /* ErrorResponse.swift */; };
 		7DF6B71327293EDD00256376 /* HandleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6B71227293EDD00256376 /* HandleResponse.swift */; };
 		BB20F50288CDDCBBE4867ADD /* Pods_ReactorBlogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA879C102E7E11027EC86108 /* Pods_ReactorBlogTests.framework */; };
-		DA73B609900C0E97E4837B5D /* Pods_ReactorBlog_ReactorBlogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FE97C21D33549BE5AB6D68 /* Pods_ReactorBlog_ReactorBlogUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		7DB1FAC12727DDC300113EAC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7DB1FAA22727DDC100113EAC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7DB1FAA92727DDC100113EAC;
-			remoteInfo = ReactorBlog;
-		};
-		7DB1FACC2727DDC300113EAC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7DB1FAA22727DDC100113EAC /* Project object */;
 			proxyType = 1;
@@ -103,9 +94,6 @@
 		7DB1FAC02727DDC300113EAC /* ReactorBlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactorBlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB1FAC42727DDC300113EAC /* ReactorBlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorBlogTests.swift; sourceTree = "<group>"; };
 		7DB1FAC62727DDC300113EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DB1FACB2727DDC300113EAC /* ReactorBlogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactorBlogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DB1FACF2727DDC300113EAC /* ReactorBlogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorBlogUITests.swift; sourceTree = "<group>"; };
-		7DB1FAD12727DDC300113EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DB1FAE12727E06C00113EAC /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		7DB1FAE32727E1C900113EAC /* BlogStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogStep.swift; sourceTree = "<group>"; };
 		7DB1FAE82727E2E200113EAC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -139,14 +127,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB20F50288CDDCBBE4867ADD /* Pods_ReactorBlogTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7DB1FAC82727DDC300113EAC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DA73B609900C0E97E4837B5D /* Pods_ReactorBlog_ReactorBlogUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +258,6 @@
 			children = (
 				7DB1FAAC2727DDC100113EAC /* ReactorBlog */,
 				7DB1FAC32727DDC300113EAC /* ReactorBlogTests */,
-				7DB1FACE2727DDC300113EAC /* ReactorBlogUITests */,
 				7DB1FAAB2727DDC100113EAC /* Products */,
 				7BF2F1DD1E270778EA5BFB2E /* Pods */,
 				721830C263C2EBAA607048CC /* Frameworks */,
@@ -290,7 +269,6 @@
 			children = (
 				7DB1FAAA2727DDC100113EAC /* ReactorBlog.app */,
 				7DB1FAC02727DDC300113EAC /* ReactorBlogTests.xctest */,
-				7DB1FACB2727DDC300113EAC /* ReactorBlogUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,15 +303,6 @@
 				7DD863C12734C63A0014A69D /* MainViewReactorTests.swift */,
 			);
 			path = ReactorBlogTests;
-			sourceTree = "<group>";
-		};
-		7DB1FACE2727DDC300113EAC /* ReactorBlogUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7DB1FACF2727DDC300113EAC /* ReactorBlogUITests.swift */,
-				7DB1FAD12727DDC300113EAC /* Info.plist */,
-			);
-			path = ReactorBlogUITests;
 			sourceTree = "<group>";
 		};
 		7DB1FAE02727E03D00113EAC /* Flow */ = {
@@ -423,26 +392,6 @@
 			productReference = 7DB1FAC02727DDC300113EAC /* ReactorBlogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7DB1FACA2727DDC300113EAC /* ReactorBlogUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7DB1FADA2727DDC300113EAC /* Build configuration list for PBXNativeTarget "ReactorBlogUITests" */;
-			buildPhases = (
-				1178F256574BE2883B9323B9 /* [CP] Check Pods Manifest.lock */,
-				7DB1FAC72727DDC300113EAC /* Sources */,
-				7DB1FAC82727DDC300113EAC /* Frameworks */,
-				7DB1FAC92727DDC300113EAC /* Resources */,
-				5244447E05CF4CC6F2609C29 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7DB1FACD2727DDC300113EAC /* PBXTargetDependency */,
-			);
-			name = ReactorBlogUITests;
-			productName = ReactorBlogUITests;
-			productReference = 7DB1FACB2727DDC300113EAC /* ReactorBlogUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -456,10 +405,6 @@
 						CreatedOnToolsVersion = 12.5;
 					};
 					7DB1FABF2727DDC300113EAC = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = 7DB1FAA92727DDC100113EAC;
-					};
-					7DB1FACA2727DDC300113EAC = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 7DB1FAA92727DDC100113EAC;
 					};
@@ -480,7 +425,6 @@
 			targets = (
 				7DB1FAA92727DDC100113EAC /* ReactorBlog */,
 				7DB1FABF2727DDC300113EAC /* ReactorBlogTests */,
-				7DB1FACA2727DDC300113EAC /* ReactorBlogUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -502,38 +446,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7DB1FAC92727DDC300113EAC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1178F256574BE2883B9323B9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactorBlog-ReactorBlogUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		39E32EA8C58BE6936CD16C71 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -554,23 +469,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5244447E05CF4CC6F2609C29 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactorBlog-ReactorBlogUITests/Pods-ReactorBlog-ReactorBlogUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactorBlog-ReactorBlogUITests/Pods-ReactorBlog-ReactorBlogUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactorBlog-ReactorBlogUITests/Pods-ReactorBlog-ReactorBlogUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A89740DD84A73270DB5115F7 /* [CP] Embed Pods Frameworks */ = {
@@ -682,14 +580,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7DB1FAC72727DDC300113EAC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7DB1FAD02727DDC300113EAC /* ReactorBlogUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -697,11 +587,6 @@
 			isa = PBXTargetDependency;
 			target = 7DB1FAA92727DDC100113EAC /* ReactorBlog */;
 			targetProxy = 7DB1FAC12727DDC300113EAC /* PBXContainerItemProxy */;
-		};
-		7DB1FACD2727DDC300113EAC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7DB1FAA92727DDC100113EAC /* ReactorBlog */;
-			targetProxy = 7DB1FACC2727DDC300113EAC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -921,48 +806,6 @@
 			};
 			name = Release;
 		};
-		7DB1FADB2727DDC300113EAC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EED0171E453A38B15BE6B664 /* Pods-ReactorBlog-ReactorBlogUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JH6HFBQXT6;
-				INFOPLIST_FILE = ReactorBlogUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.miiiiiin.itcha.ReactorBlogUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ReactorBlog;
-			};
-			name = Debug;
-		};
-		7DB1FADC2727DDC300113EAC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A5BB9ABAFFA285863DDB949 /* Pods-ReactorBlog-ReactorBlogUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JH6HFBQXT6;
-				INFOPLIST_FILE = ReactorBlogUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.miiiiiin.itcha.ReactorBlogUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ReactorBlog;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -989,15 +832,6 @@
 			buildConfigurations = (
 				7DB1FAD82727DDC300113EAC /* Debug */,
 				7DB1FAD92727DDC300113EAC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7DB1FADA2727DDC300113EAC /* Build configuration list for PBXNativeTarget "ReactorBlogUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7DB1FADB2727DDC300113EAC /* Debug */,
-				7DB1FADC2727DDC300113EAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
