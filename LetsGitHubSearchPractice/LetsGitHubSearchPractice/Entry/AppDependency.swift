@@ -9,10 +9,11 @@ import Alamofire
 import Firebase
 
 struct AppDependency {
-    let repositoryService: RepositoryServiceProtocol
-    let urlOpener: URLOpenerProtocol
+//    let repositoryService: RepositoryServiceProtocol
+//    let urlOpener: URLOpenerProtocol
+//    let firebaseAnalytics: FirebaseAnalyticsProtocol.Type
     let firebaseApp: FirebaseAppProtocol.Type
-    let firebaseAnalytics: FirebaseAnalyticsProtocol.Type
+    let searchRepositoryVCDependency: SearchRepositoryViewController.Dependency
 }
 
 extension AppDependency {
@@ -21,6 +22,9 @@ extension AppDependency {
         let repositoryService = RepositoryService(session: sessionManager)
         let urlOpener = UIApplication.shared
         
-        return AppDependency(repositoryService: repositoryService, urlOpener: urlOpener, firebaseApp: FirebaseApp.self, firebaseAnalytics: Firebase.Analytics.self)
+        return AppDependency(firebaseApp: FirebaseApp.self,
+                             searchRepositoryVCDependency: .init(repositoryService: repositoryService,
+                                                                 urlOpener: urlOpener,
+                                                                 firebaseAnalytics: Firebase.Analytics.self))
     }
 }

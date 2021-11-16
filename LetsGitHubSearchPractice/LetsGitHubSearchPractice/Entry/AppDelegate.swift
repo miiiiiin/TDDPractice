@@ -37,9 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        window?.makeKeyAndVisible()
         
         if let rootViewController = self.rootViewController() {
-            rootViewController.repositoryService = self.appDependency.repositoryService
-            rootViewController.urlOpener = self.appDependency.urlOpener
-            rootViewController.firebaseAnalytics = self.appDependency.firebaseAnalytics
+//            rootViewController.repositoryService = self.appDependency.repositoryService
+//            rootViewController.urlOpener = self.appDependency.urlOpener
+//            rootViewController.firebaseAnalytics = self.appDependency.firebaseAnalytics
+        
+            rootViewController.dependency = self.appDependency.searchRepositoryVCDependency
         }
         
         return true
