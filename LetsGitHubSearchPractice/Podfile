@@ -9,6 +9,7 @@ target 'LetsGitHubSearchPractice' do
   pod 'Alamofire'
   pod 'ReactorKit'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'Firebase/Core'
 
   target 'LetsGitHubSearchPracticeTests' do
     inherit! :search_paths

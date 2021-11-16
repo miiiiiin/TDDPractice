@@ -18,6 +18,7 @@ class SearchRepositoryViewController: UIViewController {
         let tv = UITableView()
         tv.delegate = self
         tv.dataSource = self
+        tv.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return tv
     }()
     
@@ -136,6 +137,9 @@ extension SearchRepositoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+        
+        cell.textLabel?.textColor = .white
+        cell.detailTextLabel?.textColor = .white
         
         let repository = self.repositories[indexPath.row]
         cell.textLabel?.text = repository.name

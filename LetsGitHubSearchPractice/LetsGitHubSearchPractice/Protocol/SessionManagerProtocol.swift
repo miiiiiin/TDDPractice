@@ -8,13 +8,18 @@
 import Alamofire
 
 protocol SessionManagerProtocol {
-    @discardableResult
-    func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> DataRequest
+//    @discardableResult
+//    func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> DataRequest
 }
 
 extension Session: SessionManagerProtocol {
-    func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> DataRequest {
-        return AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
-    }
+//    func request(_ url: URLConvertible, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?) -> DataRequest {
+////        return AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+//
+////        return request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+//
+//        return AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+//
+//    }
     
 }
