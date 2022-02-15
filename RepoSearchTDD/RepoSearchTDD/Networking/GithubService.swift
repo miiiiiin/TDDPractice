@@ -21,6 +21,20 @@ class GithubService {
         self.session = session
     }
     
+    /// - Returns: a list of languages from GitHub.
+    func getLanguageList() -> Observable<[String]> {
+        // For simplicity we will use a stubbed list of languages.
+        return Observable.just([
+            "Swift",
+            "Objective-C",
+            "Java",
+            "C",
+            "C++",
+            "Python",
+            "C#"
+            ])
+    }
+    
     /// - Parameter language: Language to filter by
     /// - Returns: A list of most popular repositories filtered by langugage
     func getMostPopularRepositories(byLanguage language: String) -> Observable<[Repository]> {

@@ -26,6 +26,10 @@
 		7DED8B4727BB52C9000D8AC8 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED8B4627BB52C9000D8AC8 /* RepositoryTests.swift */; };
 		7DED8B4927BB562C000D8AC8 /* RepositoryListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED8B4827BB562C000D8AC8 /* RepositoryListViewModelTests.swift */; };
 		7DED8B4B27BB6A48000D8AC8 /* RepositoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED8B4A27BB6A48000D8AC8 /* RepositoryViewModelTests.swift */; };
+		7DED8B4E27BB6ED0000D8AC8 /* LanguageListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED8B4D27BB6ED0000D8AC8 /* LanguageListCoordinator.swift */; };
+		7DED8B5027BB6EE1000D8AC8 /* LanguageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED8B4F27BB6EE1000D8AC8 /* LanguageListViewController.swift */; };
+		7DED8B5227BB6EF6000D8AC8 /* LanguageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED8B5127BB6EF6000D8AC8 /* LanguageListViewModel.swift */; };
+		7DED8B5427BB7290000D8AC8 /* LanguageListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DED8B5327BB7290000D8AC8 /* LanguageListViewModelTests.swift */; };
 		A4B70816D1A0851CAB4C13A7 /* Pods_RepoSearchTDDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95162F0D929C0E6C961D61C1 /* Pods_RepoSearchTDDTests.framework */; };
 		A8DDC8410E65F9E9BBC26F6A /* Pods_RepoSearchTDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2B1B175B028DD8730275EB /* Pods_RepoSearchTDD.framework */; };
 		EABCEB2BEB8A5806511987BE /* Pods_RepoSearchTDD_RepoSearchTDDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C8B0273858ED7D4EE50B77 /* Pods_RepoSearchTDD_RepoSearchTDDUITests.framework */; };
@@ -75,6 +79,10 @@
 		7DED8B4627BB52C9000D8AC8 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		7DED8B4827BB562C000D8AC8 /* RepositoryListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModelTests.swift; sourceTree = "<group>"; };
 		7DED8B4A27BB6A48000D8AC8 /* RepositoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModelTests.swift; sourceTree = "<group>"; };
+		7DED8B4D27BB6ED0000D8AC8 /* LanguageListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListCoordinator.swift; sourceTree = "<group>"; };
+		7DED8B4F27BB6EE1000D8AC8 /* LanguageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListViewController.swift; sourceTree = "<group>"; };
+		7DED8B5127BB6EF6000D8AC8 /* LanguageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListViewModel.swift; sourceTree = "<group>"; };
+		7DED8B5327BB7290000D8AC8 /* LanguageListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListViewModelTests.swift; sourceTree = "<group>"; };
 		95162F0D929C0E6C961D61C1 /* Pods_RepoSearchTDDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RepoSearchTDDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C8B0273858ED7D4EE50B77 /* Pods_RepoSearchTDD_RepoSearchTDDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RepoSearchTDD_RepoSearchTDDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7DA2E9E5DAE55C2EB4700C8 /* Pods-RepoSearchTDDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepoSearchTDDTests.release.xcconfig"; path = "Target Support Files/Pods-RepoSearchTDDTests/Pods-RepoSearchTDDTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +187,7 @@
 				7DED8B4627BB52C9000D8AC8 /* RepositoryTests.swift */,
 				7DED8B4827BB562C000D8AC8 /* RepositoryListViewModelTests.swift */,
 				7DED8B4A27BB6A48000D8AC8 /* RepositoryViewModelTests.swift */,
+				7DED8B5327BB7290000D8AC8 /* LanguageListViewModelTests.swift */,
 			);
 			path = RepoSearchTDDTests;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 		7DED8B3427BB4941000D8AC8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7DED8B4C27BB6EC7000D8AC8 /* LanguageList */,
 				7DED8B3527BB4948000D8AC8 /* RepositoryList */,
 			);
 			path = Scene;
@@ -243,6 +253,16 @@
 				7DED8B4227BB4E52000D8AC8 /* RepositoryViewModel.swift */,
 			);
 			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		7DED8B4C27BB6EC7000D8AC8 /* LanguageList */ = {
+			isa = PBXGroup;
+			children = (
+				7DED8B4D27BB6ED0000D8AC8 /* LanguageListCoordinator.swift */,
+				7DED8B4F27BB6EE1000D8AC8 /* LanguageListViewController.swift */,
+				7DED8B5127BB6EF6000D8AC8 /* LanguageListViewModel.swift */,
+			);
+			path = LanguageList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,15 +522,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DED8B3F27BB4C21000D8AC8 /* RepositoryCell.swift in Sources */,
+				7DED8B5027BB6EE1000D8AC8 /* LanguageListViewController.swift in Sources */,
 				7DED8B3127BB48D6000D8AC8 /* AppCoordinator.swift in Sources */,
 				7DED8B0127BB477E000D8AC8 /* ViewController.swift in Sources */,
 				7DED8B3D27BB4C04000D8AC8 /* GithubService.swift in Sources */,
+				7DED8B4E27BB6ED0000D8AC8 /* LanguageListCoordinator.swift in Sources */,
 				7DED8B3927BB49CB000D8AC8 /* RepositoryListViewController.swift in Sources */,
 				7DED8B3727BB4950000D8AC8 /* RepositoryListCoordinator.swift in Sources */,
 				7DED8AFD27BB477E000D8AC8 /* AppDelegate.swift in Sources */,
 				7DED8B4127BB4D91000D8AC8 /* Repository.swift in Sources */,
 				7DED8B3327BB48F8000D8AC8 /* BaseCoordinator.swift in Sources */,
 				7DED8B3B27BB4A64000D8AC8 /* RepositoryListViewModel.swift in Sources */,
+				7DED8B5227BB6EF6000D8AC8 /* LanguageListViewModel.swift in Sources */,
 				7DED8B4327BB4E52000D8AC8 /* RepositoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +546,7 @@
 				7DED8B4927BB562C000D8AC8 /* RepositoryListViewModelTests.swift in Sources */,
 				7DED8B4527BB5244000D8AC8 /* GithubServiceMock.swift in Sources */,
 				7DED8B4727BB52C9000D8AC8 /* RepositoryTests.swift in Sources */,
+				7DED8B5427BB7290000D8AC8 /* LanguageListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
