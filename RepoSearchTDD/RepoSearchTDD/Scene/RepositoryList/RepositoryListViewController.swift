@@ -36,7 +36,7 @@ class RepositoryListViewController: UIViewController {
         navigationItem.rightBarButtonItem = chooseLanguageButton
 
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 200
         tableView.insertSubview(refreshControl, at: 0)
         tableView.register(RepositoryCell.classForCoder(), forCellReuseIdentifier: RepositoryCell.reuseIdentifier)
         
