@@ -25,6 +25,12 @@ class RepositoryListCoordinator: BaseCoordinator<Void> {
 
         viewController.viewModel = viewModel
         
+        viewModel.showRepository
+            .subscribe(onNext: { [weak self] in
+                self?.showRepository(by: $0, in: navigationController) })
+            .disposed(by: disposeBag)
+        
+        
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         

@@ -72,6 +72,11 @@ class RepositoryListViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        viewModel.alertMessage
+            .subscribe(onNext: { [weak self] in
+                self?.presentAlert(message: $0)
+            })
+            .disposed(by: disposeBag)
         
         viewModel.title
             .bind(to: navigationItem.rx.title)
@@ -79,6 +84,14 @@ class RepositoryListViewController: UIViewController {
         
         refreshControl.rx.controlEvent(.valueChanged)
             .bind(to: viewModel.reload)
+            .disposed(by: disposeBag)
+        
+        chooseLanguageButton.rx.tap
+            .bind(to: viewModel.chooseLanguage)
+            .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(RepositoryViewModel.self)
+            .bind(to: viewModel.selectRepository)
             .disposed(by: disposeBag)
         
     }

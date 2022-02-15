@@ -75,4 +75,57 @@ class RepositoryListViewModelTests: XCTestCase {
         XCTAssertEqual(repositoryViewModel.name, "Full Name")
     }
     
+    func test_RepositoriesWithNetworkError_EmitsAlertMessage() {
+        let error = NSError(domain: "Test", code: 2, userInfo: nil)
+        githubService.repositoriesReturnValue = .error(error)
+        
+        testScheduler.createHotObservable([.next(300, ())])
+            .bind(to: viewModel.reload)
+            .disposed(by: disposeBag)
+        
+        viewModel.repositories
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        let result = testScheduler.start { self.viewModel.alertMessage }
+        XCTAssertEqual(result.events, [.next(300, error.localizedDescription)])
+    }
+    
+    
+    func test_LanguageChange_UpdatesRepositories() {
+        githubService.repositoriesReturnValue = .just([testRepository])
+        
+        testScheduler.createHotObservable([.next(300, ())])
+            .bind(to: viewModel.reload)
+            .disposed(by: disposeBag)
+        
+        testScheduler.createHotObservable([.next(400, "Objective-C")])
+            .bind(to: viewModel.setCurrentLanguage)
+            .disposed(by: disposeBag)
+        
+        let result = testScheduler.start { self.viewModel.repositories.map({ _ in true })}
+        XCTAssertEqual(result.events, [.next(300, true), .next(400, true)])
+        
+    }
+    
+    func test_SelectRepository_EmitsShowRepository() {
+        let repositoryToSelect = RepositoryViewModel(repository: testRepository)
+        let selectRepositoryObservable = testScheduler.createHotObservable([.next(300, repositoryToSelect)])
+        
+        selectRepositoryObservable
+            .bind(to: viewModel.selectRepository)
+            .disposed(by: disposeBag)
+        
+        let result = testScheduler.start { self.viewModel.showRepository.map { $0.absoluteString } }
+        XCTAssertEqual(result.events, [.next(300, "https://www.apple.com")])
+    }
+    
+    func test_ChooseLanguage_EmitsShowLanguageList() {
+        testScheduler.createHotObservable([.next(300, ())])
+            .bind(to: viewModel.chooseLanguage)
+            .disposed(by: disposeBag)
+        
+        let result = testScheduler.start { self.viewModel.showLanguageList.map({true}) }
+        XCTAssertEqual(result.events, [.next(300, true)])
+    }
 }
