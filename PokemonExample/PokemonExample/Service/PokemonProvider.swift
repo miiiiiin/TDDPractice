@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+typealias PokemonListResult = Result<PokemonListResponse, Error>
 
 protocol PokemonProviderType {
-    
+    func getPokemonList(customUrl: String?) -> Single<PokemonListResult>
 }
 
 class PokemonProvider: PokemonProviderType {
@@ -17,8 +21,18 @@ class PokemonProvider: PokemonProviderType {
         static let baseUrl = "https://pokeapi.co/api/v2"
         static let pokemonPath = "pokemon"
     }
+    
+    private let httpService: HTTPServiceType
 
-    init() {
-        
+    init(httpService: HTTPServiceType) {
+        self.httpService = httpService
     }
+    
+    func getPokemonList(customUrl: String?) -> Single<PokemonListResult> {
+        let defaultUrl = Constants.baseUrl + "/" + Constants.pokemonPath
+        let url = customUrl ?? defaultUrl
+        
+        return httpService.get(url: url, responseType: PokemonListResponse.self)
+    }
+    
 }

@@ -24,7 +24,9 @@ class PokemonNavigator: PokemonNavigatorType {
     }
     
     func toPokemonList() {
-        
+        let viewModel = PokemonListViewModel(provider: provider, navigator: self)
+        let viewController = PokemonListViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: false)
     }
     
     func toPokemonDetails(title: String, url: String) {

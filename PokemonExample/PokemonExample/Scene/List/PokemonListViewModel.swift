@@ -6,13 +6,14 @@
 //
 
 import RxSwift
+import RxCocoa
 
 struct PokemonListViewModelInput {
-    
+    let listBottomReached: Driver<Void>
 }
 
 struct PokemonListViewModelOutput {
-    
+    let pokemonList: Driver<[PokemonListItem]>
 }
 
 protocol PokemonListViewModelType {
@@ -20,6 +21,9 @@ protocol PokemonListViewModelType {
 }
 
 class PokemonListViewModel: PokemonListViewModelType {
+    
+    private var items = [PokemonListItem]()
+    private var nextPageUrl: String?
     
     private let provider: PokemonProviderType
     private let navigator: PokemonNavigatorType
@@ -30,6 +34,24 @@ class PokemonListViewModel: PokemonListViewModelType {
     }
     
     func transform(input: PokemonListViewModelInput) -> PokemonListViewModelOutput {
-        return PokemonListViewModelOutput()
+        
+        let items = input.listBottomReached
+            .asObservable()
+            .startWith(())
+            .filter { self.nextPageUrl != nil || self.items.isEmpty }
+            .flatMapLatest { _ in
+                self.provider.getPokemonList(customUrl: self.nextPageUrl)
+            }
+            .do(onNext: { result in
+                if case let .success(response) = result {
+                    let newItems = response.results.map { $0.toPokemonListItem() }
+                    self.items.append(contentsOf: newItems)
+                    self.nextPageUrl = response.next
+                }
+            })
+            .map { _ in self.items }
+            .asDriver(onErrorJustReturn: [])
+                
+        return PokemonListViewModelOutput(pokemonList: items)
     }
 }

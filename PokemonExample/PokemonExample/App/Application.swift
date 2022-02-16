@@ -13,7 +13,7 @@ class Application {
     
     func start(in window: UIWindow) {
         let navigationViewController = UINavigationController()
-        let pokemonProvider = PokemonProvider()
+        let pokemonProvider = PokemonProvider(httpService: HTTPService())
         let pokemonNavigator = PokemonNavigator(navigationController: navigationViewController, provider: pokemonProvider)
         pokemonNavigator.toPokemonList()
         

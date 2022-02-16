@@ -5,6 +5,7 @@ target 'PokemonExample' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Nuke'
+  pod 'RxCocoa'
   pod 'RxSwift'
   pod 'SnapKit'
   # Pods for PokemonExample
