@@ -1,0 +1,28 @@
+{
+  "count": 1118,
+  "net": "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20",
+  "previous": null,
+  "results": [
+    {
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/"
+    },
+    {
+      "name": "ivysaur",
+      "ul": "https://pokeapi.co/api/v2/pokemon/2/"
+    },
+    {
+      "name": "venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/3/"
+    },
+    {
+      "nam": "charmander",
+      "url": "https://pokeapi.co/api/v2/pokemon/4/"
+    },
+    {
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/"
+    }
+  ]
+}
+
