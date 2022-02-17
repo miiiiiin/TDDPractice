@@ -49,6 +49,9 @@ class PokemonListViewModelTests: XCTestCase {
         
         scheduler.start()
         
+        
+        debugPrint("pokemon debug : \(pokemonList.events), \(pokemonList)")
+        
         XCTAssertEqual(pokemonList.events, [
             .next(0, PokemonListResponse.stub1PokemonListItems()),
             .next(1, PokemonListResponse.stub1PokemonListItems() + PokemonListResponse.stub2PokemonListItems()),

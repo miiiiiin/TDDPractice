@@ -47,6 +47,7 @@ class PokemonListViewModel: PokemonListViewModelType {
                     let newItems = response.results.map { $0.toPokemonListItem() }
                     self.items.append(contentsOf: newItems)
                     self.nextPageUrl = response.next
+                    debugPrint("next check: \(response.next)")
                 }
             })
             .map { _ in self.items }

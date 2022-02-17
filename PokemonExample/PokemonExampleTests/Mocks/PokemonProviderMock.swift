@@ -17,7 +17,11 @@ class PokemonProviderMock: PokemonProviderType {
         }
         
         if customUrl == nil {
-            
+            return .just(.success(PokemonListResponse.stub1()))
+        } else if customUrl == PokemonListResponse.stub1().next {
+            return .just(.success(PokemonListResponse.stub2()))
+        } else if customUrl == PokemonListResponse.stub2().next {
+            return .just(.success(PokemonListResponse.stub3()))
         }
         
         return .just(.failure(HTTPServiceError.invalidResponse))
