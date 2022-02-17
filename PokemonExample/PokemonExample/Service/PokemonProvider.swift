@@ -10,9 +10,11 @@ import RxSwift
 import RxCocoa
 
 typealias PokemonListResult = Result<PokemonListResponse, Error>
+typealias PokemonDetailsResult = Result<PokemonDetailsResponse, Error>
 
 protocol PokemonProviderType {
     func getPokemonList(customUrl: String?) -> Single<PokemonListResult>
+    func getPokemonDetails(url: String) -> Single<PokemonDetailsResult>
 }
 
 class PokemonProvider: PokemonProviderType {
@@ -35,4 +37,7 @@ class PokemonProvider: PokemonProviderType {
         return httpService.get(url: url, responseType: PokemonListResponse.self)
     }
     
+    func getPokemonDetails(url: String) -> Single<PokemonDetailsResult> {
+        return httpService.get(url: url, responseType: PokemonDetailsResponse.self)
+    }
 }

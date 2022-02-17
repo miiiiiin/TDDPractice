@@ -15,8 +15,11 @@ class PokemonNavigatorMock: PokemonNavigatorType {
         toPokemonListCallsCount += 1
     }
     
-    func toPokemonDetails(title: String, url: String) {
-        
-    }
+    var toPokemonDetailsCallsCount = 0
+    var toPokemonDetailsReceivedInvocations: [(String, String)] = []
     
+    func toPokemonDetails(title: String, url: String) {
+        toPokemonDetailsCallsCount += 1
+        toPokemonDetailsReceivedInvocations.append((title, url))
+    }    
 }

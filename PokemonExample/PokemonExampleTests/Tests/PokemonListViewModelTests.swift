@@ -39,7 +39,7 @@ class PokemonListViewModelTests: XCTestCase {
         ])
         .asDriver(onErrorJustReturn: ())
         
-        let output = viewModel.transform(input: PokemonListViewModelInput(listBottomReached: listBottomReached))
+        let output = viewModel.transform(input: PokemonListViewModelInput(itemSelected: .never(), listBottomReached: listBottomReached))
         
         let pokemonList = scheduler.createObserver([PokemonListItem].self)
         
@@ -62,9 +62,42 @@ class PokemonListViewModelTests: XCTestCase {
     func testLoadingItemsFailure() {
         provider.getPokemonListFailure = true
         
-        let output = viewModel.transform(input: PokemonListViewModelInput(listBottomReached: .never()))
+        let output = viewModel.transform(input: PokemonListViewModelInput(itemSelected: .never(), listBottomReached: .never()))
         
         XCTAssertEqual(try output.pokemonList.toBlocking().first(), [])
     }
-
+    
+    func testSelectingItems() {
+        
+        let selectItems = scheduler.createHotObservable([
+            .next(1, 2),
+            .next(2, 0),
+            .next(3, 7)
+        ])
+        .asDriver(onErrorJustReturn: 0)
+        
+        let output = viewModel.transform(input: PokemonListViewModelInput(itemSelected: selectItems, listBottomReached: .never()))
+        
+        let pokemonList = scheduler.createObserver([PokemonListItem].self)
+        let itemSelected = scheduler.createObserver(Void.self)
+        
+        output.pokemonList
+            .drive(pokemonList)
+            .disposed(by: disposeBag)
+        
+        output.itemSelected
+            .drive(itemSelected)
+            .disposed(by: disposeBag)
+        
+        scheduler.start()
+        
+        debugPrint("detailcount: \(navigator.toPokemonDetailsCallsCount), \(navigator.toPokemonDetailsReceivedInvocations.last?.0), \(PokemonListResponse.stub1().results[0].name)")
+        
+        XCTAssertEqual(navigator.toPokemonDetailsCallsCount, 2)
+        XCTAssertEqual(navigator.toPokemonDetailsReceivedInvocations.first?.0, PokemonListResponse.stub1().results[2].name.capitalizingFirstLetter())
+        XCTAssertEqual(navigator.toPokemonDetailsReceivedInvocations.first?.1, PokemonListResponse.stub1().results[2].url)
+        XCTAssertEqual(navigator.toPokemonDetailsReceivedInvocations.last?.0, PokemonListResponse.stub1().results[0].name.capitalizingFirstLetter())
+        XCTAssertEqual(navigator.toPokemonDetailsReceivedInvocations.last?.1, PokemonListResponse.stub1().results[0].url)
+        
+    }
 }

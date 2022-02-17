@@ -26,4 +26,11 @@ class PokemonProviderMock: PokemonProviderType {
         
         return .just(.failure(HTTPServiceError.invalidResponse))
     }
+    
+    
+    var getPokemonDetailsReturnValue: Single<PokemonDetailsResult>!
+    
+    func getPokemonDetails(url: String) -> Single<PokemonDetailsResult> {
+        return getPokemonDetailsReturnValue
+    }
 }

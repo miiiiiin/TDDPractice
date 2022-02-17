@@ -30,7 +30,9 @@ class PokemonNavigator: PokemonNavigatorType {
     }
     
     func toPokemonDetails(title: String, url: String) {
-        
+        let viewModel = PokemonDetailsViewModel(provider: provider, url: url)
+        let viewController = PokemonDetailsViewController(title: title, viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: false)
     }
     
 }

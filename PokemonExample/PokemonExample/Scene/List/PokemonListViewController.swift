@@ -57,7 +57,11 @@ class PokemonListViewController: UIViewController {
             .skip(1)
             .asDriver(onErrorJustReturn: ())
         
-        let input = PokemonListViewModelInput(listBottomReached: listBottomReached)
+        let itemSelected = view.tableView.rx
+            .itemSelected
+            .map { $0.row }.asDriver(onErrorJustReturn: 0)
+        
+        let input = PokemonListViewModelInput(itemSelected: itemSelected, listBottomReached: listBottomReached)
         
         let output = viewModel.transform(input: input)
         
@@ -67,6 +71,10 @@ class PokemonListViewController: UIViewController {
                 (index, item: PokemonListItem, cell) in
                 cell.textLabel?.text = item.name
             }
+            .disposed(by: disposeBag)
+        
+        output.itemSelected
+            .drive()
             .disposed(by: disposeBag)
     }
 }
