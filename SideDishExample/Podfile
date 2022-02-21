@@ -14,6 +14,10 @@ target 'SideDishExample' do
   pod 'RxBlocking'
   pod 'SnapKit'
   # Pods for SideDishExample
+end
+
+target 'SideDishExampleTests' do
+  use_frameworks!
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Action'
@@ -22,5 +26,5 @@ target 'SideDishExample' do
   pod 'RxViewController'
   pod 'Alamofire'
   pod 'RxBlocking'
-
+  
 end

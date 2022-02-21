@@ -6,6 +6,9 @@
 //
 
 import XCTest
+@testable import SideDishExample
+import RxSwift
+import RxBlocking
 
 class SideDishExampleTests: XCTestCase {
 
