@@ -24,7 +24,19 @@
 		7DBBE6BF27C369200040D123 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBBE6BE27C369200040D123 /* NetworkError.swift */; };
 		7DBBE6C127C3693B0040D123 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBBE6C027C3693B0040D123 /* SessionManagerProtocol.swift */; };
 		7DBBE6C327C369F00040D123 /* ServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBBE6C227C369F00040D123 /* ServerAPI.swift */; };
+		7DBBE6CB27C36C850040D123 /* SideDishExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBBE6CA27C36C850040D123 /* SideDishExampleTests.swift */; };
+		7DBBE6D327C36CA30040D123 /* RxMainNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBBE6D227C36CA30040D123 /* RxMainNetworkTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7DBBE6CC27C36C850040D123 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DBBE68427C361BF0040D123 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DBBE68B27C361BF0040D123;
+			remoteInfo = SideDishExample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		04B72912BBE51D52F5787BC3 /* Pods-SideDishExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SideDishExample.debug.xcconfig"; path = "Target Support Files/Pods-SideDishExample/Pods-SideDishExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -46,6 +58,9 @@
 		7DBBE6BE27C369200040D123 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		7DBBE6C027C3693B0040D123 /* SessionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerProtocol.swift; sourceTree = "<group>"; };
 		7DBBE6C227C369F00040D123 /* ServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAPI.swift; sourceTree = "<group>"; };
+		7DBBE6C827C36C850040D123 /* SideDishExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideDishExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DBBE6CA27C36C850040D123 /* SideDishExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideDishExampleTests.swift; sourceTree = "<group>"; };
+		7DBBE6D227C36CA30040D123 /* RxMainNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMainNetworkTests.swift; sourceTree = "<group>"; };
 		A4DDE103CCD36F5AEEA925E0 /* Pods_SideDishExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SideDishExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01919990C2877317CDAAC12 /* Pods-SideDishExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SideDishExample.release.xcconfig"; path = "Target Support Files/Pods-SideDishExample/Pods-SideDishExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +71,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3428E9ABCC660A8CA4CEDC8D /* Pods_SideDishExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DBBE6C527C36C850040D123 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				7DBBE68E27C361BF0040D123 /* SideDishExample */,
+				7DBBE6C927C36C850040D123 /* SideDishExampleTests */,
 				7DBBE68D27C361BF0040D123 /* Products */,
 				32098D51C51FF86EC87D2540 /* Pods */,
 				D7FAFAABE3F59FF8375DFF94 /* Frameworks */,
@@ -85,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				7DBBE68C27C361BF0040D123 /* SideDishExample.app */,
+				7DBBE6C827C36C850040D123 /* SideDishExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,6 +193,23 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		7DBBE6C927C36C850040D123 /* SideDishExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				7DBBE6D127C36C8A0040D123 /* Network */,
+				7DBBE6CA27C36C850040D123 /* SideDishExampleTests.swift */,
+			);
+			path = SideDishExampleTests;
+			sourceTree = "<group>";
+		};
+		7DBBE6D127C36C8A0040D123 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7DBBE6D227C36CA30040D123 /* RxMainNetworkTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		D7FAFAABE3F59FF8375DFF94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +240,24 @@
 			productReference = 7DBBE68C27C361BF0040D123 /* SideDishExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7DBBE6C727C36C850040D123 /* SideDishExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DBBE6CE27C36C850040D123 /* Build configuration list for PBXNativeTarget "SideDishExampleTests" */;
+			buildPhases = (
+				7DBBE6C427C36C850040D123 /* Sources */,
+				7DBBE6C527C36C850040D123 /* Frameworks */,
+				7DBBE6C627C36C850040D123 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DBBE6CD27C36C850040D123 /* PBXTargetDependency */,
+			);
+			name = SideDishExampleTests;
+			productName = SideDishExampleTests;
+			productReference = 7DBBE6C827C36C850040D123 /* SideDishExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -211,6 +270,10 @@
 				TargetAttributes = {
 					7DBBE68B27C361BF0040D123 = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					7DBBE6C727C36C850040D123 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 7DBBE68B27C361BF0040D123;
 					};
 				};
 			};
@@ -228,6 +291,7 @@
 			projectRoot = "";
 			targets = (
 				7DBBE68B27C361BF0040D123 /* SideDishExample */,
+				7DBBE6C727C36C850040D123 /* SideDishExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -239,6 +303,13 @@
 			files = (
 				7DBBE69C27C361C10040D123 /* LaunchScreen.storyboard in Resources */,
 				7DBBE69927C361C10040D123 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DBBE6C627C36C850040D123 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +379,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7DBBE6C427C36C850040D123 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DBBE6CB27C36C850040D123 /* SideDishExampleTests.swift in Sources */,
+				7DBBE6D327C36CA30040D123 /* RxMainNetworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7DBBE6CD27C36C850040D123 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7DBBE68B27C361BF0040D123 /* SideDishExample */;
+			targetProxy = 7DBBE6CC27C36C850040D123 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7DBBE69A27C361C10040D123 /* LaunchScreen.storyboard */ = {
@@ -494,6 +582,52 @@
 			};
 			name = Release;
 		};
+		7DBBE6CF27C36C850040D123 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JH6HFBQXT6;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = miiiiiin.SideDishExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SideDishExample.app/SideDishExample";
+			};
+			name = Debug;
+		};
+		7DBBE6D027C36C850040D123 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JH6HFBQXT6;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = miiiiiin.SideDishExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SideDishExample.app/SideDishExample";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -511,6 +645,15 @@
 			buildConfigurations = (
 				7DBBE6A127C361C10040D123 /* Debug */,
 				7DBBE6A227C361C10040D123 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DBBE6CE27C36C850040D123 /* Build configuration list for PBXNativeTarget "SideDishExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DBBE6CF27C36C850040D123 /* Debug */,
+				7DBBE6D027C36C850040D123 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
