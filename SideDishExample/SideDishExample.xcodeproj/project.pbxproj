@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		16F2E0DA3DC42E93A4F4D3ED /* Pods_SideDishExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDDADDAFBD99731C94722AA7 /* Pods_SideDishExample.framework */; };
+		7D27A1FC27C4798B00E04B9F /* MainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D27A1FB27C4798B00E04B9F /* MainSection.swift */; };
 		7DBBE69027C361BF0040D123 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBBE68F27C361BF0040D123 /* AppDelegate.swift */; };
 		7DBBE69927C361C10040D123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DBBE69827C361C10040D123 /* Assets.xcassets */; };
 		7DBBE69C27C361C10040D123 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DBBE69A27C361C10040D123 /* LaunchScreen.storyboard */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		36735B7D39C7A847DD3E9EC5 /* Pods-SideDishExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SideDishExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-SideDishExampleTests/Pods-SideDishExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		545A7E1E23005674AABFCD8E /* Pods-SideDishExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SideDishExample.debug.xcconfig"; path = "Target Support Files/Pods-SideDishExample/Pods-SideDishExample.debug.xcconfig"; sourceTree = "<group>"; };
+		7D27A1FB27C4798B00E04B9F /* MainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSection.swift; sourceTree = "<group>"; };
 		7DBBE68C27C361BF0040D123 /* SideDishExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideDishExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DBBE68F27C361BF0040D123 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DBBE69827C361C10040D123 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				7DBBE6D527C36DC80040D123 /* SidedishItem.swift */,
+				7D27A1FB27C4798B00E04B9F /* MainSection.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				7DBBE6AF27C363A70040D123 /* Scene.swift in Sources */,
 				7DBBE6BD27C368E10040D123 /* NetworkManager.swift in Sources */,
 				7DBBE69027C361BF0040D123 /* AppDelegate.swift in Sources */,
+				7D27A1FC27C4798B00E04B9F /* MainSection.swift in Sources */,
 				7DBBE6D627C36DC80040D123 /* SidedishItem.swift in Sources */,
 				7DBBE6B527C364020040D123 /* ViewModelBindableType.swift in Sources */,
 				7DBBE6BB27C364410040D123 /* SidedishUseCase.swift in Sources */,
